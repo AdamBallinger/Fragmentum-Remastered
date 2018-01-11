@@ -14,6 +14,10 @@ namespace Scripts.Player
 
         public Vector3 Velocity { get; private set; }
 
+        public bool Dashing { get; private set; }
+
+        public bool Blocking { get; private set; }
+
         public bool Grounded => Controller.isGrounded;
 
         public bool Falling => !Grounded && Velocity.y < 0.0f && GetDistanceToGround() >= fallDistanceThreshold;
@@ -41,12 +45,9 @@ namespace Scripts.Player
         private Vector3 dashHeading;
 
         private bool doubleJumping;
-        private bool dashing;
 
         // The current dash time.
         private float dashTime;
-
-        private bool blocking;
 
         private bool jumpPressed;
         private bool dashPressed;
@@ -66,9 +67,9 @@ namespace Scripts.Player
             Animator.SetFloat("animSpeedMod", HDelta);
             Animator.SetBool("isGrounded", Grounded);
             Animator.SetBool("isRunning", HDelta != 0.0f);
-            Animator.SetBool("isDashing", dashing);
+            Animator.SetBool("isDashing", Dashing);
             Animator.SetBool("isFalling", Falling);
-            Animator.SetBool("isBlocking", blocking);
+            Animator.SetBool("isBlocking", Blocking);
         }
 
         private void Update()
@@ -92,7 +93,7 @@ namespace Scripts.Player
             debugText.text = $"V- [x:{Velocity.x:F}] y:{Velocity.y:F}, z:{Velocity.z:F}]\n" +
                         $"G- [{Grounded}] F- [{Falling}]\n" +
                         $"GD- [{groundObj.distance:F}] GO- [{objName}]\n" +
-                        $"D- [{dashing}] B- [{blocking}]";
+                        $"D- [{Dashing}] B- [{Blocking}]";
 
             // Reset X/Z velocity but preserve Y for falling etc.
             SetVelocity(0.0f, Grounded ? 0.0f : Velocity.y, 0.0f);
@@ -104,7 +105,7 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessMovement()
         {
-            if(dashing)
+            if(Dashing)
             {
                 Velocity = dashHeading * Time.deltaTime;
                 dashTime += Time.deltaTime;
@@ -112,7 +113,7 @@ namespace Scripts.Player
                 if(dashTime >= dashDuration)
                 {
                     dashTime = dashDelay;
-                    dashing = false;
+                    Dashing = false;
                 }
             }
             else
@@ -126,7 +127,7 @@ namespace Scripts.Player
 
                 // Move player left and right
                 var v = Velocity;
-                v += Heading * (blocking ? moveSpeed / 2 : moveSpeed) * Mathf.Abs(HDelta) * Time.deltaTime;
+                v += Heading * (Blocking ? moveSpeed / 2 : moveSpeed) * Mathf.Abs(HDelta) * Time.deltaTime;
                 Velocity = v;
             }        
         }
@@ -168,16 +169,16 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessDashing()
         {
-            if(!dashing && dashTime > 0.0f)
+            if(!Dashing && dashTime > 0.0f)
             {
                 dashTime -= Time.deltaTime;
                 return;
             }
 
-            if(Input.GetAxisRaw("Dash") != 0.0f && !dashing && !dashPressed && HDelta != 0.0f)
+            if(Input.GetAxisRaw("Dash") != 0.0f && !Dashing && !dashPressed && HDelta != 0.0f)
             {
                 dashPressed = true;
-                dashing = true;
+                Dashing = true;
                 dashHeading = Heading * dashStrength;
 
                 // TODO: Stamina drain and check later on.
@@ -195,8 +196,7 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessBlocking()
         {
-
-            blocking = Input.GetAxisRaw("Block") == 1.0f && Grounded;
+            Blocking = Input.GetAxisRaw("Block") == 1.0f && Grounded;
 
             // TODO: Blocking collider activation and deactivation.
         }
