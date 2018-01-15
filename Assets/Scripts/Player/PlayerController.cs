@@ -48,7 +48,7 @@ namespace Scripts.Player
         [Tooltip("The distance that the player must be from the ground before the controller thinks the player is falling.")]
         public float fallDistanceThreshold = 1.0f;
 
-        private Vector3 dashHeading;
+        private Vector3 dashVelocity;
 
         private bool canJump;
         private int jumpCount;
@@ -56,9 +56,7 @@ namespace Scripts.Player
         // The current dash time.
         private float dashTime;
 
-        private float clampedAxisValue = 0;
-
-        private bool dashPressed;
+        private float clampedAxisValue;
 
         private Transform _transform;
 
@@ -125,7 +123,7 @@ namespace Scripts.Player
         {
             if(Dashing)
             {
-                Velocity = dashHeading * Time.deltaTime;
+                Velocity = dashVelocity * Time.deltaTime;
                 dashTime += Time.deltaTime;
 
                 if(dashTime >= dashDuration)
@@ -189,18 +187,12 @@ namespace Scripts.Player
                 return;
             }
 
-            if(Input.GetAxisRaw("Dash") != 0.0f && !Dashing && !dashPressed && HDelta != 0.0f)
+            if(Input.GetButtonDown("Dash") && !Dashing && HDelta != 0.0f)
             {
-                dashPressed = true;
                 Dashing = true;
-                dashHeading = Heading * dashStrength;
+                dashVelocity = Heading * dashStrength;
 
                 // TODO: Stamina drain and check later on.
-            }
-
-            if(Input.GetAxisRaw("Dash") == 0.0f)
-            {
-                dashPressed = false;
             }
         }
 
