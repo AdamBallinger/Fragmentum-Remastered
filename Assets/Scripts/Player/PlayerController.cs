@@ -29,12 +29,18 @@ namespace Scripts.Player
         [Header("Movement Settings")]
         public float moveSpeed = 1.0f;
         public float jumpStrength = 1.0f;
+        public int allowedJumps = 2;
         public float dashStrength = 1.0f;
         [Range(0, 2)]
         public float dashDuration = 1.0f;
         [Range(0, 2)]
         [Tooltip("Delay in seconds between being able to dash repeatedly.")]
         public float dashDelay = 0.5f;
+
+        [Header("Clamp Settings")]
+        [Tooltip("The axis in which the player moves along. The position of the player will be clamped on the opposite axis." +
+                 "E.g. Movment axis is X and the Z axis will be clamped so the player only moves along the X.")]
+        public PlayerMoveAxis playerMovementAxis = PlayerMoveAxis.X;
 
         [Header("Physics Settings")]
         [Range(0.0f, 10.0f)]
@@ -44,12 +50,14 @@ namespace Scripts.Player
 
         private Vector3 dashHeading;
 
-        private bool doubleJumping;
+        private bool canJump;
+        private int jumpCount;
 
         // The current dash time.
         private float dashTime;
 
-        private bool jumpPressed;
+        private float clampedAxisValue = 0;
+
         private bool dashPressed;
 
         private Transform _transform;
@@ -60,6 +68,17 @@ namespace Scripts.Player
             Animator = GetComponentInChildren<Animator>();
 
             _transform = transform;
+
+            switch(playerMovementAxis)
+            {
+                case PlayerMoveAxis.X:
+                    clampedAxisValue = _transform.position.z;
+                    break;
+
+                case PlayerMoveAxis.Z:
+                    clampedAxisValue = _transform.position.x;
+                    break;
+            }
         }
 
         private void SetAnimations()
@@ -87,16 +106,15 @@ namespace Scripts.Player
 
             Controller.Move(Velocity);
 
-            var groundObj = CastRayToGround();
-            var objName = groundObj.transform != null ? groundObj.transform.name : "Nothing";
-            // Update debug stuff after all movement is processed.
-            debugText.text = $"V- [x:{Velocity.x:F}] y:{Velocity.y:F}, z:{Velocity.z:F}]\n" +
-                        $"G- [{Grounded}] F- [{Falling}]\n" +
-                        $"GD- [{groundObj.distance:F}] GO- [{objName}]\n" +
-                        $"D- [{Dashing}] B- [{Blocking}]";
+            CorrectPosition();
 
-            // Reset X/Z velocity but preserve Y for falling etc.
-            SetVelocity(0.0f, Grounded ? 0.0f : Velocity.y, 0.0f);
+            // Reset Y velocity if grounded so debug text shows correct values.
+            SetVelocity(y : Grounded ? 0.0f : Velocity.y);
+
+            SetDebugText();
+
+            // Reset X/Z velocity so the player only moves during input.
+            SetVelocity(x : 0.0f, z : 0.0f);
         }
 
         /// <summary>
@@ -137,30 +155,26 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessJumping()
         {
+            // Reset jumping variables when the player is grounded.
             if(Grounded)
             {
-                doubleJumping = false;
+                jumpCount = 0;
+                canJump = true;
             }
 
-            if(Input.GetAxisRaw("Jump") != 0.0f && Grounded)
+            if(Input.GetButtonDown("Jump") && canJump)
             {
-                jumpPressed = true;
-                Velocity = _transform.up * jumpStrength * Time.deltaTime;
-                Animator.Play("Jump", 0, 0.0f);
-            }
-            else if(Input.GetAxisRaw("Jump") != 0.0f && !Grounded)
-            {
-                if(!doubleJumping && !jumpPressed)
+                if (jumpCount < allowedJumps) 
                 {
-                    doubleJumping = true;
                     Velocity = _transform.up * jumpStrength * Time.deltaTime;
                     Animator.Play("Jump", 0, 0.0f);
-                }
-            }
 
-            if(Input.GetAxisRaw("Jump") == 0.0f)
-            {
-                jumpPressed = false;
+                    jumpCount++;
+                }
+                else
+                {
+                    canJump = false;
+                }
             }
         }
 
@@ -210,6 +224,26 @@ namespace Scripts.Player
         }
 
         /// <summary>
+        /// Corrects the player position based on the player movement axis.
+        /// </summary>
+        private void CorrectPosition()
+        {
+            var pos = _transform.position;
+
+            switch(playerMovementAxis)
+            {
+                case PlayerMoveAxis.X:
+                    pos.z = clampedAxisValue;
+                    break;
+                case PlayerMoveAxis.Z:
+                    pos.x = clampedAxisValue;
+                    break;
+            }
+
+            _transform.position = pos;
+        }
+
+        /// <summary>
         /// Sets the velocity for the player.
         /// </summary>
         /// <param name="x"></param>
@@ -241,6 +275,17 @@ namespace Scripts.Player
             return hit;
         }
 
+        private void SetDebugText()
+        {
+            var groundObj = CastRayToGround();
+            var objName = groundObj.transform != null ? groundObj.transform.name : "Nothing";
+            // Update debug stuff after all movement is processed.
+            debugText.text = $"V- [x:{Velocity.x:F}] y:{Velocity.y:F}, z:{Velocity.z:F}]\n" +
+                             $"G- [{Grounded}] F- [{Falling}]\n" +
+                             $"GD- [{groundObj.distance:F}] GO- [{objName}]\n" +
+                             $"D- [{Dashing}] B- [{Blocking}]";
+        }
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
@@ -249,6 +294,15 @@ namespace Scripts.Player
             var heading = headingStart + transform.forward * 2.0f;
 
             Gizmos.DrawLine(headingStart, heading);
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, transform.position + Vector3.down * 1.4f);
         }
+    }
+
+    public enum PlayerMoveAxis
+    {
+        X,
+        Z
     }
 }
