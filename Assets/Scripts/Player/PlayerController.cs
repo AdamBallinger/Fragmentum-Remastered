@@ -102,7 +102,13 @@ namespace Scripts.Player
 
             SetAnimations();
 
-            Controller.Move(Velocity);
+            var flags = Controller.Move(Velocity);
+
+            // Reset Y velocity if the player hits something above.
+            if(flags == CollisionFlags.CollidedAbove)
+            {
+                SetVelocity(y : -0.05f);
+            }
 
             CorrectPosition();
 
