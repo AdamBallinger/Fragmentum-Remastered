@@ -149,7 +149,7 @@ namespace Scripts.Player
 
                 // Move player left and right
                 var v = Velocity;
-                v += Heading * (Blocking ? moveSpeed / 2 : moveSpeed) * Mathf.Abs(HDelta) * Time.deltaTime;
+                v += Heading * (Blocking ? moveSpeed / 4 : moveSpeed) * Mathf.Abs(HDelta) * Time.deltaTime;
                 Velocity = v;
             }        
         }
