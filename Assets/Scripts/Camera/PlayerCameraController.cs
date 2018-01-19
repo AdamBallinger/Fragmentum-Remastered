@@ -5,6 +5,7 @@ namespace Scripts.Camera
     [ExecuteInEditMode]
     public class PlayerCameraController : MonoBehaviour
     {
+        public bool enableFollow = true;
 
         public Transform playerTransform;
 
@@ -21,7 +22,7 @@ namespace Scripts.Camera
 
         private void Update()
         {
-            if (playerTransform == null) return;
+            if (playerTransform == null || !enableFollow) return;
 
             var offset = cameraOffset;
             offset.x = playerTransform.forward.x <= 0.0f ? -cameraOffset.x : cameraOffset.x;
