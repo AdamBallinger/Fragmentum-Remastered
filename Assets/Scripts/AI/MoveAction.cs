@@ -29,9 +29,9 @@ namespace Scripts.AI
         /// </summary>
         private float t;
 
-        public MoveAction(AIBrain _brain, Vector3 _target, float _speed, AnimationCurve _moveCurve) : base(_brain)
+        public MoveAction(AIBrain _brain, Vector3 _start, Vector3 _target, float _speed, AnimationCurve _moveCurve) : base(_brain)
         {
-            initialPosition = brain.controller.transform.position;
+            initialPosition = _start;
             targetPosition = _target;
             distance = Vector3.Distance(initialPosition, targetPosition);
             moveSpeed = _speed;

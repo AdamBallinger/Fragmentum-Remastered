@@ -11,7 +11,8 @@ namespace Scripts.AI.Controllers
 
         private void Start()
         {
-            brain.SetActionImmediate(new MoveAction(brain, testPos, speed, moveCurve));
+            brain.EnqueAction(new MoveAction(brain, transform.position, testPos, speed, moveCurve));
+            brain.EnqueAction(new MoveAction(brain, testPos, transform.position, speed, moveCurve));
         }
 
         protected override void ControllerUpdate()
@@ -21,7 +22,7 @@ namespace Scripts.AI.Controllers
 
         public override void OnBrainActionFinished(AIAction _finishedAction)
         {
-
+            
         }
     }
 }

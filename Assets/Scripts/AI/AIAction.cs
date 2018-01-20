@@ -15,6 +15,5 @@ namespace Scripts.AI
         public abstract void Update(BaseAIController _controller);
 
         public void OnInterrupted() { }
-        public void OnFinished() { }
     }
 }
