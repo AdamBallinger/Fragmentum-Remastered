@@ -2,7 +2,7 @@
 
 namespace Scripts.AI.Controllers
 {
-    public abstract class GenericAIController : MonoBehaviour
+    public abstract class BaseAIController : MonoBehaviour
     {
         [HideInInspector]
         public new Transform transform;

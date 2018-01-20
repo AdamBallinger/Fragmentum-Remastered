@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
 using Scripts.AI.Controllers;
-using UnityEngine;
 
 namespace Scripts.AI
 {
     public class AIBrain
     {
-        public GenericAIController controller;
+        public BaseAIController controller;
 
         private AIAction defaultAction;
         private AIAction currentAction;
 
         private List<AIAction> queuedActions;
 
-        public AIBrain(GenericAIController _controller)
+        public AIBrain(BaseAIController _controller)
         {
             controller = _controller;
             queuedActions = new List<AIAction>();
@@ -57,6 +56,9 @@ namespace Scripts.AI
             currentAction = null;
         }
 
+        /// <summary>
+        /// Update the brains current action and handle switching to the next queued actions if available.
+        /// </summary>
         public void Update()
         {
             if(currentAction == null)

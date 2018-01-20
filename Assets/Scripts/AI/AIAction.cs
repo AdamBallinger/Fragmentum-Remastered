@@ -12,7 +12,7 @@ namespace Scripts.AI
             brain = _brain;
         }
 
-        public abstract void Update(GenericAIController _controller);
+        public abstract void Update(BaseAIController _controller);
 
         public void OnInterrupted() { }
         public void OnFinished() { }

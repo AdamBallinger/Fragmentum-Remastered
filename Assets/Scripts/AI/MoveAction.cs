@@ -15,25 +15,31 @@ namespace Scripts.AI
         private AnimationCurve moveCurve;
 
         /// <summary>
-        /// Time in seconds to spend moving to the given target position.
+        /// Speed in which to move towards the target position.
         /// </summary>
-        private float moveTime;
+        private float moveSpeed;
+
+        /// <summary>
+        /// Distance from initial to target position.
+        /// </summary>
+        private float distance;
 
         /// <summary>
         /// Linear interpolation parameter.
         /// </summary>
         private float t;
 
-        public MoveAction(AIBrain _brain, Vector3 _target, float _time, AnimationCurve _moveCurve) : base(_brain)
+        public MoveAction(AIBrain _brain, Vector3 _target, float _speed, AnimationCurve _moveCurve) : base(_brain)
         {
             initialPosition = brain.controller.transform.position;
             targetPosition = _target;
-            moveTime = _time;
+            distance = Vector3.Distance(initialPosition, targetPosition);
+            moveSpeed = _speed;
             moveCurve = _moveCurve;
             t = 0.0f;
         }
 
-        public override void Update(GenericAIController _controller)
+        public override void Update(BaseAIController _controller)
         {
             if(t >= 1.0f)
             {
@@ -43,7 +49,7 @@ namespace Scripts.AI
 
             brain.controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
 
-            t += Time.deltaTime / moveTime;
+            t += Time.deltaTime / (distance / moveSpeed);
         }
     }
 }

@@ -2,16 +2,16 @@
 
 namespace Scripts.AI.Controllers
 {
-    public class BatBossAIController : GenericAIController
+    public class BatBossAIController : BaseAIController
     {
 
         public AnimationCurve moveCurve;
         public Vector3 testPos;
-        public float time;
+        public float speed;
 
         private void Start()
         {
-            brain.SetActionImmediate(new MoveAction(brain, testPos, time, moveCurve));
+            brain.SetActionImmediate(new MoveAction(brain, testPos, speed, moveCurve));
         }
 
         protected override void ControllerUpdate()
