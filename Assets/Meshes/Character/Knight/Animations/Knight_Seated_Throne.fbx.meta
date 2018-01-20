@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: 9344594a1e6d8de4187932bf5316f474
+timeCreated: 1516406925
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: _UNKNOWN_REF_NODE_fosterParent1
+    100002: Eyes
+    100004: Geo
+    100006: Head_Joint
+    100008: joint2
+    100010: joint2 1
+    100012: joint4
+    100014: //RootNode
+    100016: L_Ankle
+    100018: L_Ball_Joint
+    100020: L_Bicep_Roll_Joint
+    100022: L_Clavicle
+    100024: L_Elbow
+    100026: L_Fingers_Joint
+    100028: L_Fingers_Joint2
+    100030: L_Fingers_Joint3
+    100032: L_Forearm_Roll_Joint
+    100034: L_Hip
+    100036: L_Knee
+    100038: L_Shoulder
+    100040: L_Thigh_Roll_Joint
+    100042: L_Thumb_Joint
+    100044: L_Thumb_Joint2
+    100046: L_Thumb_Joint3
+    100048: L_Toe_Joint
+    100050: L_Wrist
+    100052: Neck_Joint
+    100054: pCube1
+    100056: Pelvis_Joint
+    100058: R_Ankle
+    100060: R_Ball_Joint
+    100062: R_Bicep_Roll_Joint
+    100064: R_Clavicle
+    100066: R_Elbow
+    100068: R_Fingers_Joint
+    100070: R_Fingers_Joint2
+    100072: R_Fingers_Joint3
+    100074: R_Forearm_Roll_Joint
+    100076: R_Hip
+    100078: R_Knee
+    100080: R_Shoulder
+    100082: R_Thigh_Roll_Joint
+    100084: R_Thumb_Joint
+    100086: R_Thumb_Joint2
+    100088: R_Thumb_Joint3
+    100090: R_Toe_Joint
+    100092: R_Wrist
+    100094: Scarf1
+    100096: Skin_and_Body1
+    100098: Spine_Joint1
+    100100: Spine_Joint2
+    100102: Top_Spine_Joint
+    100104: Visor_Ctrl
+    100106: Visor_Face:Mesh
+    100108: Visor_Joint1
+    400000: _UNKNOWN_REF_NODE_fosterParent1
+    400002: Eyes
+    400004: Geo
+    400006: Head_Joint
+    400008: joint2
+    400010: joint2 1
+    400012: joint4
+    400014: //RootNode
+    400016: L_Ankle
+    400018: L_Ball_Joint
+    400020: L_Bicep_Roll_Joint
+    400022: L_Clavicle
+    400024: L_Elbow
+    400026: L_Fingers_Joint
+    400028: L_Fingers_Joint2
+    400030: L_Fingers_Joint3
+    400032: L_Forearm_Roll_Joint
+    400034: L_Hip
+    400036: L_Knee
+    400038: L_Shoulder
+    400040: L_Thigh_Roll_Joint
+    400042: L_Thumb_Joint
+    400044: L_Thumb_Joint2
+    400046: L_Thumb_Joint3
+    400048: L_Toe_Joint
+    400050: L_Wrist
+    400052: Neck_Joint
+    400054: pCube1
+    400056: Pelvis_Joint
+    400058: R_Ankle
+    400060: R_Ball_Joint
+    400062: R_Bicep_Roll_Joint
+    400064: R_Clavicle
+    400066: R_Elbow
+    400068: R_Fingers_Joint
+    400070: R_Fingers_Joint2
+    400072: R_Fingers_Joint3
+    400074: R_Forearm_Roll_Joint
+    400076: R_Hip
+    400078: R_Knee
+    400080: R_Shoulder
+    400082: R_Thigh_Roll_Joint
+    400084: R_Thumb_Joint
+    400086: R_Thumb_Joint2
+    400088: R_Thumb_Joint3
+    400090: R_Toe_Joint
+    400092: R_Wrist
+    400094: Scarf1
+    400096: Skin_and_Body1
+    400098: Spine_Joint1
+    400100: Spine_Joint2
+    400102: Top_Spine_Joint
+    400104: Visor_Ctrl
+    400106: Visor_Face:Mesh
+    400108: Visor_Joint1
+    2100000: blinn1
+    2100002: lambert4
+    2100004: lambert1
+    2100006: lambert6
+    2100008: lambert5
+    4300000: Eyes
+    4300002: Scarf1
+    4300004: Skin_and_Body1
+    4300006: pCube1
+    4300008: Visor_Face:Mesh
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Eyes
+    13700002: pCube1
+    13700004: Scarf1
+    13700006: Skin_and_Body1
+    13700008: Visor_Face:Mesh
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: b5ff0be1f4c7d6c4187f8942b9add0b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: ed8c75d1676aeab4aaa764d49e922ecf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert4
+    second: {fileID: 2100000, guid: 8799ee3745ba1f542a7c327528c2b941, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert5
+    second: {fileID: 2100000, guid: 497e01795b0cee54f96346c423c7a02a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert6
+    second: {fileID: 2100000, guid: 497e01795b0cee54f96346c423c7a02a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

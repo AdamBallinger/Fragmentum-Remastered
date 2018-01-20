@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: 66410b99f44219e4788083825b3d90f4
+timeCreated: 1516406925
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: _UNKNOWN_REF_NODE_fosterParent1
+    100002: Geo
+    100004: Head_Joint
+    100006: joint2
+    100008: joint2 1
+    100010: joint4
+    100012: //RootNode
+    100014: L_Ankle
+    100016: L_Ball_Joint
+    100018: L_Bicep_Roll_Joint
+    100020: L_Clavicle
+    100022: L_Elbow
+    100024: L_Fingers_Joint
+    100026: L_Fingers_Joint2
+    100028: L_Fingers_Joint3
+    100030: L_Forearm_Roll_Joint
+    100032: L_Hip
+    100034: L_Knee
+    100036: L_Shoulder
+    100038: L_Thigh_Roll_Joint
+    100040: L_Thumb_Joint
+    100042: L_Thumb_Joint2
+    100044: L_Thumb_Joint3
+    100046: L_Toe_Joint
+    100048: L_Wrist
+    100050: Neck_Joint
+    100052: pCube1
+    100054: Pelvis_Joint
+    100056: polySurface6
+    100058: polySurface7
+    100060: R_Ankle
+    100062: R_Ball_Joint
+    100064: R_Bicep_Roll_Joint
+    100066: R_Clavicle
+    100068: R_Elbow
+    100070: R_Fingers_Joint
+    100072: R_Fingers_Joint2
+    100074: R_Fingers_Joint3
+    100076: R_Forearm_Roll_Joint
+    100078: R_Hip
+    100080: R_Knee
+    100082: R_Shoulder
+    100084: R_Thigh_Roll_Joint
+    100086: R_Thumb_Joint
+    100088: R_Thumb_Joint2
+    100090: R_Thumb_Joint3
+    100092: R_Toe_Joint
+    100094: R_Wrist
+    100096: Scarf1
+    100098: Skin_and_Body1
+    100100: Spine_Joint1
+    100102: Spine_Joint2
+    100104: Top_Spine_Joint
+    100106: Visor_Face:Mesh
+    100108: Visor_Joint1
+    400000: _UNKNOWN_REF_NODE_fosterParent1
+    400002: Geo
+    400004: Head_Joint
+    400006: joint2
+    400008: joint2 1
+    400010: joint4
+    400012: //RootNode
+    400014: L_Ankle
+    400016: L_Ball_Joint
+    400018: L_Bicep_Roll_Joint
+    400020: L_Clavicle
+    400022: L_Elbow
+    400024: L_Fingers_Joint
+    400026: L_Fingers_Joint2
+    400028: L_Fingers_Joint3
+    400030: L_Forearm_Roll_Joint
+    400032: L_Hip
+    400034: L_Knee
+    400036: L_Shoulder
+    400038: L_Thigh_Roll_Joint
+    400040: L_Thumb_Joint
+    400042: L_Thumb_Joint2
+    400044: L_Thumb_Joint3
+    400046: L_Toe_Joint
+    400048: L_Wrist
+    400050: Neck_Joint
+    400052: pCube1
+    400054: Pelvis_Joint
+    400056: polySurface6
+    400058: polySurface7
+    400060: R_Ankle
+    400062: R_Ball_Joint
+    400064: R_Bicep_Roll_Joint
+    400066: R_Clavicle
+    400068: R_Elbow
+    400070: R_Fingers_Joint
+    400072: R_Fingers_Joint2
+    400074: R_Fingers_Joint3
+    400076: R_Forearm_Roll_Joint
+    400078: R_Hip
+    400080: R_Knee
+    400082: R_Shoulder
+    400084: R_Thigh_Roll_Joint
+    400086: R_Thumb_Joint
+    400088: R_Thumb_Joint2
+    400090: R_Thumb_Joint3
+    400092: R_Toe_Joint
+    400094: R_Wrist
+    400096: Scarf1
+    400098: Skin_and_Body1
+    400100: Spine_Joint1
+    400102: Spine_Joint2
+    400104: Top_Spine_Joint
+    400106: Visor_Face:Mesh
+    400108: Visor_Joint1
+    2100000: lambert4
+    2100002: lambert1
+    2100004: lambert6
+    2100006: lambert5
+    2100008: lambert7
+    4300000: Scarf1
+    4300002: Skin_and_Body1
+    4300004: pCube1
+    4300006: Visor_Face:Mesh
+    4300008: polySurface6
+    4300010: polySurface7
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCube1
+    13700002: polySurface6
+    13700004: polySurface7
+    13700006: Scarf1
+    13700008: Skin_and_Body1
+    13700010: Visor_Face:Mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
