@@ -56,6 +56,11 @@ namespace Scripts.AI
             currentAction = null;
         }
 
+        public bool HasQueuedActions()
+        {
+            return queuedActions.Count > 0;
+        }
+
         /// <summary>
         /// Update the brains current action and handle switching to the next queued actions if available.
         /// </summary>

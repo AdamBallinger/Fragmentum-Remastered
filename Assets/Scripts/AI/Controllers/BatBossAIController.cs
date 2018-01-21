@@ -22,7 +22,12 @@ namespace Scripts.AI.Controllers
 
         public override void OnBrainActionFinished(AIAction _finishedAction)
         {
-            
+            if(!brain.HasQueuedActions())
+            {
+                var randX = Random.Range(130, 165);
+                var randY = Random.Range(9, 16);
+                brain.EnqueAction(new MoveAction(brain, transform.position, new Vector3(randX, randY, 1.5f), speed, moveCurve));
+            }
         }
     }
 }
