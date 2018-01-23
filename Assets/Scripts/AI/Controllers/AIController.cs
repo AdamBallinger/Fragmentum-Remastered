@@ -2,22 +2,22 @@
 
 namespace Scripts.AI.Controllers
 {
-    public abstract class BaseAIController : MonoBehaviour
+    public abstract class AIController : MonoBehaviour
     {
         [HideInInspector]
         public new Transform transform;
 
-        protected AIBrain brain;
+        protected AIActionManager actionManager;
 
         private void Awake()
         {
-            brain = new AIBrain(this);
+            actionManager = new AIActionManager(this);
             transform = GetComponent<Transform>();
         }
-
+        
         private void Update()
         {
-            brain?.Update();
+            actionManager?.Update();
             ControllerUpdate();
         }
 
@@ -27,8 +27,8 @@ namespace Scripts.AI.Controllers
         protected abstract void ControllerUpdate();
 
         /// <summary>
-        /// Callback for when the brain finished an action. Passes in the action that was finished.
+        /// Callback for when the action manager finished its last action.
         /// </summary>
-        public abstract void OnBrainActionFinished(AIAction _action);
+        public abstract void OnManagerActionFinished(AIAction _action);
     }
 }

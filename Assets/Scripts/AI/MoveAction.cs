@@ -29,7 +29,7 @@ namespace Scripts.AI
         /// </summary>
         private float t;
 
-        public MoveAction(AIBrain _brain, Vector3 _start, Vector3 _target, float _speed, AnimationCurve _moveCurve) : base(_brain)
+        public MoveAction(AIActionManager _actionManager, Vector3 _start, Vector3 _target, float _speed, AnimationCurve _moveCurve) : base(_actionManager)
         {
             initialPosition = _start;
             targetPosition = _target;
@@ -39,15 +39,15 @@ namespace Scripts.AI
             t = 0.0f;
         }
 
-        public override void Update(BaseAIController _controller)
+        public override void Update(AIController _controller)
         {
             if(t >= 1.0f)
             {
-                brain.OnActionFinished();
+                finished = true;
                 return;
             }
 
-            brain.controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
+            actionManager.controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
 
             t += Time.deltaTime / (distance / moveSpeed);
         }

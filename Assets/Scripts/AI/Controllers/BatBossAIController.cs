@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace Scripts.AI.Controllers
 {
-    public class BatBossAIController : BaseAIController
+    public class BatBossAIController : AIController
     {
+        public TextMeshProUGUI actionText;
 
         public AnimationCurve moveCurve;
         public Vector3 testPos;
@@ -11,22 +13,24 @@ namespace Scripts.AI.Controllers
 
         private void Start()
         {
-            brain.EnqueAction(new MoveAction(brain, transform.position, testPos, speed, moveCurve));
-            brain.EnqueAction(new MoveAction(brain, testPos, transform.position, speed, moveCurve));
+            actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
+
+            actionManager.EnqueAction(new MoveAction(actionManager, transform.position, testPos, speed, moveCurve));
+            actionManager.EnqueAction(new MoveAction(actionManager, testPos, transform.position, speed, moveCurve));
         }
 
         protected override void ControllerUpdate()
         {
-            
+            actionText.text = $"Action: {actionManager.GetCurrentAction().GetType().Name}";
         }
 
-        public override void OnBrainActionFinished(AIAction _finishedAction)
+        public override void OnManagerActionFinished(AIAction _finishedAction)
         {
-            if(!brain.HasQueuedActions())
+            if(!actionManager.HasQueuedActions())
             {
                 var randX = Random.Range(130, 165);
                 var randY = Random.Range(9, 16);
-                brain.EnqueAction(new MoveAction(brain, transform.position, new Vector3(randX, randY, 1.5f), speed, moveCurve));
+                actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(randX, randY, 1.5f), speed, moveCurve));
             }
         }
     }

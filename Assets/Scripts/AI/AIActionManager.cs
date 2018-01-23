@@ -3,23 +3,23 @@ using Scripts.AI.Controllers;
 
 namespace Scripts.AI
 {
-    public class AIBrain
+    public class AIActionManager
     {
-        public BaseAIController controller;
+        public AIController controller;
 
         private AIAction defaultAction;
         private AIAction currentAction;
 
         private List<AIAction> queuedActions;
 
-        public AIBrain(BaseAIController _controller)
+        public AIActionManager(AIController _controller)
         {
             controller = _controller;
             queuedActions = new List<AIAction>();
         }
 
         /// <summary>
-        /// Sets the default action for this AI brain.
+        /// Sets the default action for this manager.
         /// </summary>
         /// <param name="_defaultAction"></param>
         public void SetDefaultAIAction(AIAction _defaultAction)
@@ -28,7 +28,7 @@ namespace Scripts.AI
         }
 
         /// <summary>
-        /// Enque a new AIAction to the brain.
+        /// Enque a new AIAction to the manager.
         /// </summary>
         /// <param name="_newAction"></param>
         public void EnqueAction(AIAction _newAction)
@@ -37,7 +37,7 @@ namespace Scripts.AI
         }
 
         /// <summary>
-        /// Immediately sets the current action for the brain, interrupting any current actions and ignoring the 
+        /// Immediately sets the current action for the manager, interrupting any current actions and ignoring the 
         /// action queue.
         /// </summary>
         /// <param name="_newAction"></param>
@@ -48,11 +48,11 @@ namespace Scripts.AI
         }
 
         /// <summary>
-        /// Callback for when an action for this brain has finished what it needed to do.
+        /// Callback for when an action for this manager has finished what it needed to do.
         /// </summary>
-        public void OnActionFinished()
+        private void OnActionFinished()
         {
-            controller.OnBrainActionFinished(currentAction);
+            controller.OnManagerActionFinished(currentAction);
             currentAction = null;
         }
 
@@ -61,12 +61,27 @@ namespace Scripts.AI
             return queuedActions.Count > 0;
         }
 
+        public AIAction GetCurrentAction()
+        {
+            return currentAction;
+        }
+
+        public AIAction GetDefaultAction()
+        {
+            return defaultAction;
+        }
+
         /// <summary>
-        /// Update the brains current action and handle switching to the next queued actions if available.
+        /// Update the managers current action and handle the action queue if a new action is needed.
         /// </summary>
         public void Update()
         {
-            if(currentAction == null)
+            if (currentAction != null && currentAction.HasFinished())
+            {
+                OnActionFinished();
+            }
+
+            if (currentAction == null)
             {
                 if(queuedActions.Count > 0)
                 {

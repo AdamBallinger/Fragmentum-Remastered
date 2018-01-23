@@ -394,13 +394,45 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4268091175126590, guid: 3746950e1fca32d45b3442014100fd4a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.2500005
+    - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4268091175126590, guid: 3746950e1fca32d45b3442014100fd4a, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.2500005
+    - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3746950e1fca32d45b3442014100fd4a, type: 2}
@@ -2447,43 +2479,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f282d9fb9b399dd4384b20aba08642fb, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &905359342 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1152390718800528, guid: 3746950e1fca32d45b3442014100fd4a,
-    type: 2}
-  m_PrefabInternal: {fileID: 144591492}
---- !u!114 &905359343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 905359342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521bc07e0e794ce4f88dd490f29e6480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transform: {fileID: 0}
-  moveCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-    - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  testPos: {x: 140, y: 10, z: 1.5}
-  speed: 6
 --- !u!1001 &931072104
 Prefab:
   m_ObjectHideFlags: 0

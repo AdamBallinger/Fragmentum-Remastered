@@ -1,19 +1,26 @@
 ﻿using Scripts.AI.Controllers;
-using UnityEngine;
 
 namespace Scripts.AI
 {
     public abstract class AIAction
     {
-        protected AIBrain brain;
+        protected AIActionManager actionManager;
 
-        protected AIAction(AIBrain _brain)
+        protected bool finished;
+
+        protected AIAction(AIActionManager _actionManager)
         {
-            brain = _brain;
+            actionManager = _actionManager;
+            finished = false;
         }
 
-        public abstract void Update(BaseAIController _controller);
+        public abstract void Update(AIController _controller);
 
         public void OnInterrupted() { }
+
+        public bool HasFinished()
+        {
+            return finished;
+        }
     }
 }
