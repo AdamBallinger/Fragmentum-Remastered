@@ -97,13 +97,17 @@ namespace Scripts.AI
             channels[_channel].Insert(0, _newAction);
         }
 
+        /// <summary>
+        /// Event for when a new action starts for this manager.
+        /// </summary>
+        /// <param name="_channel"></param>
         private void OnActionStart(int _channel)
         {
             Controller.OnManagerActionStart(channelCurrentAction[_channel]);
         }
 
         /// <summary>
-        /// Callback for when an action for this manager has finished what it needed to do.
+        /// Event for when an action for this manager has finished what it needed to do.
         /// </summary>
         private void OnActionFinished(int _channel)
         {
