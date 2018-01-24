@@ -1,5 +1,4 @@
-﻿using Scripts.AI.Controllers;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scripts.AI
 {

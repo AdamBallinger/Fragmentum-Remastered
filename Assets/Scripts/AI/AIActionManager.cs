@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using Scripts.AI.Controllers;
+using UnityEngine;
 
 namespace Scripts.AI
 {
@@ -93,8 +93,8 @@ namespace Scripts.AI
                 return;
             }
 
-            channelCurrentAction[_channel]?.OnInterrupted();
-            channelCurrentAction[_channel] = _newAction;
+            channelCurrentAction[_channel] = null;
+            channels[_channel].Insert(0, _newAction);
         }
 
         private void OnActionStart(int _channel)

@@ -17,8 +17,6 @@
 
         public abstract void Update();
 
-        public virtual void OnInterrupted() { }
-
         public bool HasFinished()
         {
             return finished;

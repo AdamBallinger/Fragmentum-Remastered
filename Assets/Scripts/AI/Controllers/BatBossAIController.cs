@@ -26,7 +26,12 @@ namespace Scripts.AI.Controllers
 
         public override void OnManagerActionFinished(AIAction _finishedAction)
         {
-            if(!actionManager.HasQueuedActions())
+            if (_finishedAction is MoveAction)
+            {
+                actionManager.SetActionImmediate(new IdleAction(actionManager, 1.0f));
+            }
+
+            if (!actionManager.HasQueuedActions())
             {
                 var randX = Random.Range(130, 165);
                 var randY = Random.Range(9, 16);
