@@ -6,7 +6,7 @@ namespace Scripts.AI
 {
     public class AIActionManager
     {
-        public AIController controller;
+        public AIController Controller { get; }
 
         private Dictionary<int, List<AIAction>> channels;
         private Dictionary<int, AIAction> channelActions;
@@ -14,9 +14,13 @@ namespace Scripts.AI
 
         private const int MAX_CHANNELS = 2;
 
+        /// <summary>
+        /// Creates an action manager for a given AI controller.
+        /// </summary>
+        /// <param name="_controller"></param>
         public AIActionManager(AIController _controller)
         {
-            controller = _controller;
+            Controller = _controller;
             channels = new Dictionary<int, List<AIAction>>();
             channelActions = new Dictionary<int, AIAction>();
             channelDefaultActions = new Dictionary<int, AIAction>();
@@ -81,10 +85,15 @@ namespace Scripts.AI
         /// </summary>
         private void OnActionFinished(int _channel)
         {
-            controller.OnManagerActionFinished(channelActions[_channel]);
+            Controller.OnManagerActionFinished(channelActions[_channel]);
             channelActions[_channel] = null;
         }
 
+        /// <summary>
+        /// Returns whether a given channel has any queued actions.
+        /// </summary>
+        /// <param name="_channel"></param>
+        /// <returns></returns>
         public bool HasQueuedActions(int _channel = 1)
         {
             if (!ChannelValid(_channel))
@@ -95,11 +104,21 @@ namespace Scripts.AI
             return channels[_channel].Count > 0;
         }
 
+        /// <summary>
+        /// Gets the current action for a given channel.
+        /// </summary>
+        /// <param name="_channel"></param>
+        /// <returns></returns>
         public AIAction GetCurrentAction(int _channel = 1)
         {
             return !ChannelValid(_channel) ? null : channelActions[_channel];
         }
 
+        /// <summary>
+        /// Gets the default action for a given channel.
+        /// </summary>
+        /// <param name="_channel"></param>
+        /// <returns></returns>
         public AIAction GetDefaultAction(int _channel = 1)
         {
             return !ChannelValid(_channel) ? null : channelDefaultActions[_channel];
@@ -130,10 +149,15 @@ namespace Scripts.AI
                     }
                 }
 
-                channelActions[channel.Key]?.Update(controller);
+                channelActions[channel.Key]?.Update();
             }
         }
 
+        /// <summary>
+        /// Validates whether a channel is valid.
+        /// </summary>
+        /// <param name="_channel"></param>
+        /// <returns></returns>
         private bool ChannelValid(int _channel)
         {
             if(_channel >= 1 && _channel <= MAX_CHANNELS)

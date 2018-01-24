@@ -24,7 +24,7 @@ namespace Scripts.AI
             currentIdleTime = 0.0f;
         }
 
-        public override void Update(AIController _controller)
+        public override void Update()
         {
             if(duration <= 0.0f)
             {

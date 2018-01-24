@@ -39,7 +39,7 @@ namespace Scripts.AI
             t = 0.0f;
         }
 
-        public override void Update(AIController _controller)
+        public override void Update()
         {
             if(t >= 1.0f)
             {
@@ -47,7 +47,7 @@ namespace Scripts.AI
                 return;
             }
 
-            actionManager.controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
+            actionManager.Controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
 
             t += Time.deltaTime / (distance / moveSpeed);
         }

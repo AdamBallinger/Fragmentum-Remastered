@@ -4,6 +4,9 @@ namespace Scripts.AI
 {
     public abstract class AIAction
     {
+        /// <summary>
+        /// References the action manager that controls this action.
+        /// </summary>
         protected AIActionManager actionManager;
 
         protected bool finished;
@@ -14,9 +17,9 @@ namespace Scripts.AI
             finished = false;
         }
 
-        public abstract void Update(AIController _controller);
+        public abstract void Update();
 
-        public void OnInterrupted() { }
+        public virtual void OnInterrupted() { }
 
         public bool HasFinished()
         {
