@@ -27,8 +27,15 @@ namespace Scripts.AI.Controllers
         protected abstract void ControllerUpdate();
 
         /// <summary>
-        /// Callback for when the action manager finished its last action.
+        /// Event for when the action manager starts a new action.
         /// </summary>
-        public abstract void OnManagerActionFinished(AIAction _action);
+        /// <param name="_action"></param>
+        public virtual void OnManagerActionStart(AIAction _action) { }
+
+        /// <summary>
+        /// Event for when the action manager finished its last action.
+        /// </summary>
+        public virtual void OnManagerActionFinished(AIAction _action) { }
+
     }
 }

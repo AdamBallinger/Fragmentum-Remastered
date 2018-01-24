@@ -5,7 +5,7 @@ namespace Scripts.AI.Controllers
 {
     public class BatBossAIController : AIController
     {
-        public TextMeshProUGUI actionText;
+        public TextMeshProUGUI debugActionText;
 
         public AnimationCurve moveCurve;
         public Vector3 testPos;
@@ -21,7 +21,7 @@ namespace Scripts.AI.Controllers
 
         protected override void ControllerUpdate()
         {
-            actionText.text = $"Action: {actionManager.GetCurrentAction().GetType().Name}";
+            debugActionText.text = $"Action: {actionManager.GetCurrentAction().GetType().Name}";
         }
 
         public override void OnManagerActionFinished(AIAction _finishedAction)

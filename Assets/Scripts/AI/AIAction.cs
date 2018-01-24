@@ -1,6 +1,4 @@
-﻿using Scripts.AI.Controllers;
-
-namespace Scripts.AI
+﻿namespace Scripts.AI
 {
     public abstract class AIAction
     {

@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 222995130929522746}
   - component: {fileID: 114399977783744332}
   m_Layer: 0
-  m_Name: TextMeshPro Text
+  m_Name: Current Action Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1151,8 +1151,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152390718800528}
   m_LocalRotation: {x: -0, y: -0.95808476, z: -0, w: 0.28648496}
-  m_LocalPosition: {x: 160, y: 15.73, z: 1.5}
-  m_LocalScale: {x: 1.2500005, y: 1.25, z: 1.2500005}
+  m_LocalPosition: {x: 110.04184, y: -25.432415, z: 68.90155}
+  m_LocalScale: {x: 1.2500011, y: 1.25, z: 1.2500011}
   m_Children:
   - {fileID: 4361570243623156}
   - {fileID: 4298000940256852}
@@ -1801,7 +1801,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'State: MoveState'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -1868,13 +1868,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 114399977783744332}
-    characterCount: 16
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1943,7 +1943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transform: {fileID: 0}
-  actionText: {fileID: 114399977783744332}
+  debugActionText: {fileID: 114399977783744332}
   moveCurve:
     serializedVersion: 2
     m_Curve:

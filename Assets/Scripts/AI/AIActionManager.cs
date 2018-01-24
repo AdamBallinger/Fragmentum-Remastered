@@ -6,29 +6,46 @@ namespace Scripts.AI
 {
     public class AIActionManager
     {
+        /// <summary>
+        /// Reference to the AI Controller this action manager is assigned too.
+        /// </summary>
         public AIController Controller { get; }
 
+        /// <summary>
+        /// Stores the action queue for each channel.
+        /// </summary>
         private Dictionary<int, List<AIAction>> channels;
-        private Dictionary<int, AIAction> channelActions;
+
+        /// <summary>
+        /// Stores the current action being updated for each channel.
+        /// </summary>
+        private Dictionary<int, AIAction> channelCurrentAction;
+
+        /// <summary>
+        /// Stores the current default action for each channel.
+        /// </summary>
         private Dictionary<int, AIAction> channelDefaultActions;
 
+        /// <summary>
+        /// Defines the maximum number of channels the action manager can use.
+        /// </summary>
         private const int MAX_CHANNELS = 2;
 
         /// <summary>
-        /// Creates an action manager for a given AI controller.
+        /// Creates an action manager for a given AI Controller.
         /// </summary>
         /// <param name="_controller"></param>
         public AIActionManager(AIController _controller)
         {
             Controller = _controller;
             channels = new Dictionary<int, List<AIAction>>();
-            channelActions = new Dictionary<int, AIAction>();
+            channelCurrentAction = new Dictionary<int, AIAction>();
             channelDefaultActions = new Dictionary<int, AIAction>();
 
             for(var i = 1; i <= MAX_CHANNELS; i++)
             {
                 channels.Add(i, new List<AIAction>());
-                channelActions.Add(i, null);
+                channelCurrentAction.Add(i, null);
                 channelDefaultActions.Add(i, null);
             }
         }
@@ -76,8 +93,13 @@ namespace Scripts.AI
                 return;
             }
 
-            channelActions[_channel]?.OnInterrupted();
-            channelActions[_channel] = _newAction;
+            channelCurrentAction[_channel]?.OnInterrupted();
+            channelCurrentAction[_channel] = _newAction;
+        }
+
+        private void OnActionStart(int _channel)
+        {
+            Controller.OnManagerActionStart(channelCurrentAction[_channel]);
         }
 
         /// <summary>
@@ -85,8 +107,8 @@ namespace Scripts.AI
         /// </summary>
         private void OnActionFinished(int _channel)
         {
-            Controller.OnManagerActionFinished(channelActions[_channel]);
-            channelActions[_channel] = null;
+            Controller.OnManagerActionFinished(channelCurrentAction[_channel]);
+            channelCurrentAction[_channel] = null;
         }
 
         /// <summary>
@@ -111,7 +133,7 @@ namespace Scripts.AI
         /// <returns></returns>
         public AIAction GetCurrentAction(int _channel = 1)
         {
-            return !ChannelValid(_channel) ? null : channelActions[_channel];
+            return !ChannelValid(_channel) ? null : channelCurrentAction[_channel];
         }
 
         /// <summary>
@@ -131,25 +153,26 @@ namespace Scripts.AI
         {
             foreach(var channel in channels)
             {
-                if(channelActions[channel.Key] != null && channelActions[channel.Key].HasFinished())
+                if(channelCurrentAction[channel.Key] != null && channelCurrentAction[channel.Key].HasFinished())
                 {
                     OnActionFinished(channel.Key);
                 }
 
-                if(channelActions[channel.Key] == null)
+                if(channelCurrentAction[channel.Key] == null)
                 {
                     if(channel.Value.Count > 0)
                     {
-                        channelActions[channel.Key] = channel.Value[0];
+                        channelCurrentAction[channel.Key] = channel.Value[0];
                         channel.Value.RemoveAt(0);
+                        OnActionStart(channel.Key);
                     }
                     else
                     {
-                        channelActions[channel.Key] = channelDefaultActions[channel.Key];
+                        channelCurrentAction[channel.Key] = channelDefaultActions[channel.Key];
                     }
                 }
 
-                channelActions[channel.Key]?.Update();
+                channelCurrentAction[channel.Key]?.Update();
             }
         }
 
