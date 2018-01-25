@@ -1964,6 +1964,8 @@ MonoBehaviour:
     m_RotationOrder: 0
   testPos: {x: 140, y: 10, z: 1.5}
   speed: 6
+  testAbility: {fileID: 11400000, guid: 56bc464e30179df448cf99133c71c85e, type: 2}
+  testAbilStart: {x: -1.75, y: 4, z: -2.72}
 --- !u!135 &135410694552136900
 SphereCollider:
   m_ObjectHideFlags: 1

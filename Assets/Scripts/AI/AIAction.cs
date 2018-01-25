@@ -15,6 +15,8 @@
             finished = false;
         }
 
+        public virtual void OnActionStart() { }
+
         public abstract void Update();
 
         public bool HasFinished()

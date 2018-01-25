@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76852cccc7199584eb9d6bc42b89021f, type: 3}
   m_Name: Ability_Test
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
-  damage: 0
+  name: Test Ability
+  particleSystem: {fileID: 198957935596277594, guid: 1ada345d454641d42ac017cf1d545260,
+    type: 2}
+  damage: 2

@@ -103,6 +103,7 @@ namespace Scripts.AI
         /// <param name="_channel"></param>
         private void OnActionStart(int _channel)
         {
+            channelCurrentAction[_channel].OnActionStart();
             Controller.OnManagerActionStart(channelCurrentAction[_channel]);
         }
 
