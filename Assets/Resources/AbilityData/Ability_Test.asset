@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Ability_Test
   m_EditorClassIdentifier: 
   name: Test Ability
-  particleSystem: {fileID: 198957935596277594, guid: 1ada345d454641d42ac017cf1d545260,
+  particleSystem: {fileID: 198308362946473864, guid: ff595451e91a19748a8b675d57b715a8,
     type: 2}
+  startDelay: 0
   damage: 2

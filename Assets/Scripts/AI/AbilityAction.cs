@@ -1,36 +1,43 @@
 ﻿using UnityEngine;
+using Scripts.Abilities.Controllers;
 
 namespace Scripts.AI
 {
     public class AbilityAction : AIAction
     {
+        private AbilityController abilityController;
 
-        private Ability ability;
+        private float currentDelayTime;
 
-        private Vector3 start, direction;
-
-        public AbilityAction(AIActionManager _actionManager, Ability _ability, Vector3 _start, Vector3 _direction) : base(_actionManager)
+        public AbilityAction(AIActionManager _actionManager, AbilityController _abilityController) : base(_actionManager)
         {
-            ability = _ability;
-            start = _start;
-            direction = _direction;
-        }
-
-        public override void OnActionStart()
-        {
-            if (ability.particleSystem == null)
-            {
-                Debug.LogWarning($"Ability: {ability.name}, has no assigned particle system.");
-            }
-            else
-            {
-                Object.Instantiate(ability.particleSystem, start, Quaternion.identity);
-            }
+            abilityController = _abilityController;
+            currentDelayTime = 0.0f;
         }
 
         public override void Update()
         {
+            if(abilityController == null)
+            {
+                Debug.LogError("No ability controller assigned to ability action!");
+                return;
+            }
 
+            if(abilityController.AbilityData.startDelay > 0.0f)
+            {
+                if(currentDelayTime >= abilityController.AbilityData.startDelay)
+                {
+                    finished = abilityController.Update(this);
+                }
+                else
+                {
+                    currentDelayTime += Time.deltaTime;
+                }
+            }
+            else
+            {
+                finished = abilityController.Update(this);
+            }
         }
     }
 }

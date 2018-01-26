@@ -5,13 +5,13 @@
         /// <summary>
         /// References the action manager that controls this action.
         /// </summary>
-        protected AIActionManager actionManager;
+        public AIActionManager ActionManager { get; }
 
         protected bool finished;
 
         protected AIAction(AIActionManager _actionManager)
         {
-            actionManager = _actionManager;
+            ActionManager = _actionManager;
             finished = false;
         }
 

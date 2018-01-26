@@ -46,7 +46,7 @@ namespace Scripts.AI
                 return;
             }
 
-            actionManager.Controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
+            ActionManager.Controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
 
             t += Time.deltaTime / (distance / moveSpeed);
         }

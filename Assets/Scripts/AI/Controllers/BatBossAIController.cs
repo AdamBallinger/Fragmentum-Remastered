@@ -1,4 +1,7 @@
-﻿using TMPro;
+﻿using Scripts.Abilities;
+using Scripts.Abilities.Controllers;
+using Scripts.Utils;
+using TMPro;
 using UnityEngine;
 
 namespace Scripts.AI.Controllers
@@ -11,18 +14,26 @@ namespace Scripts.AI.Controllers
         public Vector3 testPos;
         public float speed;
 
-        public Ability testAbility;
+        public AbilityData testAbilityData;
         public Vector3 testAbilStart;
         private Vector3 directionToPlayer;
 
+        public Vector3 flamesStart, flamesEnd;
+        public float flameSpeed;
+
         private Transform player;
+
+        private RotateTo rotator;
 
         private void Start()
         {
+            testAbilStart = transform.position + testAbilStart;
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
+            rotator = GetComponent<RotateTo>();
+
             actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
 
-            actionManager.EnqueAction(new MoveAction(actionManager, transform.position, testPos, speed, moveCurve));
+            //actionManager.EnqueAction(new MoveAction(actionManager, transform.position, testPos, speed, moveCurve));
             //actionManager.EnqueAction(new MoveAction(actionManager, testPos, transform.position, speed, moveCurve));
         }
 
@@ -32,28 +43,21 @@ namespace Scripts.AI.Controllers
             debugActionText.text = $"Action[1]: {actionManager.GetCurrentAction()?.GetType().Name}\n" +
                                    $"Action[2]: {actionManager.GetCurrentAction(2)?.GetType().Name}";
 
-            var playerPos = player.position;
+            debugActionText.gameObject.GetComponentInParent<RotateTo>().rotateTarget = UnityEngine.Camera.main.transform.position;
 
-            RotateToPosition(playerPos);
+            RotateToPosition(player.position);
 
-            directionToPlayer = (playerPos - (transform.position + testAbilStart)).normalized;
-
-            if(!b)
+            if (!b)
             {
                 b = true;
-                actionManager.EnqueAction(new AbilityAction(actionManager, testAbility, transform.position + testAbilStart, directionToPlayer), 2);
+                actionManager.EnqueAction(new AbilityAction(actionManager, 
+                    new FlamethrowerAbilityController(testAbilityData, testAbilStart, flamesStart, flamesEnd, flameSpeed)), 2);
             }
         }
 
         private void RotateToPosition(Vector3 _target)
         {
-            transform.LookAt(_target, Vector3.up);
-
-            var euler = transform.rotation.eulerAngles;
-            euler.x = 0.0f;
-            euler.z = 0.0f;
-
-            transform.rotation = Quaternion.Euler(euler);
+            rotator.rotateTarget = _target;
         }
 
         public override void OnManagerActionFinished(AIAction _finishedAction)
@@ -73,15 +77,13 @@ namespace Scripts.AI.Controllers
 
         private void OnDrawGizmos()
         {
-            var playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-            directionToPlayer = (playerPos - (GetComponent<Transform>().position + testAbilStart)).normalized;
-
             Gizmos.color = Color.blue;
             Gizmos.DrawCube(GetComponent<Transform>().position + testAbilStart, Vector3.one);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(GetComponent<Transform>().position + testAbilStart,
-                GetComponent<Transform>().position + testAbilStart + directionToPlayer);
+            Gizmos.DrawCube(flamesStart, Vector3.one);
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawCube(flamesEnd, Vector3.one);
         }
     }
 }

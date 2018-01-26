@@ -9,10 +9,13 @@ namespace Scripts.AI.Controllers
 
         protected AIActionManager actionManager;
 
+        protected Animator Animator { get; private set; }
+
         private void Awake()
         {
             actionManager = new AIActionManager(this);
             transform = GetComponent<Transform>();
+            Animator = GetComponent<Animator>();
         }
         
         private void Update()
