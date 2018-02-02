@@ -128,7 +128,8 @@ ModelImporter:
     4300004: polySurface3
     4300006: polySurface6
     4300008: polySurface7
-    7400000: Flamethrower
+    7400000: Roar Single
+    7400002: Roar Constant
     9500000: //RootNode
     13700000: polySurface1
     13700002: polySurface2
@@ -173,10 +174,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Flamethrower
+      name: Roar Single
       takeName: Take 001
-      firstFrame: 1
-      lastFrame: 80
+      firstFrame: 0
+      lastFrame: 72
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -184,6 +185,152 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint27
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint27/joint21
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint27/joint21/joint22
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint27/joint21/joint22/joint23
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint27/joint24
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint27/joint24/joint25
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint27/joint24/joint25/joint26
+        weight: 1
+      - path: joint1/joint2/joint3/joint14
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint12
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint12/joint13
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint12/joint13/joint33
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint12/joint13/joint33/joint30
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint12/joint13/joint34
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint12/joint32
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint12/joint32/joint29
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint12/joint35
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint31
+        weight: 1
+      - path: joint1/joint2/joint3/joint14/joint10/joint11/joint31/joint28
+        weight: 1
+      - path: joint1/joint2/joint3/joint20
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint12 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint12 1/joint13 1
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint12 1/joint13 1/joint37
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint12 1/joint13 1/joint40
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint12 1/joint13 1/joint40/joint41
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint12 1/joint36
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint12 1/joint39
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint12 1/joint39/joint42
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint38
+        weight: 1
+      - path: joint1/joint2/joint3/joint20/joint19/joint11 1/joint38/joint43
+        weight: 1
+      - path: joint1/joint5
+        weight: 1
+      - path: joint1/joint5/joint6
+        weight: 1
+      - path: joint1/joint9
+        weight: 1
+      - path: joint1/joint9/joint6 1
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh/Low_Poly_UVd_Bat_Body:transform5
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh1
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh1/polySurface1
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh1/polySurface2
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh1/polySurface3
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh1/polySurface6
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh1/polySurface7
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Body:Mesh1/transform1
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Eyes:Mesh
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Eyes:Mesh/Low_Poly_UVd_Bat_Body:transform4
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Pupils:Mesh
+        weight: 1
+      - path: Low_Poly_UVd_Bat_Pupils:Mesh/Low_Poly_UVd_Bat_Body:transform3
+        weight: 1
+      - path: pCone1
+        weight: 1
+      - path: pCone1/Low_Poly_UVd_Bat_Body:transform2
+        weight: 1
+      - path: pCone2
+        weight: 1
+      - path: pCone2/Low_Poly_UVd_Bat_Body:transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Roar Constant
+      takeName: Take 001
+      firstFrame: 29
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

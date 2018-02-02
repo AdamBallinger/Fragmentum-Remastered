@@ -1,44 +1,63 @@
-﻿using Scripts.AI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scripts.Abilities.Controllers
 {
     public class FlamethrowerAbilityController : AbilityController
     {
-        private Vector3 flameStartPos, flameEndPos;
+        [SerializeField]
+        private ParticleSystem flamethrowerPS = null;
 
-        private float speed;
+        [SerializeField]
+        private float flamesSpeed = 1.0f;
 
-        private float distance;
-        private float t;
+        [SerializeField]
+        private Vector3 flamesCenter = Vector3.zero;
 
-        private GameObject abilityGO;
+        [SerializeField]
+        private float flameStartOffset = 0.0f;
 
-        public FlamethrowerAbilityController(AbilityData _abilityData, Vector3 _abilityOrigin,
-            Vector3 _start, Vector3 _end, float _speed) 
-            : base(_abilityData, _abilityOrigin)
+        [SerializeField]
+        private float flamesEndOffset = 0.0f;
+
+        public override void OnAbilityStart()
         {
-            flameStartPos = _start;
-            flameEndPos = _end;
-            speed = _speed;
-            distance = Vector3.Distance(flameStartPos, flameEndPos);
-            t = 0.0f;
+            flamethrowerPS?.Play(true);
 
-            abilityGO = Object.Instantiate(AbilityData.particleSystem, AbilityOrigin, Quaternion.identity).gameObject;
+            Animator?.SetBool("Roar", true);
+            Animator?.SetBool("Flamethrower", true);
         }
 
-        public override bool Update(AbilityAction _abilityAction)
+        public override void AbilityUpdate()
         {
-            abilityGO.transform.SetParent(_abilityAction.ActionManager.Controller.transform.Find("joint1"));
+            
+        }
 
-            if(t >= 1.0f)
-            {
-                return true;
-            }
+        public override void OnAbilityFinished()
+        {
+            flamethrowerPS?.Stop(true);
 
-            t += Time.deltaTime / (distance / speed);
+            Animator?.SetBool("Roar", false);
+            Animator?.SetBool("Flamethrower", false);
+        }
 
+        public override bool HasFinished()
+        {
             return false;
+        }
+
+        private void OnDrawGizmos()
+        {
+            if(gizmosEnabled)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawCube(flamesCenter + Vector3.left * flameStartOffset, Vector3.one);
+                Gizmos.color = Color.green;
+                Gizmos.DrawCube(flamesCenter + Vector3.left * -flameStartOffset, Vector3.one);
+
+                Gizmos.color = Color.red;
+                Gizmos.DrawCube(flamesCenter + Vector3.right * flamesEndOffset, Vector3.one);
+                Gizmos.DrawCube(flamesCenter + Vector3.right * -flamesEndOffset, Vector3.one);
+            }
         }
     }
 }

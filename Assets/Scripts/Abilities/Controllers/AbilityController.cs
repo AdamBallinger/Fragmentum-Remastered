@@ -1,23 +1,41 @@
-﻿using System;
-using Scripts.AI;
-using Scripts.AI.Controllers;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scripts.Abilities.Controllers
 {
-    [Serializable]
-    public abstract class AbilityController
+    public abstract class AbilityController : MonoBehaviour
     {
-        public AbilityData AbilityData { get; }
+        protected Animator Animator { get; private set; }
 
-        protected Vector3 AbilityOrigin { get; }
+        [SerializeField]
+        protected bool gizmosEnabled = true;
 
-        protected AbilityController(AbilityData _abilityData, Vector3 _abilityOrigin)
+        [Tooltip("Delay in seconds before the ability starts work.")]
+        public float startDelay = 0.0f;
+
+        private void Awake()
         {
-            AbilityData = _abilityData;
-            AbilityOrigin = _abilityOrigin;
+            Animator = GetComponentInParent<Animator>();
         }
 
-        public abstract bool Update(AbilityAction _abilityAction);
+        /// <summary>
+        /// Called when the ability controller first starts work.
+        /// </summary>
+        public abstract void OnAbilityStart();
+
+        /// <summary>
+        /// Handles updating the ability controller to do all ability related processing.
+        /// </summary>
+        public abstract void AbilityUpdate();
+
+        /// <summary>
+        /// Called when the ability controller has finished.
+        /// </summary>
+        public abstract void OnAbilityFinished();
+
+        /// <summary>
+        /// Returns when the ability controller has finished working.
+        /// </summary>
+        /// <returns></returns>
+        public abstract bool HasFinished();
     }
 }

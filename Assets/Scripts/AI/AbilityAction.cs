@@ -17,27 +17,23 @@ namespace Scripts.AI
 
         public override void Update()
         {
-            if(abilityController == null)
+            if (abilityController == null)
             {
                 Debug.LogError("No ability controller assigned to ability action!");
                 return;
             }
 
-            if(abilityController.AbilityData.startDelay > 0.0f)
+            if (abilityController.startDelay > 0.0f)
             {
-                if(currentDelayTime >= abilityController.AbilityData.startDelay)
-                {
-                    finished = abilityController.Update(this);
-                }
-                else
+                if (currentDelayTime < abilityController.startDelay)
                 {
                     currentDelayTime += Time.deltaTime;
+                    return;
                 }
             }
-            else
-            {
-                finished = abilityController.Update(this);
-            }
+
+            abilityController.AbilityUpdate();
+            finished = abilityController.HasFinished();
         }
     }
 }
