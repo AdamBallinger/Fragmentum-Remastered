@@ -20,8 +20,8 @@ namespace Scripts.AI.Controllers
         
         private void Update()
         {
-            actionManager?.Update();
             ControllerUpdate();
+            actionManager?.Update();
         }
 
         /// <summary>

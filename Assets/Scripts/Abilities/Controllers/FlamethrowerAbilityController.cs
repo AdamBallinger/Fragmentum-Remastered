@@ -6,7 +6,10 @@ namespace Scripts.Abilities.Controllers
     public class FlamethrowerAbilityController : AbilityController
     {
         [SerializeField]
-        private RotateTo rotator = null;
+        private RotateTo batRotator = null;
+
+        [SerializeField]
+        private RotateTo flamesRotator = null;
 
         [SerializeField]
         private ParticleSystem flamethrowerPS = null;
@@ -45,7 +48,9 @@ namespace Scripts.Abilities.Controllers
         public override void AbilityUpdate()
         {
             var target = Vector3.Lerp(GetFlamesStart(), GetFlamesEnd(), flamesMoveCurve.Evaluate(t));
-            rotator.rotateTarget = target;
+
+            flamesRotator.rotateTarget = target;
+            batRotator.rotateTarget = target;
 
             t += Time.deltaTime / (distance / flamesRotationSpeed);
         }

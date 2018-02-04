@@ -24,12 +24,8 @@ namespace Scripts.AI.Controllers
 
             actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
             actionManager.EnqueAction(new AbilityAction(actionManager, flamethrowerAbility));
-
-            //actionManager.EnqueAction(new MoveAction(actionManager, transform.position, testPos, speed, moveCurve));
-            //actionManager.EnqueAction(new MoveAction(actionManager, testPos, transform.position, speed, moveCurve));
         }
 
-        private bool b;
         protected override void ControllerUpdate()
         {
             debugActionText.text = $"Action[1]: {actionManager.GetCurrentAction()?.GetType().Name}\n" +
@@ -38,11 +34,6 @@ namespace Scripts.AI.Controllers
             debugActionText.gameObject.GetComponentInParent<RotateTo>().rotateTarget = UnityEngine.Camera.main.transform.position;
 
             RotateToPosition(player.position);
-
-            if (!b)
-            {
-                b = true;
-            }
         }
 
         private void RotateToPosition(Vector3 _target)
