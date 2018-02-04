@@ -23,6 +23,7 @@ namespace Scripts.AI.Controllers
             rotator = GetComponent<RotateTo>();
 
             actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
+            actionManager.EnqueAction(new AbilityAction(actionManager, flamethrowerAbility));
 
             //actionManager.EnqueAction(new MoveAction(actionManager, transform.position, testPos, speed, moveCurve));
             //actionManager.EnqueAction(new MoveAction(actionManager, testPos, transform.position, speed, moveCurve));
@@ -56,12 +57,12 @@ namespace Scripts.AI.Controllers
             //    actionManager.SetActionImmediate(new IdleAction(actionManager, 1.0f));
             //}
 
-            if (!actionManager.HasQueuedActions())
-            {
-                var randX = Random.Range(120, 170);
-                var randY = Random.Range(14, 17);
-                actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(randX, randY, 1.5f), moveSpeed, moveCurve));
-            }
+            //if (!actionManager.HasQueuedActions())
+            //{
+            //    var randX = Random.Range(120, 170);
+            //    var randY = Random.Range(14, 17);
+            //    actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(randX, randY, 1.5f), moveSpeed, moveCurve));
+            //}
         }
     }
 }
