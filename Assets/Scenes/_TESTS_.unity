@@ -3110,7 +3110,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6400000, guid: 940d55d4117386f4f9398ea3ff52d4cd, type: 2}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 940d55d4117386f4f9398ea3ff52d4cd, type: 2}
@@ -3374,6 +3374,56 @@ Prefab:
     - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
         type: 2}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198252740402060970, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: randomSeed
+      value: 581536278
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: CollisionModule.radiusScale
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 198712627999571178, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.minScalar
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

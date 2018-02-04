@@ -2005,7 +2005,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  flamesRotationSpeed: 14
+  flamesRotationSpeed: 9
   flamesCenter: {x: 150, y: 2.6, z: -1}
   flamesStartOffset: 29
   flamesEndOffset: 3
@@ -2573,7 +2573,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1300001172
+  randomSeed: -1006466152
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5874,7 +5874,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1320227739
+  randomSeed: -673840605
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -9280,7 +9280,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1432444153
+  randomSeed: -1964459254
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12641,7 +12641,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -701848275
+  randomSeed: 581536278
   InitialModule:
     serializedVersion: 3
     enabled: 1
