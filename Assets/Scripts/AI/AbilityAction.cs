@@ -9,13 +9,14 @@ namespace Scripts.AI
 
         private float currentDelayTime;
 
-        private bool abilityStarted = false;
+        private bool abilityInitialized, abilityStarted;
 
         public AbilityAction(AIActionManager _actionManager, AbilityController _abilityController) : base(_actionManager)
         {
             abilityController = _abilityController;
             currentDelayTime = 0.0f;
-            abilityController.OnInitialize();
+            abilityInitialized = false;
+            abilityStarted = false;
         }
 
         public override void Update()
@@ -24,6 +25,12 @@ namespace Scripts.AI
             {
                 Debug.LogError("No ability controller assigned to ability action!");
                 return;
+            }
+
+            if(!abilityInitialized)
+            {
+                abilityController.OnInitialize();
+                abilityInitialized = true;
             }
 
             if (abilityController.startDelay > 0.0f)

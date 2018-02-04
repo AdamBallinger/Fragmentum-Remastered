@@ -23,6 +23,8 @@ namespace Scripts.AI.Controllers
             rotator = GetComponent<RotateTo>();
 
             actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
+            actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(150.0f, 17.0f, 11.0f),
+                moveSpeed, moveCurve));
             actionManager.EnqueAction(new AbilityAction(actionManager, flamethrowerAbility));
         }
 
