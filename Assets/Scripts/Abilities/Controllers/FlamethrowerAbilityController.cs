@@ -32,18 +32,20 @@ namespace Scripts.Abilities.Controllers
 
         private float t, distance;
 
+        public int attackDirection = 1;
+
         public override void OnInitialize()
         {
             Animator?.SetBool("Roar", true);
             Animator?.SetBool("Flamethrower", true);
 
             t = 0.0f;
-            distance = Vector3.Distance(GetFlamesStart(-1), GetFlamesEnd(-1));
+            distance = Vector3.Distance(GetFlamesStart(), GetFlamesEnd());
 
             batAIController.AllowRotation = false;
-            batAIController.Rotator.rotateTarget = GetFlamesStart(-1);
+            batAIController.Rotator.rotateTarget = GetFlamesStart();
 
-            flamesRotator.rotateTarget = GetFlamesStart(-1);
+            flamesRotator.rotateTarget = GetFlamesStart();
         }
 
         public override void OnStart()
@@ -77,19 +79,17 @@ namespace Scripts.Abilities.Controllers
         }
 
         /// <summary>
-        /// Gets the flames starting position based on the given direction.
-        /// 1 (default) starts on left and -1 starts on the right.
+        /// Gets the flames starting position based on the ability attack direction.
         /// </summary>
-        /// <param name="_direction"></param>
         /// <returns></returns>
-        private Vector3 GetFlamesStart(int _direction = 1)
+        private Vector3 GetFlamesStart()
         {
-            return flamesCenter + Vector3.left * _direction * flamesStartOffset;
+            return flamesCenter + Vector3.left * attackDirection * flamesStartOffset;
         }
 
-        private Vector3 GetFlamesEnd(int _direction = 1)
+        private Vector3 GetFlamesEnd()
         {
-            return flamesCenter + Vector3.right * _direction * flamesEndOffset;
+            return flamesCenter + Vector3.right * attackDirection * flamesEndOffset;
         }
 
         private void OnDrawGizmos()
@@ -97,12 +97,32 @@ namespace Scripts.Abilities.Controllers
             if(gizmosEnabled)
             {
                 Gizmos.color = Color.green;
-                Gizmos.DrawCube(GetFlamesStart(), Vector3.one);
+                Gizmos.DrawCube(GetFlamesStart(1), Vector3.one);
                 Gizmos.DrawCube(GetFlamesStart(-1), Vector3.one);
                 Gizmos.color = Color.red;
-                Gizmos.DrawCube(GetFlamesEnd(), Vector3.one);
+                Gizmos.DrawCube(GetFlamesEnd(1), Vector3.one);
                 Gizmos.DrawCube(GetFlamesEnd(-1), Vector3.one);
             }
+        }
+
+        /// <summary>
+        /// Gizmos specific.
+        /// </summary>
+        /// <param name="_dir"></param>
+        /// <returns></returns>
+        private Vector3 GetFlamesStart(int _dir)
+        {
+            return flamesCenter + Vector3.left * _dir * flamesStartOffset;
+        }
+
+        /// <summary>
+        /// Gizmos specific.
+        /// </summary>
+        /// <param name="_dir"></param>
+        /// <returns></returns>
+        private Vector3 GetFlamesEnd(int _dir)
+        {
+            return flamesCenter + Vector3.right * _dir * flamesEndOffset;
         }
     }
 }
