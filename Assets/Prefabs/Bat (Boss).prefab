@@ -1271,8 +1271,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152390718800528}
-  m_LocalRotation: {x: -0, y: 0.99995846, z: -0, w: 0.00911396}
-  m_LocalPosition: {x: 133.48, y: 13.63, z: 6.04}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 168.64, y: 13.63, z: 6.04}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4124156722183090}
@@ -1280,7 +1280,7 @@ Transform:
   - {fileID: 224291716043720376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 178.95601, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4281942334186292
 Transform:
   m_ObjectHideFlags: 1
@@ -1398,7 +1398,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1625971053719818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.694, z: 2.726}
+  m_LocalPosition: {x: 0, y: 3.269, z: 2.163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4262819300544246}
@@ -2013,7 +2013,7 @@ MonoBehaviour:
   flamesCenter: {x: 150, y: 2.6, z: -1}
   flamesStartOffset: 29
   flamesEndOffset: 3
-  attackDirection: -1
+  attackDirection: 1
 --- !u!114 &114399977783744332
 MonoBehaviour:
   m_ObjectHideFlags: 1
