@@ -15,12 +15,10 @@ namespace Scripts.AI.Controllers
         public AbilityController flamethrowerAbility;
 
         private Transform player;
-        private Rotator rotator;
 
         private void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
-            rotator = GetComponent<Rotator>();
 
             actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
             actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(150.0f, 17.0f, 11.0f),
