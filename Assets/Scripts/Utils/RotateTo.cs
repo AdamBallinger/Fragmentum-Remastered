@@ -13,6 +13,7 @@ namespace Scripts.Utils
         public bool y = true;
         public bool z = true;
 
+        public bool smoothRotation = true;
         public float rotateSpeed = 1.0f;
 
         private void Update()
@@ -41,7 +42,13 @@ namespace Scripts.Utils
                 targetRotation.y -= 180.0f;
             }
 
-            transform.rotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(targetRotation), rotateSpeed * Time.deltaTime);
+            if(smoothRotation)
+            {
+                transform.rotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(targetRotation), rotateSpeed * Time.deltaTime);
+                return;
+            }
+
+            transform.rotation = Quaternion.Euler(targetRotation);
         }
     }
 }

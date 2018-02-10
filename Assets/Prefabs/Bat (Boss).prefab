@@ -1955,6 +1955,7 @@ MonoBehaviour:
   x: 0
   y: 1
   z: 0
+  smoothRotation: 1
   rotateSpeed: 10
 --- !u!114 &114156020077811148
 MonoBehaviour:
@@ -1972,7 +1973,8 @@ MonoBehaviour:
   x: 1
   y: 1
   z: 1
-  rotateSpeed: 1
+  smoothRotation: 1
+  rotateSpeed: 1000
 --- !u!114 &114261015618866154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2139,6 +2141,7 @@ MonoBehaviour:
   x: 1
   y: 1
   z: 1
+  smoothRotation: 0
   rotateSpeed: 1
 --- !u!114 &114538734612892282
 MonoBehaviour:
@@ -2576,7 +2579,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1006466152
+  randomSeed: -2033721703
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5877,7 +5880,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -673840605
+  randomSeed: 1791111044
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -9283,7 +9286,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1964459254
+  randomSeed: 1567880363
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12644,7 +12647,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 581536278
+  randomSeed: 1424229394
   InitialModule:
     serializedVersion: 3
     enabled: 1
