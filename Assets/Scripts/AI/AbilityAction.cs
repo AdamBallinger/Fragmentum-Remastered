@@ -29,7 +29,7 @@ namespace Scripts.AI
 
             if(!abilityInitialized)
             {
-                abilityController.OnInitialize();
+                abilityController.OnPreStart();
                 abilityInitialized = true;
             }
 
@@ -48,7 +48,7 @@ namespace Scripts.AI
                 }
             }
 
-            abilityController.AbilityUpdate();
+            abilityController.OnUpdate();
             finished = abilityController.HasFinished();
 
             if(finished)

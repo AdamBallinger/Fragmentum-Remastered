@@ -17,7 +17,7 @@ namespace Scripts.AI.Controllers
         /// Property defines if the AIController controls the rotation of the bat. Useful for allowing external components
         /// to control the rotation of the AI.
         /// </summary>
-        public bool AllowRotation { get; set; }
+        public bool ControlsRotation { get; set; }
 
         protected AIActionManager actionManager;
 
@@ -55,7 +55,7 @@ namespace Scripts.AI.Controllers
         /// <param name="_target"></param>
         protected void RotateTowards(Vector3 _target)
         {
-            if(!AllowRotation)
+            if(!ControlsRotation)
             {
                 return;
             }

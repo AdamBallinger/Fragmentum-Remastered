@@ -20,7 +20,7 @@ namespace Scripts.Abilities.Controllers
         /// <summary>
         /// Called as soon as the ability action for this controller is created and ignores start delay.
         /// </summary>
-        public abstract void OnInitialize();
+        public abstract void OnPreStart();
 
         /// <summary>
         /// Called when the ability controller first starts work after the start delay has been counted.
@@ -30,7 +30,7 @@ namespace Scripts.Abilities.Controllers
         /// <summary>
         /// Handles updating the ability controller to do all ability related processing.
         /// </summary>
-        public abstract void AbilityUpdate();
+        public abstract void OnUpdate();
 
         /// <summary>
         /// Called when the ability controller has finished.

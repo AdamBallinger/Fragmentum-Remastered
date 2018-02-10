@@ -34,7 +34,7 @@ namespace Scripts.Abilities.Controllers
 
         public AttackDirection attackDirection = AttackDirection.Left;
 
-        public override void OnInitialize()
+        public override void OnPreStart()
         {
             Animator?.SetBool("Roar", true);
             Animator?.SetBool("Flamethrower", true);
@@ -42,7 +42,7 @@ namespace Scripts.Abilities.Controllers
             t = 0.0f;
             distance = Vector3.Distance(GetFlamesStart(), GetFlamesEnd());
 
-            batAIController.AllowRotation = false;
+            batAIController.ControlsRotation = false;
             batAIController.Rotator.rotateTarget = GetFlamesStart();
 
             flamesRotator.rotateTarget = GetFlamesStart();
@@ -53,7 +53,7 @@ namespace Scripts.Abilities.Controllers
             flamethrowerPS?.Play(true);       
         }
 
-        public override void AbilityUpdate()
+        public override void OnUpdate()
         {
             var target = Vector3.Lerp(GetFlamesStart(), GetFlamesEnd(), flamesMoveCurve.Evaluate(t));
 
@@ -70,7 +70,7 @@ namespace Scripts.Abilities.Controllers
             Animator?.SetBool("Roar", false);
             Animator?.SetBool("Flamethrower", false);
 
-            batAIController.AllowRotation = true;
+            batAIController.ControlsRotation = true;
         }
 
         public override bool HasFinished()
@@ -106,7 +106,7 @@ namespace Scripts.Abilities.Controllers
 
     public enum AttackDirection
     {
-        Left = -1,
-        Right = 1
+        Left = 1,
+        Right = -1
     }
 }

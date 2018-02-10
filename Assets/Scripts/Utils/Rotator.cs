@@ -50,5 +50,10 @@ namespace Scripts.Utils
 
             transform.rotation = Quaternion.Euler(targetRotation);
         }
+
+        //private void OnDrawGizmos()
+        //{
+        //    Gizmos.DrawLine(transform.position, rotateTarget);
+        //}
     }
 }
