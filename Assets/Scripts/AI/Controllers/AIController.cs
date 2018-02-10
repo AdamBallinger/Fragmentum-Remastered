@@ -16,6 +16,12 @@ namespace Scripts.AI.Controllers
             actionManager = new AIActionManager(this);
             transform = GetComponent<Transform>();
             Animator = GetComponent<Animator>();
+
+            if(Animator == null)
+            {
+                Debug.LogError($"[AIController] Could not find animator component for gameobject: {gameObject.name}. Make sure it" +
+                                 $"is on the same object as the AIController component.");
+            }
         }
         
         private void Update()
