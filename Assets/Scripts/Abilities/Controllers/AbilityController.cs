@@ -12,6 +12,11 @@ namespace Scripts.Abilities.Controllers
         [Tooltip("Delay in seconds before the ability starts work.")]
         public float startDelay = 0.0f;
 
+        /// <summary>
+        /// Determines if this ability controller will override the AI controllers rotation commands.
+        /// </summary>
+        public bool OverrideRotation { get; protected set; } = false;
+
         private void Awake()
         {
             Animator = GetComponentInParent<Animator>();

@@ -30,6 +30,11 @@ namespace Scripts.AI.Controllers
             actionManager?.Update();
         }
 
+        protected void RotateTowards(Vector3 _target)
+        {
+
+        }
+
         /// <summary>
         /// Handles custom controller update logic.
         /// </summary>

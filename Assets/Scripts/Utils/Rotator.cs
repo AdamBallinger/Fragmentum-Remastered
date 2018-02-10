@@ -2,7 +2,7 @@
 
 namespace Scripts.Utils
 {
-    public class RotateTo : MonoBehaviour
+    public class Rotator : MonoBehaviour
     {
         [HideInInspector]
         public Vector3 rotateTarget;

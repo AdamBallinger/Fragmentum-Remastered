@@ -6,10 +6,10 @@ namespace Scripts.Abilities.Controllers
     public class FlamethrowerAbilityController : AbilityController
     {
         [SerializeField]
-        private RotateTo batRotator = null;
+        private Rotator batRotator = null;
 
         [SerializeField]
-        private RotateTo flamesRotator = null;
+        private Rotator flamesRotator = null;
 
         [SerializeField]
         private ParticleSystem flamethrowerPS = null;
@@ -37,7 +37,8 @@ namespace Scripts.Abilities.Controllers
             Animator?.SetBool("Flamethrower", true);
 
             t = 0.0f;
-            distance = Vector3.Distance(GetFlamesStart(), GetFlamesEnd());
+            distance = Vector3.Distance(GetFlamesStart(-1), GetFlamesEnd(-1));
+            batRotator.rotateTarget = GetFlamesStart(-1);
         }
 
         public override void OnStart()
@@ -47,7 +48,8 @@ namespace Scripts.Abilities.Controllers
 
         public override void AbilityUpdate()
         {
-            var target = Vector3.Lerp(GetFlamesStart(), GetFlamesEnd(), flamesMoveCurve.Evaluate(t));
+            Debug.Log("Ability update");
+            var target = Vector3.Lerp(GetFlamesStart(-1), GetFlamesEnd(-1), flamesMoveCurve.Evaluate(t));
 
             flamesRotator.rotateTarget = target;
             batRotator.rotateTarget = target;
@@ -68,14 +70,20 @@ namespace Scripts.Abilities.Controllers
             return t >= 1.0f;
         }
 
-        private Vector3 GetFlamesStart()
+        /// <summary>
+        /// Gets the flames starting position based on the given direction.
+        /// 1 (default) starts on left and -1 starts on the right.
+        /// </summary>
+        /// <param name="_direction"></param>
+        /// <returns></returns>
+        private Vector3 GetFlamesStart(int _direction = 1)
         {
-            return flamesCenter + Vector3.left * flamesStartOffset;
+            return flamesCenter + Vector3.left * _direction * flamesStartOffset;
         }
 
-        private Vector3 GetFlamesEnd()
+        private Vector3 GetFlamesEnd(int _direction = 1)
         {
-            return flamesCenter + Vector3.right * flamesEndOffset;
+            return flamesCenter + Vector3.right * _direction * flamesEndOffset;
         }
 
         private void OnDrawGizmos()

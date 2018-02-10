@@ -15,12 +15,12 @@ namespace Scripts.AI.Controllers
         public AbilityController flamethrowerAbility;
 
         private Transform player;
-        private RotateTo rotator;
+        private Rotator rotator;
 
         private void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
-            rotator = GetComponent<RotateTo>();
+            rotator = GetComponent<Rotator>();
 
             actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
             actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(150.0f, 17.0f, 11.0f),
@@ -33,7 +33,7 @@ namespace Scripts.AI.Controllers
             debugActionText.text = $"Action[1]: {actionManager.GetCurrentAction()?.GetType().Name}\n" +
                                    $"Action[2]: {actionManager.GetCurrentAction(2)?.GetType().Name}";
 
-            debugActionText.gameObject.GetComponentInParent<RotateTo>().rotateTarget = UnityEngine.Camera.main.transform.position;
+            debugActionText.gameObject.GetComponentInParent<Rotator>().rotateTarget = UnityEngine.Camera.main.transform.position;
 
             RotateToPosition(player.position);
         }
