@@ -32,7 +32,7 @@ namespace Scripts.Abilities.Controllers
 
         private float t, distance;
 
-        public int attackDirection = 1;
+        public AttackDirection attackDirection = AttackDirection.Left;
 
         public override void OnInitialize()
         {
@@ -55,7 +55,7 @@ namespace Scripts.Abilities.Controllers
 
         public override void AbilityUpdate()
         {
-            var target = Vector3.Lerp(GetFlamesStart(-1), GetFlamesEnd(-1), flamesMoveCurve.Evaluate(t));
+            var target = Vector3.Lerp(GetFlamesStart(), GetFlamesEnd(), flamesMoveCurve.Evaluate(t));
 
             flamesRotator.rotateTarget = target;
             batAIController.Rotator.rotateTarget = target;
@@ -84,12 +84,12 @@ namespace Scripts.Abilities.Controllers
         /// <returns></returns>
         private Vector3 GetFlamesStart()
         {
-            return flamesCenter + Vector3.left * attackDirection * flamesStartOffset;
+            return flamesCenter + Vector3.left * (int)attackDirection * flamesStartOffset;
         }
 
         private Vector3 GetFlamesEnd()
         {
-            return flamesCenter + Vector3.right * attackDirection * flamesEndOffset;
+            return flamesCenter + Vector3.right * (int)attackDirection * flamesEndOffset;
         }
 
         private void OnDrawGizmos()
@@ -97,32 +97,16 @@ namespace Scripts.Abilities.Controllers
             if(gizmosEnabled)
             {
                 Gizmos.color = Color.green;
-                Gizmos.DrawCube(GetFlamesStart(1), Vector3.one);
-                Gizmos.DrawCube(GetFlamesStart(-1), Vector3.one);
+                Gizmos.DrawCube(GetFlamesStart(), Vector3.one);
                 Gizmos.color = Color.red;
-                Gizmos.DrawCube(GetFlamesEnd(1), Vector3.one);
-                Gizmos.DrawCube(GetFlamesEnd(-1), Vector3.one);
+                Gizmos.DrawCube(GetFlamesEnd(), Vector3.one);
             }
         }
+    }
 
-        /// <summary>
-        /// Gizmos specific.
-        /// </summary>
-        /// <param name="_dir"></param>
-        /// <returns></returns>
-        private Vector3 GetFlamesStart(int _dir)
-        {
-            return flamesCenter + Vector3.left * _dir * flamesStartOffset;
-        }
-
-        /// <summary>
-        /// Gizmos specific.
-        /// </summary>
-        /// <param name="_dir"></param>
-        /// <returns></returns>
-        private Vector3 GetFlamesEnd(int _dir)
-        {
-            return flamesCenter + Vector3.right * _dir * flamesEndOffset;
-        }
+    public enum AttackDirection
+    {
+        Left = -1,
+        Right = 1
     }
 }

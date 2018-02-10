@@ -1272,7 +1272,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152390718800528}
   m_LocalRotation: {x: -0, y: 0.99995846, z: -0, w: 0.00911396}
-  m_LocalPosition: {x: 168.26, y: 13.63, z: 6.04}
+  m_LocalPosition: {x: 130.96, y: 13.63, z: 6.04}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4124156722183090}
@@ -2013,6 +2013,7 @@ MonoBehaviour:
   flamesCenter: {x: 150, y: 2.6, z: -1}
   flamesStartOffset: 29
   flamesEndOffset: 3
+  attackDirection: 1
 --- !u!114 &114399977783744332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2579,7 +2580,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1103684109
+  randomSeed: -1856057151
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5880,7 +5881,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -772784821
+  randomSeed: 880703156
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -9286,7 +9287,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 99446417
+  randomSeed: -1998443864
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12647,7 +12648,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -752114269
+  randomSeed: 1239574973
   InitialModule:
     serializedVersion: 3
     enabled: 1
