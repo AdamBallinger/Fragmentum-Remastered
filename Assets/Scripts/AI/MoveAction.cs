@@ -28,7 +28,13 @@ namespace Scripts.AI
         /// </summary>
         private float t;
 
-        public MoveAction(AIActionManager _actionManager, Vector3 _start, Vector3 _target, float _speed, AnimationCurve _moveCurve) : base(_actionManager)
+        /// <summary>
+        /// Determines if the action will also rotate the AI towards the direction it is moving.
+        /// </summary>
+        private bool rotateTowards;
+
+        public MoveAction(AIActionManager _actionManager, Vector3 _start, Vector3 _target, float _speed, AnimationCurve _moveCurve,
+            bool _rotateTowards = false) : base(_actionManager)
         {
             initialPosition = _start;
             targetPosition = _target;
@@ -36,6 +42,15 @@ namespace Scripts.AI
             moveSpeed = _speed;
             moveCurve = _moveCurve;
             t = 0.0f;
+            rotateTowards = _rotateTowards;
+        }
+
+        public override void OnActionStart()
+        {
+            if (rotateTowards)
+            {
+                ActionManager.Controller.ControlsRotation = false;
+            }
         }
 
         public override void Update()
@@ -48,7 +63,20 @@ namespace Scripts.AI
 
             ActionManager.Controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
 
+            if(rotateTowards)
+            {
+                ActionManager.Controller.Rotator.rotateTarget = targetPosition;
+            }
+            
             t += Time.deltaTime / (distance / moveSpeed);
+        }
+
+        public override void OnActionFinished()
+        {
+            if(rotateTowards)
+            {
+                ActionManager.Controller.ControlsRotation = true;
+            }
         }
     }
 }

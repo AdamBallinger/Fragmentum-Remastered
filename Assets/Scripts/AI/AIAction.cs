@@ -19,6 +19,8 @@
 
         public abstract void Update();
 
+        public virtual void OnActionFinished() { }
+
         public bool HasFinished()
         {
             return finished;

@@ -113,6 +113,7 @@ namespace Scripts.AI
         private void OnActionFinished(int _channel)
         {
             Controller.OnManagerActionFinished(channelCurrentAction[_channel]);
+            channelCurrentAction[_channel].OnActionFinished();
             channelCurrentAction[_channel] = null;
         }
 
