@@ -1,4 +1,5 @@
-﻿using Scripts.Utils;
+﻿using Scripts.AI.Controllers;
+using Scripts.Utils;
 using UnityEngine;
 
 namespace Scripts.Abilities.Controllers
@@ -6,7 +7,7 @@ namespace Scripts.Abilities.Controllers
     public class FlamethrowerAbilityController : AbilityController
     {
         [SerializeField]
-        private Rotator batRotator = null;
+        private AIController batAIController = null;
 
         [SerializeField]
         private Rotator flamesRotator = null;
@@ -38,7 +39,11 @@ namespace Scripts.Abilities.Controllers
 
             t = 0.0f;
             distance = Vector3.Distance(GetFlamesStart(-1), GetFlamesEnd(-1));
-            batRotator.rotateTarget = GetFlamesStart(-1);
+
+            batAIController.AllowRotation = false;
+            batAIController.Rotator.rotateTarget = GetFlamesStart(-1);
+
+            flamesRotator.rotateTarget = GetFlamesStart(-1);
         }
 
         public override void OnStart()
@@ -48,11 +53,10 @@ namespace Scripts.Abilities.Controllers
 
         public override void AbilityUpdate()
         {
-            Debug.Log("Ability update");
             var target = Vector3.Lerp(GetFlamesStart(-1), GetFlamesEnd(-1), flamesMoveCurve.Evaluate(t));
 
             flamesRotator.rotateTarget = target;
-            batRotator.rotateTarget = target;
+            batAIController.Rotator.rotateTarget = target;
 
             t += Time.deltaTime / (distance / flamesRotationSpeed);
         }
@@ -63,6 +67,8 @@ namespace Scripts.Abilities.Controllers
 
             Animator?.SetBool("Roar", false);
             Animator?.SetBool("Flamethrower", false);
+
+            batAIController.AllowRotation = true;
         }
 
         public override bool HasFinished()
@@ -90,19 +96,12 @@ namespace Scripts.Abilities.Controllers
         {
             if(gizmosEnabled)
             {
-                //Gizmos.color = Color.green;
-                //Gizmos.DrawCube(flamesCenter + Vector3.left * flamesStartOffset, Vector3.one);
-                //Gizmos.color = Color.green;
-                //Gizmos.DrawCube(flamesCenter + Vector3.left * -flamesStartOffset, Vector3.one);
-
-                //Gizmos.color = Color.red;
-                //Gizmos.DrawCube(flamesCenter + Vector3.right * flamesEndOffset, Vector3.one);
-                //Gizmos.DrawCube(flamesCenter + Vector3.right * -flamesEndOffset, Vector3.one);
-
                 Gizmos.color = Color.green;
                 Gizmos.DrawCube(GetFlamesStart(), Vector3.one);
+                Gizmos.DrawCube(GetFlamesStart(-1), Vector3.one);
                 Gizmos.color = Color.red;
                 Gizmos.DrawCube(GetFlamesEnd(), Vector3.one);
+                Gizmos.DrawCube(GetFlamesEnd(-1), Vector3.one);
             }
         }
     }

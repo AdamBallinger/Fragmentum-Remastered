@@ -1956,7 +1956,7 @@ MonoBehaviour:
   y: 1
   z: 0
   smoothRotation: 1
-  rotateSpeed: 10
+  rotateSpeed: 7
 --- !u!114 &114156020077811148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gizmosEnabled: 1
   startDelay: 0.65
-  batRotator: {fileID: 114120079893925550}
+  batAIController: {fileID: 114927482728305660}
   flamesRotator: {fileID: 114518561330054896}
   flamethrowerPS: {fileID: 198252740402060970}
   flamesMoveCurve:
@@ -2579,7 +2579,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -2033721703
+  randomSeed: -1103684109
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5880,7 +5880,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1791111044
+  randomSeed: -772784821
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -9286,7 +9286,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1567880363
+  randomSeed: 99446417
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12647,7 +12647,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1424229394
+  randomSeed: -752114269
   InitialModule:
     serializedVersion: 3
     enabled: 1

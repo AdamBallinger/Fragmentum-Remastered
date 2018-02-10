@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.Utils;
+using UnityEngine;
 
 namespace Scripts.AI.Controllers
 {
@@ -6,6 +7,17 @@ namespace Scripts.AI.Controllers
     {
         [HideInInspector]
         public new Transform transform;
+
+        /// <summary>
+        /// Reference to the rotator component of this AI, which handles rotating the AI body.
+        /// </summary>
+        public Rotator Rotator { get; private set; }
+
+        /// <summary>
+        /// Property defines if the AIController controls the rotation of the bat. Useful for allowing external components
+        /// to control the rotation of the AI.
+        /// </summary>
+        public bool AllowRotation { get; set; }
 
         protected AIActionManager actionManager;
 
@@ -16,11 +28,18 @@ namespace Scripts.AI.Controllers
             actionManager = new AIActionManager(this);
             transform = GetComponent<Transform>();
             Animator = GetComponent<Animator>();
+            Rotator = GetComponent<Rotator>();
 
             if(Animator == null)
             {
-                Debug.LogError($"[AIController] Could not find animator component for gameobject: {gameObject.name}. Make sure it" +
-                                 $"is on the same object as the AIController component.");
+                Debug.LogError($"[AIController] Could not find animator component for gameobject: {gameObject.name}. Make sure it " +
+                                 "is on the same object as the AIController component.");
+            }
+
+            if(Rotator == null)
+            {
+                Debug.LogError($"[AIController] Could not find Rotator component for gameobject: {gameObject.name}. Make sure it " +
+                               "is on the same object as the AIController component.");
             }
         }
         
@@ -30,9 +49,18 @@ namespace Scripts.AI.Controllers
             actionManager?.Update();
         }
 
+        /// <summary>
+        /// Rotates the AI towards the given target position.
+        /// </summary>
+        /// <param name="_target"></param>
         protected void RotateTowards(Vector3 _target)
         {
+            if(!AllowRotation)
+            {
+                return;
+            }
 
+            Rotator.rotateTarget = _target;
         }
 
         /// <summary>

@@ -35,12 +35,7 @@ namespace Scripts.AI.Controllers
 
             debugActionText.gameObject.GetComponentInParent<Rotator>().rotateTarget = UnityEngine.Camera.main.transform.position;
 
-            RotateToPosition(player.position);
-        }
-
-        private void RotateToPosition(Vector3 _target)
-        {
-            rotator.rotateTarget = _target;
+            RotateTowards(player.position);
         }
 
         public override void OnManagerActionFinished(AIAction _finishedAction)

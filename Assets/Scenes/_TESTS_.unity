@@ -3738,12 +3738,17 @@ Prefab:
     - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114399977783744332, guid: 3746950e1fca32d45b3442014100fd4a,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114120079893925550, guid: 3746950e1fca32d45b3442014100fd4a,
+        type: 2}
+      propertyPath: rotateSpeed
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3746950e1fca32d45b3442014100fd4a, type: 2}
