@@ -1272,7 +1272,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152390718800528}
   m_LocalRotation: {x: -0, y: 0.99995846, z: -0, w: 0.00911396}
-  m_LocalPosition: {x: 150.27, y: 17.07, z: 11.22}
+  m_LocalPosition: {x: 168.26, y: 13.63, z: 6.04}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4124156722183090}
@@ -1955,6 +1955,7 @@ MonoBehaviour:
   x: 0
   y: 1
   z: 0
+  rotateSpeed: 10
 --- !u!114 &114156020077811148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1971,6 +1972,7 @@ MonoBehaviour:
   x: 1
   y: 1
   z: 1
+  rotateSpeed: 1
 --- !u!114 &114261015618866154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2137,6 +2139,7 @@ MonoBehaviour:
   x: 1
   y: 1
   z: 1
+  rotateSpeed: 1
 --- !u!114 &114538734612892282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12648,7 +12651,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 1.75
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -12677,7 +12680,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 28
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -12781,8 +12784,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
-      minScalar: 3
+      scalar: 8
+      minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14886,7 +14889,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.02
+      scalar: 0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -14968,7 +14971,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.075
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -15008,7 +15011,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 0.36
+    radiusScale: 0.3
     collidesWith:
       serializedVersion: 2
       m_Bits: 4294967295

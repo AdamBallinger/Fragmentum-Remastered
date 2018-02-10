@@ -13,32 +13,35 @@ namespace Scripts.Utils
         public bool y = true;
         public bool z = true;
 
+        public float rotateSpeed = 1.0f;
+
         private void Update()
         {
+            var originalRotation = transform.rotation;
             transform.LookAt(rotateTarget);
-            var rot = transform.rotation.eulerAngles;
+            var targetRotation = transform.rotation.eulerAngles;
 
             if (!x)
             {
-                rot.x = 0.0f;
+                targetRotation.x = 0.0f;
             }
 
-            if(!y)
+            if (!y)
             {
-                rot.y = 0.0f;
+                targetRotation.y = 0.0f;
             }
 
             if(!z)
             {
-                rot.z = 0.0f;
+                targetRotation.z = 0.0f;
             }
 
             if(applyYCorrection)
             {        
-                rot.y -= 180.0f;      
+                targetRotation.y -= 180.0f;
             }
 
-            transform.rotation = Quaternion.Euler(rot);
+            transform.rotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(targetRotation), rotateSpeed * Time.deltaTime);
         }
     }
 }
