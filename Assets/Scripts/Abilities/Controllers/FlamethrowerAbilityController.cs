@@ -30,7 +30,7 @@ namespace Scripts.Abilities.Controllers
         [SerializeField]
         private float flamesEndOffset = 0.0f;
 
-        private float t, distance;
+        private Interpolator interpolator;
 
         public AttackDirection attackDirection = AttackDirection.Left;
 
@@ -39,8 +39,8 @@ namespace Scripts.Abilities.Controllers
             Animator?.SetBool("Roar", true);
             Animator?.SetBool("Flamethrower", true);
 
-            t = 0.0f;
-            distance = Vector3.Distance(GetFlamesStart(), GetFlamesEnd());
+            var interpolatorSpeed = Vector3.Distance(GetFlamesStart(), GetFlamesEnd()) / flamesRotationSpeed;
+            interpolator = new Interpolator(GetFlamesStart(), GetFlamesEnd(), interpolatorSpeed, flamesMoveCurve);
 
             batAIController.ControlsRotation = false;
             batAIController.Rotator.rotateTarget = GetFlamesStart();
@@ -55,12 +55,10 @@ namespace Scripts.Abilities.Controllers
 
         public override void OnUpdate()
         {
-            var target = Vector3.Lerp(GetFlamesStart(), GetFlamesEnd(), flamesMoveCurve.Evaluate(t));
+            var target = interpolator.Interpolate();
 
             flamesRotator.rotateTarget = target;
             batAIController.Rotator.rotateTarget = target;
-
-            t += Time.deltaTime / (distance / flamesRotationSpeed);
         }
 
         public override void OnFinish()
@@ -75,7 +73,7 @@ namespace Scripts.Abilities.Controllers
 
         public override bool HasFinished()
         {
-            return t >= 1.0f;
+            return interpolator.HasFinished();
         }
 
         /// <summary>

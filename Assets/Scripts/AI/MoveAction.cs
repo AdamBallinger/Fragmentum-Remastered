@@ -1,32 +1,13 @@
-﻿using UnityEngine;
+﻿using Scripts.Utils;
+using UnityEngine;
 
 namespace Scripts.AI
 {
     public class MoveAction : AIAction
     {
-
-        private Vector3 initialPosition;
         private Vector3 targetPosition;
 
-        /// <summary>
-        /// The animation curve to sample when interpolating movement.
-        /// </summary>
-        private AnimationCurve moveCurve;
-
-        /// <summary>
-        /// Speed in which to move towards the target position.
-        /// </summary>
-        private float moveSpeed;
-
-        /// <summary>
-        /// Distance from initial to target position.
-        /// </summary>
-        private float distance;
-
-        /// <summary>
-        /// Linear interpolation parameter.
-        /// </summary>
-        private float t;
+        private Interpolator interpolator;
 
         /// <summary>
         /// Determines if the action will also rotate the AI towards the direction it is moving.
@@ -36,12 +17,9 @@ namespace Scripts.AI
         public MoveAction(AIActionManager _actionManager, Vector3 _start, Vector3 _target, float _speed, AnimationCurve _moveCurve,
             bool _rotateTowards = false) : base(_actionManager)
         {
-            initialPosition = _start;
             targetPosition = _target;
-            distance = Vector3.Distance(initialPosition, targetPosition);
-            moveSpeed = _speed;
-            moveCurve = _moveCurve;
-            t = 0.0f;
+            var moveDistance = Vector3.Distance(_start, targetPosition);
+            interpolator = new Interpolator(_start, targetPosition, moveDistance / _speed, _moveCurve);
             rotateTowards = _rotateTowards;
         }
 
@@ -55,20 +33,18 @@ namespace Scripts.AI
 
         public override void Update()
         {
-            if(t >= 1.0f)
+            if(interpolator.HasFinished())
             {
                 finished = true;
                 return;
             }
 
-            ActionManager.Controller.transform.position = Vector3.Lerp(initialPosition, targetPosition, moveCurve.Evaluate(t));
+            ActionManager.Controller.transform.position = interpolator.Interpolate();
 
             if(rotateTowards)
             {
                 ActionManager.Controller.Rotator.rotateTarget = targetPosition;
             }
-            
-            t += Time.deltaTime / (distance / moveSpeed);
         }
 
         public override void OnActionFinished()
