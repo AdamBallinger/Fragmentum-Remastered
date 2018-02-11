@@ -20,7 +20,7 @@ namespace Scripts.Abilities.Controllers
         /// <summary>
         /// Called as soon as the ability action for this controller is created and ignores start delay.
         /// </summary>
-        public abstract void OnPreStart();
+        public virtual void OnPreStart() { }
 
         /// <summary>
         /// Called when the ability controller first starts work after the start delay has been counted.

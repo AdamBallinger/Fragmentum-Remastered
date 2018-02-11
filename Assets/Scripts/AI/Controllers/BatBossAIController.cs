@@ -35,20 +35,5 @@ namespace Scripts.AI.Controllers
 
             RotateTowards(player.position);
         }
-
-        public override void OnManagerActionFinished(AIAction _finishedAction)
-        {
-            //if (_finishedAction is MoveAction)
-            //{
-            //    actionManager.SetActionImmediate(new IdleAction(actionManager, 1.0f));
-            //}
-
-            //if (!actionManager.HasQueuedActions())
-            //{
-            //    var randX = Random.Range(120, 170);
-            //    var randY = Random.Range(14, 17);
-            //    actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(randX, randY, 1.5f), moveSpeed, moveCurve));
-            //}
-        }
     }
 }
