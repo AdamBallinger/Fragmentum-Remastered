@@ -13,6 +13,7 @@ namespace Scripts.AI.Controllers
         public float moveSpeed;
 
         public AbilityController flamethrowerAbility;
+        public AbilityController basicAttackAbility;
 
         private Transform player;
 
@@ -21,9 +22,13 @@ namespace Scripts.AI.Controllers
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
             actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
-            actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(150.0f, 17.0f, 11.0f),
-                moveSpeed, moveCurve, true));
-            actionManager.EnqueAction(new AbilityAction(actionManager, flamethrowerAbility));
+
+            //actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(150.0f, 17.0f, 11.0f),
+            //    moveSpeed, moveCurve, true));
+            //actionManager.EnqueAction(new AbilityAction(actionManager, flamethrowerAbility));
+
+            actionManager.EnqueAction(new IdleAction(actionManager, 1.0f));
+            actionManager.EnqueAction(new AbilityAction(actionManager, basicAttackAbility));
         }
 
         protected override void ControllerUpdate()
@@ -33,7 +38,7 @@ namespace Scripts.AI.Controllers
 
             debugActionText.gameObject.GetComponentInParent<Rotator>().rotateTarget = UnityEngine.Camera.main.transform.position;
 
-            RotateTowards(player.position);
+            RotateTowards(player.position);      
         }
     }
 }

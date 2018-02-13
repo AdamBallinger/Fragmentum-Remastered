@@ -5,7 +5,7 @@ namespace Scripts.AI
 {
     public class AbilityAction : AIAction
     {
-        private AbilityController abilityController;
+        public AbilityController AbilityController { get; }
 
         private float currentDelayTime;
 
@@ -13,7 +13,7 @@ namespace Scripts.AI
 
         public AbilityAction(AIActionManager _actionManager, AbilityController _abilityController) : base(_actionManager)
         {
-            abilityController = _abilityController;
+            AbilityController = _abilityController;
             currentDelayTime = 0.0f;
             abilityInitialized = false;
             abilityStarted = false;
@@ -21,39 +21,39 @@ namespace Scripts.AI
 
         public override void Update()
         {
-            if (abilityController == null)
+            if (AbilityController == null)
             {
-                Debug.LogError("No ability controller assigned to ability action!");
+                Debug.LogError("[AbilityAction] No ability controller assigned to ability action!");
                 return;
             }
 
             if(!abilityInitialized)
             {
-                abilityController.OnPreStart();
+                AbilityController.OnPreStart();
                 abilityInitialized = true;
             }
 
-            if (abilityController.startDelay > 0.0f)
+            if (AbilityController.startDelay > 0.0f)
             {
-                if (currentDelayTime < abilityController.startDelay)
+                if (currentDelayTime < AbilityController.startDelay)
                 {
                     currentDelayTime += Time.deltaTime;
                     return;
                 }
-
-                if (!abilityStarted)
-                {
-                    abilityController.OnStart();
-                    abilityStarted = true;
-                }
             }
 
-            abilityController.OnUpdate();
-            finished = abilityController.HasFinished();
+            if (!abilityStarted)
+            {
+                AbilityController.OnStart();
+                abilityStarted = true;
+            }
+
+            AbilityController.OnUpdate();
+            finished = AbilityController.HasFinished();
 
             if(finished)
             {
-                abilityController.OnFinish();
+                AbilityController.OnFinish();
             }
         }
     }

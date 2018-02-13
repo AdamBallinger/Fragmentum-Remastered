@@ -130,6 +130,8 @@ GameObject:
   - component: {fileID: 135410694552136900}
   - component: {fileID: 114927482728305660}
   - component: {fileID: 114120079893925550}
+  - component: {fileID: 114286108986414952}
+  - component: {fileID: 114571948796117142}
   m_Layer: 0
   m_Name: Bat (Boss)
   m_TagString: Untagged
@@ -2014,6 +2016,26 @@ MonoBehaviour:
   flamesStartOffset: 29
   flamesEndOffset: 3
   attackDirection: 1
+--- !u!114 &114286108986414952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152390718800528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93faf0d0a4461b439400c958bc93b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmosEnabled: 1
+  startDelay: 0.4
+  duration: 0.05
+  spawnOffset: {x: 0, y: 3, z: 3}
+  projectilePool: {fileID: 114571948796117142}
+  animationParameter: Spit
+  collidable:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &114399977783744332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2160,6 +2182,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114571948796117142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152390718800528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f5b8cbada3efb4e80f7c7f0aa5eeb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledPrefab: {fileID: 1631656497752310, guid: 4f7e14182e74f5142af50ce88f92146d,
+    type: 2}
+  maxPoolCount: 10
+  prePoolCount: 1
+  activeObjects: []
+  inactiveObjects: []
 --- !u!114 &114905370230034408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2214,6 +2253,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   moveSpeed: 6
   flamethrowerAbility: {fileID: 114261015618866154}
+  basicAttackAbility: {fileID: 114286108986414952}
 --- !u!135 &135410694552136900
 SphereCollider:
   m_ObjectHideFlags: 1

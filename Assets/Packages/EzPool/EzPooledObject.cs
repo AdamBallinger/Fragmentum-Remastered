@@ -15,9 +15,14 @@ namespace EzPool
         /// <summary>
         /// Tells the pool manager to reclaim this object.
         /// </summary>
-        public void RePool()
+        private void RePool()
         {
             poolManager?.PoolObject(gameObject);
+        }
+
+        private void OnDisable()
+        {
+            RePool();
         }
     }
 }
