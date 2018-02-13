@@ -73,7 +73,7 @@ namespace EzPool
         /// <param name="_obj"></param>
         public void PoolObject(GameObject _obj)
         {
-            if (_obj == null || !_obj.activeSelf) return;
+            if (_obj == null) return;
 
             if (activeObjects.Contains(_obj))
             {
