@@ -124,26 +124,11 @@ namespace EzPool
             }
 
             var obj = Instantiate(pooledPrefab, Vector3.zero, Quaternion.identity);
+            obj.AddComponent<EzPooledObject>().poolManager = this;
             obj.transform.SetParent(transform);
             obj.SetActive(false);
 
             return obj;
-        }
-
-        private void TestUnPool()
-        {
-            for(var i = 0; i < maxPoolCount; i++)
-            {
-                GetAvailable();
-            }
-        }
-
-        private void TestPool()
-        {
-            for(var i = activeObjects.Count - 1; i >= 0; i--)
-            {
-                PoolObject(activeObjects[i]);
-            }
         }
 
         private void PrewarmPool()
@@ -164,30 +149,46 @@ namespace EzPool
             }
         }
 
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Q))
-            {
-                var obj = GetAvailable();
-                if (obj == null) return;
-                obj.transform.position = Vector3.one * Random.Range(4.0f, 12.0f);
-            }
+        //private void TestUnPool()
+        //{
+        //    for(var i = 0; i < maxPoolCount; i++)
+        //    {
+        //        GetAvailable();
+        //    }
+        //}
 
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                PoolObject(activeObjects.Count > 0 ? activeObjects[0] : null);
-            }
+        //private void TestPool()
+        //{
+        //    for(var i = activeObjects.Count - 1; i >= 0; i--)
+        //    {
+        //        PoolObject(activeObjects[i]);
+        //    }
+        //}
 
-            if(Input.GetKeyDown(KeyCode.W))
-            {
-                TestUnPool();
-            }
+        //private void Update()
+        //{
+        //    if(Input.GetKeyDown(KeyCode.Q))
+        //    {
+        //        var obj = GetAvailable();
+        //        if (obj == null) return;
+        //        obj.transform.position = Vector3.one * Random.Range(4.0f, 12.0f);
+        //    }
 
-            if(Input.GetKeyDown(KeyCode.S))
-            {
-                TestPool();
-            }
-        }
+        //    if(Input.GetKeyDown(KeyCode.E))
+        //    {
+        //        PoolObject(activeObjects.Count > 0 ? activeObjects[0] : null);
+        //    }
+
+        //    if(Input.GetKeyDown(KeyCode.W))
+        //    {
+        //        TestUnPool();
+        //    }
+
+        //    if(Input.GetKeyDown(KeyCode.S))
+        //    {
+        //        TestPool();
+        //    }
+        //}
     }
 }
 
