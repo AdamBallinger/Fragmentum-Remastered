@@ -12,11 +12,20 @@ namespace Scripts.Abilities
         [SerializeField]
         private float speed = 1.0f;
 
+        [SerializeField]
+        private bool delayedDeactivation = false;
+
+        [SerializeField]
+        private float delay = 0.0f;
+
+        private bool deactivating;
+
         private Transform _transform;
 
         private void Start()
         {
             _transform = transform;
+            deactivating = false;
         }
 
         private void Update()
@@ -26,10 +35,24 @@ namespace Scripts.Abilities
 
         private void OnTriggerEnter(Collider _col)
         {
-            if(CollisionMask.Contains(_col.gameObject.layer))
-            {
-                gameObject.SetActive(false);
+            if(CollisionMask.Contains(_col.gameObject.layer) && !deactivating)
+            {          
+                if(!delayedDeactivation)
+                {
+                    Deactivate();
+                }
+                else
+                {
+                    GetComponent<ParticleSystem>()?.Stop();
+                    deactivating = true;
+                    Invoke("Deactivate", delay);
+                }
             }   
+        }
+
+        private void Deactivate()
+        {
+            gameObject.SetActive(false);
         }
     }
 }
