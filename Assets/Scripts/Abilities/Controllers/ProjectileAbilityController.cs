@@ -36,7 +36,7 @@ namespace Scripts.Abilities.Controllers
             currentDuration = 0.0f;
             projectile = projectilePool.GetAvailable();
             projectile.transform.position = transform.TransformPoint(spawnOffset);
-            var pc = projectile.AddComponent<ProjectileController>();
+            var pc = projectile.GetComponent<ProjectileController>();
             pc.Direction = projectile.transform.position.DirectionToPlayer();
             pc.CollisionMask = collidable;
         }
