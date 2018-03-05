@@ -9,7 +9,7 @@ namespace Scripts.UI
 
         [SerializeField]
         [Tooltip("All objects in this list will be kept loaded through scene changes.")]
-        private List<GameObject> keepLoaded;
+        private List<GameObject> keepLoaded = null;
 
         private void Start()
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Scripts.Abilities.Controllers
 {
+    [RequireComponent(typeof(EzPoolManager))]
     public class ProjectileAbilityController : AbilityController
     {
         [SerializeField]
@@ -22,7 +23,7 @@ namespace Scripts.Abilities.Controllers
         private string animationParameter = string.Empty;
 
         [SerializeField]
-        private LayerMask collidable;
+        private LayerMask collidable = 0;
 
         private GameObject projectile;
 
