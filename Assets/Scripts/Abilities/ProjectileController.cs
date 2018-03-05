@@ -19,6 +19,9 @@ namespace Scripts.Abilities
         private float delay = 0.0f;
 
         [SerializeField]
+        private ParticleSystem projectileParticleSystem = null;
+
+        [SerializeField]
         private ParticleSystem contactParticleSystem = null;
 
         private bool deactivating;
@@ -29,7 +32,7 @@ namespace Scripts.Abilities
         {
             _transform = transform;
             deactivating = false;
-            GetComponent<ParticleSystem>()?.Play(false);
+            projectileParticleSystem?.Play();
         }
 
         private void Update()
@@ -47,12 +50,12 @@ namespace Scripts.Abilities
                 }
                 else
                 {
-                    GetComponent<ParticleSystem>()?.Stop();
+                    projectileParticleSystem?.Stop();
                     deactivating = true;
                     Invoke("Deactivate", delay);
                 }
 
-                contactParticleSystem.Play();
+                contactParticleSystem?.Play();
             }   
         }
 
