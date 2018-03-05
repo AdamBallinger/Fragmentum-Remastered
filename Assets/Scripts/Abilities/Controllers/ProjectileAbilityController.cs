@@ -64,8 +64,10 @@ namespace Scripts.Abilities.Controllers
                 return;
             }
 
+            var projectileStart = transform.TransformPoint(spawnOffset);
+
             Gizmos.color = Color.yellow;
-            Gizmos.DrawCube(transform.TransformPoint(spawnOffset), Vector3.one / 2.0f);
+            Gizmos.DrawCube(projectileStart, Vector3.one / 2.0f);
         }
     }
 }

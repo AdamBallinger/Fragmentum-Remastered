@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de4929d87935cc46b10d3968452520c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.9
+  speed: 44
   delayedDeactivation: 1
   delay: 3
   projectileParticleSystem: {fileID: 198242137462180954}
