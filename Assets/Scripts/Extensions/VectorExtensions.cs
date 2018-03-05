@@ -12,7 +12,7 @@ namespace Scripts.Extensions
         /// <returns></returns>
         public static Vector3 DirectionTo(this Vector3 _self, Vector3 _target)
         {
-            return _target - _self;
+            return (_target - _self).normalized;
         }
 
         /// <summary>
@@ -24,12 +24,7 @@ namespace Scripts.Extensions
         {
             var player = GameObject.FindGameObjectWithTag("PlayerTarget");
 
-            if(player == null)
-            {
-                return Vector3.zero;
-            }
-
-            return player.transform.position - _self;
+            return player == null ? Vector3.zero : DirectionTo(_self, player.transform.position);
         }
     }
 }

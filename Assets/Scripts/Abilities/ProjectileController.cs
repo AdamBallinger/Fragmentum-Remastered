@@ -43,7 +43,7 @@ namespace Scripts.Abilities
         private void OnTriggerEnter(Collider _col)
         {
             if(CollisionMask.Contains(_col.gameObject.layer) && !deactivating)
-            {          
+            {      
                 if(!delayedDeactivation)
                 {
                     Deactivate();
