@@ -42,6 +42,7 @@ namespace Scripts.AI
             {
                 ActiveAtion?.OnActionFinished();
                 ActiveAtion = GetNextInSequence();
+                ActiveAtion.OnActionStart();
             }
 
             return ActiveAtion;

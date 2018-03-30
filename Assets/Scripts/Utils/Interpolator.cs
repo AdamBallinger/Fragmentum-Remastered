@@ -33,6 +33,15 @@ namespace Scripts.Utils
             return interpolated;
         }
 
+        /// <summary>
+        /// Sets the starting position for the interpolator.
+        /// </summary>
+        /// <param name="_start"></param>
+        public void SetStart(Vector3 _start)
+        {
+            initialPosition = _start;
+        }
+
         public void Reset()
         {
             t = 0.0f;
