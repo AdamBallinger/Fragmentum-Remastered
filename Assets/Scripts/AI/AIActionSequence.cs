@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Scripts.AI
 {
@@ -8,15 +9,27 @@ namespace Scripts.AI
 
         private AIAction ActiveAtion { get; set; }
 
+        /// <summary>
+        /// Callback for when the sequence finishes or completes a cycle if set to repeat.
+        /// </summary>
+        private Action completeCallback = null;
+
         private int currentSequenceIndex;
 
         private bool repeating;
 
-        public AIActionSequence(bool _repeating = false)
+        public AIActionSequence(Action _sequenceCompleteCallback) : this(_sequenceCompleteCallback, false)
+        { }
+
+        public AIActionSequence(bool _repeating) : this(null, _repeating)
+        { }
+
+        public AIActionSequence(Action _sequenceCompleteCallback = null, bool _repeating = false)
         {
             Sequence = new List<AIAction>();
             currentSequenceIndex = -1;
             repeating = _repeating;
+            completeCallback = _sequenceCompleteCallback;
         }
 
         /// <summary>
@@ -64,7 +77,13 @@ namespace Scripts.AI
         /// <returns></returns>
         public bool SequenceFinished()
         {
-            return !repeating && currentSequenceIndex >= Sequence.Count;
+            if(!repeating && currentSequenceIndex >= Sequence.Count)
+            {
+                completeCallback?.Invoke();
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
