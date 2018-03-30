@@ -14,8 +14,17 @@ namespace Scripts.AI
         /// </summary>
         private bool rotateTowards;
 
-        public MoveAction(AIActionManager _actionManager, Vector3 _start, Vector3 _target, float _speed, AnimationCurve _moveCurve,
-            bool _rotateTowards = false) : base(_actionManager)
+        /// <summary>
+        /// Create a new move action for an AI agent.
+        /// </summary>
+        /// <param name="_actionManager">AI action manager.</param>
+        /// <param name="_start">Position the AI starts moving form.</param>
+        /// <param name="_target">Position the AI moves toward.</param>
+        /// <param name="_speed">The speed the AI moves at.</param>
+        /// <param name="_moveCurve">The curve to apply to movement for smoothing.</param>
+        /// <param name="_rotateTowards">Controls if the move action overrides the AI rotation to look at the target position.</param>
+        public MoveAction(AIActionManager _actionManager, Vector3 _start, Vector3 _target, float _speed,
+            AnimationCurve _moveCurve, bool _rotateTowards = false) : base(_actionManager)
         {
             targetPosition = _target;
             var moveDistance = Vector3.Distance(_start, targetPosition);
@@ -53,6 +62,10 @@ namespace Scripts.AI
             {
                 ActionManager.Controller.ControlsRotation = true;
             }
+
+            // Reset the action for when its used in a repeating sequence.
+            finished = false;
+            interpolator.Reset();
         }
     }
 }

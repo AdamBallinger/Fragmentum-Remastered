@@ -27,6 +27,16 @@ namespace Scripts.AI
         private Dictionary<int, AIAction> channelDefaultActions;
 
         /// <summary>
+        /// The current AI action sequence the manager is processing.
+        /// </summary>
+        private AIActionSequence currentSequence;
+
+        /// <summary>
+        /// Is the current sequence (if any) paused?
+        /// </summary>
+        private bool sequencePaused = false;
+
+        /// <summary>
         /// Defines the maximum number of channels the action manager can use.
         /// </summary>
         private const int MAX_CHANNELS = 2;
@@ -95,6 +105,15 @@ namespace Scripts.AI
 
             channelCurrentAction[_channel] = null;
             channels[_channel].Insert(0, _newAction);
+        }
+
+        /// <summary>
+        /// Sets the action sequence for the manager to process.
+        /// </summary>
+        /// <param name="_sequence"></param>
+        public void SetActionSequence(AIActionSequence _sequence)
+        {
+            currentSequence = _sequence;
         }
 
         /// <summary>
@@ -180,6 +199,20 @@ namespace Scripts.AI
 
                 channelCurrentAction[channel.Key]?.Update();
             }
+
+            if (!sequencePaused)
+            {
+                currentSequence?.GetActiveAction()?.Update();
+            }
+        }
+
+        /// <summary>
+        /// Toggle the current state of the sequence. True will process a sequence False will pause it. 
+        /// </summary>
+        /// <param name="_toggle"></param>
+        public void ToggleSequence(bool _toggle)
+        {
+            sequencePaused = !_toggle;
         }
 
         /// <summary>

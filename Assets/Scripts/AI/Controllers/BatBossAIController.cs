@@ -12,6 +12,8 @@ namespace Scripts.AI.Controllers
         public AnimationCurve moveCurve;
         public float moveSpeed;
 
+        public Vector3[] movePoints;
+
         public AbilityController flamethrowerAbility;
         public AbilityController basicAttackAbility;
 
@@ -21,24 +23,40 @@ namespace Scripts.AI.Controllers
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-            actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
+            var actionSequence = new AIActionSequence(true);
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[0], movePoints[1], moveSpeed, moveCurve, false));
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[1], movePoints[2], moveSpeed, moveCurve, false));
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[2], movePoints[3], moveSpeed, moveCurve, false));
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[3], movePoints[0], moveSpeed, moveCurve, false));
+
+            actionManager.SetActionSequence(actionSequence);
+
+            //actionManager.SetDefaultAIAction(new IdleAction(actionManager, 0.0f));
 
             //actionManager.EnqueAction(new MoveAction(actionManager, transform.position, new Vector3(150.0f, 17.0f, 11.0f),
             //    moveSpeed, moveCurve, true));
             //actionManager.EnqueAction(new AbilityAction(actionManager, flamethrowerAbility));
 
-            actionManager.EnqueAction(new IdleAction(actionManager, 1.0f));
-            actionManager.EnqueAction(new AbilityAction(actionManager, basicAttackAbility));
+            //actionManager.EnqueAction(new IdleAction(actionManager, 1.0f));
+            //actionManager.EnqueAction(new AbilityAction(actionManager, basicAttackAbility));
         }
 
         protected override void ControllerUpdate()
         {
-            debugActionText.text = $"Action[1]: {actionManager.GetCurrentAction()?.GetType().Name}\n" +
-                                   $"Action[2]: {actionManager.GetCurrentAction(2)?.GetType().Name}";
+            //debugActionText.text = $"Action[1]: {actionManager.GetCurrentAction()?.GetType().Name}\n" +
+            //                       $"Action[2]: {actionManager.GetCurrentAction(2)?.GetType().Name}";
 
-            debugActionText.gameObject.GetComponentInParent<Rotator>().rotateTarget = UnityEngine.Camera.main.transform.position;
+            //debugActionText.gameObject.GetComponentInParent<Rotator>().rotateTarget = UnityEngine.Camera.main.transform.position;
 
             RotateTowards(player.position);      
+        }
+
+        private void OnDrawGizmos()
+        {
+            foreach(var point in movePoints)
+            {
+                Gizmos.DrawSphere(point, 1.0f);
+            }
         }
     }
 }

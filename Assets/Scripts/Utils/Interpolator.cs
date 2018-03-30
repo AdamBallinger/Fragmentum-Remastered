@@ -33,6 +33,11 @@ namespace Scripts.Utils
             return interpolated;
         }
 
+        public void Reset()
+        {
+            t = 0.0f;
+        }
+
         public bool HasFinished()
         {
             return t >= 1.0f;
