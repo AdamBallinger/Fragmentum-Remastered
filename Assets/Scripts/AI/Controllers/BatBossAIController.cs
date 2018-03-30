@@ -7,8 +7,6 @@ namespace Scripts.AI.Controllers
 {
     public class BatBossAIController : AIController
     {
-        public TextMeshProUGUI debugActionText;
-
         public AnimationCurve moveCurve;
         public float moveSpeed;
 
@@ -43,11 +41,6 @@ namespace Scripts.AI.Controllers
 
         protected override void ControllerUpdate()
         {
-            //debugActionText.text = $"Action[1]: {actionManager.GetCurrentAction()?.GetType().Name}\n" +
-            //                       $"Action[2]: {actionManager.GetCurrentAction(2)?.GetType().Name}";
-
-            //debugActionText.gameObject.GetComponentInParent<Rotator>().rotateTarget = UnityEngine.Camera.main.transform.position;
-
             RotateTowards(player.position);      
         }
 
