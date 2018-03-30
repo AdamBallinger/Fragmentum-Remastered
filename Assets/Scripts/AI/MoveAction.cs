@@ -34,7 +34,6 @@ namespace Scripts.AI
 
         public override void OnActionStart()
         {
-            Debug.Log("LOL");
             interpolator.SetStart(ActionManager.Controller.transform.position);
 
             if (rotateTowards)
