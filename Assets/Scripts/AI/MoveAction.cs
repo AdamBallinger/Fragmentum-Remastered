@@ -18,17 +18,17 @@ namespace Scripts.AI
         /// Create a new move action for an AI agent.
         /// </summary>
         /// <param name="_actionManager">AI action manager.</param>
-        /// <param name="_start">Position the AI starts moving form.</param>
         /// <param name="_target">Position the AI moves toward.</param>
         /// <param name="_speed">The speed the AI moves at.</param>
         /// <param name="_moveCurve">The curve to apply to movement for smoothing.</param>
         /// <param name="_rotateTowards">Controls if the move action overrides the AI rotation to look at the target position.</param>
-        public MoveAction(AIActionManager _actionManager, Vector3 _start, Vector3 _target, float _speed,
+        public MoveAction(AIActionManager _actionManager, Vector3 _target, float _speed,
             AnimationCurve _moveCurve, bool _rotateTowards = false) : base(_actionManager)
         {
             targetPosition = _target;
-            var moveDistance = Vector3.Distance(_start, targetPosition);
-            interpolator = new Interpolator(_start, targetPosition, moveDistance / _speed, _moveCurve);
+            var start = _actionManager.Controller.transform.position;
+            var moveDistance = Vector3.Distance(start, targetPosition);
+            interpolator = new Interpolator(start, targetPosition, moveDistance / _speed, _moveCurve);
             rotateTowards = _rotateTowards;
         }
 
@@ -56,8 +56,10 @@ namespace Scripts.AI
             }
         }
 
-        public override void OnActionFinished()
+        public override void OnActionFinished() 
         {
+            base.OnActionFinished();
+
             if(rotateTowards)
             {
                 ActionManager.Controller.ControlsRotation = true;

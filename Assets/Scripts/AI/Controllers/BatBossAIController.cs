@@ -24,10 +24,10 @@ namespace Scripts.AI.Controllers
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
             var actionSequence = new AIActionSequence(true);
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[0], movePoints[1], moveSpeed, moveCurve, false));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[1], movePoints[2], moveSpeed, moveCurve, false));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[2], movePoints[3], moveSpeed, moveCurve, false));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[3], movePoints[0], moveSpeed, moveCurve, false));
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[1], moveSpeed, moveCurve));
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[2], moveSpeed, moveCurve));
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[3], moveSpeed, moveCurve));
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[0], moveSpeed, moveCurve));
 
             actionManager.SetActionSequence(actionSequence);
 
