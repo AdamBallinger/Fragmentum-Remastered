@@ -1,4 +1,5 @@
 ﻿using Scripts.AI.Controllers;
+using Scripts.Extensions;
 using Scripts.Utils;
 using UnityEngine;
 
@@ -38,6 +39,11 @@ namespace Scripts.Abilities.Controllers
         {
             Animator?.SetBool("Roar", true);
             Animator?.SetBool("Flamethrower", true);
+
+            var direction = batAIController.transform.position.DirectionToPlayer();
+            var dot = Vector3.Dot(flamesCenter, direction);
+
+            attackDirection = dot < 0.0f ? AttackDirection.Left : AttackDirection.Right;    
 
             interpolator = new Interpolator(GetFlamesStart(), GetFlamesEnd(), flamesRotationSpeed, flamesMoveCurve);
 
