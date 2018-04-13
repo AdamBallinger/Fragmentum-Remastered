@@ -2012,8 +2012,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledPrefab: {fileID: 1631656497752310, guid: 4f7e14182e74f5142af50ce88f92146d,
     type: 2}
-  maxPoolCount: 10
-  prePoolCount: 1
+  maxPoolCount: 35
+  prePoolCount: 4
   activeObjects: []
   inactiveObjects: []
 --- !u!114 &114927482728305660
@@ -2421,7 +2421,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1856057151
+  randomSeed: -100700874
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5722,7 +5722,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 880703156
+  randomSeed: -1938017871
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -9128,7 +9128,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1998443864
+  randomSeed: 239565166
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12489,7 +12489,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1239574973
+  randomSeed: -1895253322
   InitialModule:
     serializedVersion: 3
     enabled: 1
