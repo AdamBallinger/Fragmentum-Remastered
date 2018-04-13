@@ -9,6 +9,8 @@ namespace Scripts.Utils
 
         private AnimationCurve curve;
 
+        private float speed;
+
         private float t;
 
         private float rate;
@@ -17,7 +19,8 @@ namespace Scripts.Utils
         {
             initialPosition = _start;
             targetPosition = _end;
-            rate = _speed;
+            speed = _speed;
+            CalculateTRate();
             curve = _curve;
             t = 0.0f;
         }
@@ -33,6 +36,11 @@ namespace Scripts.Utils
             return interpolated;
         }
 
+        private void CalculateTRate()
+        {
+            rate = Vector3.Distance(initialPosition, targetPosition) / speed;
+        }
+
         /// <summary>
         /// Sets the starting position for the interpolator.
         /// </summary>
@@ -40,6 +48,7 @@ namespace Scripts.Utils
         public void SetStart(Vector3 _start)
         {
             initialPosition = _start;
+            CalculateTRate();
         }
 
         public void Reset()

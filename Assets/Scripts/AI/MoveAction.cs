@@ -27,8 +27,7 @@ namespace Scripts.AI
         {
             targetPosition = _target;
             var start = _actionManager.Controller.transform.position;
-            var moveDistance = Vector3.Distance(start, targetPosition);
-            interpolator = new Interpolator(start, targetPosition, moveDistance / _speed, _moveCurve);
+            interpolator = new Interpolator(start, targetPosition, _speed, _moveCurve);
             rotateTowards = _rotateTowards;
         }
 
