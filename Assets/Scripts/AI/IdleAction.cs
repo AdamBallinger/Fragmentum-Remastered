@@ -37,5 +37,11 @@ namespace Scripts.AI
                 finished = true;
             }
         }
+
+        public override void OnActionFinished()
+        {
+            currentIdleTime = 0.0f;
+            finished = false;
+        }
     }
 }
