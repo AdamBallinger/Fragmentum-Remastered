@@ -23,9 +23,11 @@ namespace Scripts.AI.Controllers
 
             var actionSequence = new AIActionSequence(true);
             actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[1], moveSpeed, moveCurve));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[2], moveSpeed, moveCurve));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[3], moveSpeed, moveCurve));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[0], moveSpeed, moveCurve));
+            //actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[2], moveSpeed, moveCurve));
+            //actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[3], moveSpeed, moveCurve));
+            //actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[0], moveSpeed, moveCurve));
+            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[4], moveSpeed, moveCurve, true));
+            actionSequence.AddActionToSequence(new AbilityAction(actionManager, flamethrowerAbility));
 
             actionManager.SetActionSequence(actionSequence);
 
@@ -41,7 +43,9 @@ namespace Scripts.AI.Controllers
 
         protected override void ControllerUpdate()
         {
-            RotateTowards(player.position);      
+            RotateTowards(player.position);    
+            
+
         }
 
         private void OnDrawGizmos()

@@ -1934,7 +1934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmosEnabled: 1
-  startDelay: 0.65
+  startDelay: 0.55
   batAIController: {fileID: 114927482728305660}
   flamesRotator: {fileID: 114518561330054896}
   flamethrowerPS: {fileID: 198252740402060970}
@@ -2034,15 +2034,15 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0.7177569
+      outSlope: 0.7177569
+      tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0.3967901
+      outSlope: 0.3967901
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -2052,6 +2052,7 @@ MonoBehaviour:
   - {x: 170, y: 16, z: 6}
   - {x: 140, y: 11, z: 6}
   - {x: 155, y: 18, z: 6}
+  - {x: 149, y: 18, z: 8}
   flamethrowerAbility: {fileID: 114261015618866154}
   basicAttackAbility: {fileID: 114286108986414952}
 --- !u!135 &135410694552136900
