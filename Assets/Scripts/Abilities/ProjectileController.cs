@@ -28,7 +28,7 @@ namespace Scripts.Abilities
 
         private Transform _transform;
 
-        private void Start()
+        private void OnEnable()
         {
             _transform = transform;
             deactivating = false;

@@ -22,12 +22,13 @@ namespace Scripts.AI.Controllers
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
             var actionSequence = new AIActionSequence(true);
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[1], moveSpeed, moveCurve));
+            //actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[1], moveSpeed, moveCurve));
             //actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[2], moveSpeed, moveCurve));
+            actionSequence.AddActionToSequence(new AbilityAction(actionManager, basicAttackAbility));
             //actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[3], moveSpeed, moveCurve));
-            //actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[0], moveSpeed, moveCurve));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[4], moveSpeed, moveCurve, true));
-            actionSequence.AddActionToSequence(new AbilityAction(actionManager, flamethrowerAbility));
+           // actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[0], moveSpeed, moveCurve));
+            //actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[4], moveSpeed, moveCurve, true));
+            //actionSequence.AddActionToSequence(new AbilityAction(actionManager, flamethrowerAbility));
 
             actionManager.SetActionSequence(actionSequence);
 

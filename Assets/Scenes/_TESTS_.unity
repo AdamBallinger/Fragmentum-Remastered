@@ -152,10 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114261015618866154, guid: 3746950e1fca32d45b3442014100fd4a,
+    - target: {fileID: 114571948796117142, guid: 3746950e1fca32d45b3442014100fd4a,
         type: 2}
-      propertyPath: startDelay
-      value: 0.55
+      propertyPath: prePoolCount
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3746950e1fca32d45b3442014100fd4a, type: 2}
