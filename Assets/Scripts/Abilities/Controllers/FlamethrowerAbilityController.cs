@@ -39,8 +39,7 @@ namespace Scripts.Abilities.Controllers
             Animator?.SetBool("Roar", true);
             Animator?.SetBool("Flamethrower", true);
 
-            var interpolatorSpeed = Vector3.Distance(GetFlamesStart(), GetFlamesEnd()) / flamesRotationSpeed;
-            interpolator = new Interpolator(GetFlamesStart(), GetFlamesEnd(), interpolatorSpeed, flamesMoveCurve);
+            interpolator = new Interpolator(GetFlamesStart(), GetFlamesEnd(), flamesRotationSpeed, flamesMoveCurve);
 
             batAIController.ControlsRotation = false;
             batAIController.Rotator.rotateTarget = GetFlamesStart();
