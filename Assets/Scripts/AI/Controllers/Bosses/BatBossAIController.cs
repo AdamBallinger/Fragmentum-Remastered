@@ -1,9 +1,7 @@
 ﻿using Scripts.Abilities.Controllers;
-using Scripts.Utils;
-using TMPro;
 using UnityEngine;
 
-namespace Scripts.AI.Controllers
+namespace Scripts.AI.Controllers.Bosses
 {
     public class BatBossAIController : AIController
     {
