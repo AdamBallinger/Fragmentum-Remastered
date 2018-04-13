@@ -9,13 +9,12 @@ namespace Scripts.AI
 
         private float currentDelayTime;
 
-        private bool abilityInitialized, abilityStarted;
+        private bool abilityStarted;
 
         public AbilityAction(AIActionManager _actionManager, AbilityController _abilityController) : base(_actionManager)
         {
             AbilityController = _abilityController;
             currentDelayTime = 0.0f;
-            abilityInitialized = false;
             abilityStarted = false;
         }
 
@@ -27,34 +26,33 @@ namespace Scripts.AI
                 return;
             }
 
-            if(!abilityInitialized)
-            {
-                AbilityController.OnPreStart();
-                abilityInitialized = true;
-            }
-
-            if (AbilityController.startDelay > 0.0f)
+            if (!abilityStarted && AbilityController.startDelay > 0.0f)
             {
                 if (currentDelayTime < AbilityController.startDelay)
                 {
                     currentDelayTime += Time.deltaTime;
                     return;
                 }
-            }
 
-            if (!abilityStarted)
-            {
                 AbilityController.OnStart();
                 abilityStarted = true;
             }
 
             AbilityController.OnUpdate();
             finished = AbilityController.HasFinished();
+        }
 
-            if(finished)
-            {
-                AbilityController.OnFinish();
-            }
+        public override void OnActionStart()
+        {
+            AbilityController.OnPreStart();
+        }
+
+        public override void OnActionFinished()
+        {
+            AbilityController.OnFinish();
+            abilityStarted = false;
+            currentDelayTime = 0.0f;
+            finished = false;
         }
     }
 }
