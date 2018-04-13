@@ -9,7 +9,7 @@ namespace Scripts.Abilities.Controllers
         [SerializeField]
         protected bool gizmosEnabled = true;
 
-        [Tooltip("Delay in seconds before the ability starts work.")]
+        [Tooltip("Delay in seconds before the ability starts work. This does not affect the pre start work for the ability.")]
         public float startDelay = 0.0f;
 
         private void Awake()
