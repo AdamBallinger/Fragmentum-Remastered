@@ -32,7 +32,9 @@ namespace Scripts.Abilities
         {
             _transform = transform;
             deactivating = false;
-            projectileParticleSystem?.Play();
+
+            if(projectileParticleSystem != null)
+                projectileParticleSystem.Play();
         }
 
         private void Update()
@@ -50,12 +52,15 @@ namespace Scripts.Abilities
                 }
                 else
                 {
-                    projectileParticleSystem?.Stop();
+                    if(projectileParticleSystem != null)
+                        projectileParticleSystem.Stop();
+
                     deactivating = true;
                     Invoke("Deactivate", delay);
                 }
 
-                contactParticleSystem?.Play();
+                if(contactParticleSystem != null)
+                    contactParticleSystem.Play();
             }   
         }
 
