@@ -59,8 +59,6 @@ namespace Scripts.AI
 
         public override void OnActionFinished() 
         {
-            base.OnActionFinished();
-
             if(rotateTowards)
             {
                 ActionManager.Controller.ControlsRotation = true;
