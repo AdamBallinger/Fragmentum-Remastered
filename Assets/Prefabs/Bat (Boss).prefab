@@ -2028,6 +2028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transform: {fileID: 0}
+  drawGizmos: 1
   moveCurve:
     serializedVersion: 2
     m_Curve:
