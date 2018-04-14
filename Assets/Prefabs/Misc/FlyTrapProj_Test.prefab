@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 24
-  delayedDeactivation: 1
+  delayedDeactivation: 0
   delay: 3
+  maxLifeTime: 4
   projectileParticleSystem: {fileID: 0}
   contactParticleSystem: {fileID: 0}
 --- !u!135 &135701992393254128
