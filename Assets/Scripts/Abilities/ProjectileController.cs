@@ -19,6 +19,11 @@ namespace Scripts.Abilities
         private float delay = 0.0f;
 
         [SerializeField]
+        private float maxLifeTime = 1.0f;
+
+        private float currentLifeTime = 0.0f;
+
+        [SerializeField]
         private ParticleSystem projectileParticleSystem = null;
 
         [SerializeField]
@@ -30,16 +35,30 @@ namespace Scripts.Abilities
 
         private void OnEnable()
         {
-            _transform = transform;
+            if(_transform == null)
+            {
+                _transform = transform;
+            }
+
             deactivating = false;
+            currentLifeTime = 0.0f;
 
             if(projectileParticleSystem != null)
+            {
                 projectileParticleSystem.Play();
+            }
         }
 
         private void Update()
         {
+            if(currentLifeTime >= maxLifeTime)
+            {
+                Deactivate();
+            }
+
             _transform.position += Direction * (speed * Time.deltaTime);
+
+            currentLifeTime += Time.deltaTime;
         }
 
         private void OnTriggerEnter(Collider _col)
@@ -53,14 +72,18 @@ namespace Scripts.Abilities
                 else
                 {
                     if(projectileParticleSystem != null)
+                    {
                         projectileParticleSystem.Stop();
+                    }
 
                     deactivating = true;
                     Invoke("Deactivate", delay);
                 }
 
                 if(contactParticleSystem != null)
+                {
                     contactParticleSystem.Play();
+                }
             }   
         }
 
