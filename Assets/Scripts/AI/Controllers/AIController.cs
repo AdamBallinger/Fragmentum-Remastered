@@ -32,13 +32,13 @@ namespace Scripts.AI.Controllers
 
             if(Animator == null)
             {
-                Debug.LogError($"[AIController] Could not find animator component for gameobject: {gameObject.name}. Make sure it " +
+                Debug.LogWarning($"[AIController] Could not find animator component for gameobject: {gameObject.name}. Make sure it " +
                                  "is on the same object as the AIController component.");
             }
 
             if(Rotator == null)
             {
-                Debug.LogError($"[AIController] Could not find Rotator component for gameobject: {gameObject.name}. Make sure it " +
+                Debug.LogWarning($"[AIController] Could not find Rotator component for gameobject: {gameObject.name}. Make sure it " +
                                "is on the same object as the AIController component.");
             }
         }
