@@ -33,7 +33,7 @@ namespace Scripts.AI.Controllers.Minions
 
         protected override void ControllerUpdate()
         {
-            
+            RotateTowards(player.position);
         }
 
         public void OnRadiusTriggerEnter(Collider _collider)
