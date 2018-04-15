@@ -36,6 +36,7 @@ namespace Scripts.AI.Controllers
             transform = GetComponent<Transform>();
             Animator = GetComponent<Animator>();
             Rotator = GetComponent<Rotator>();
+            healthSystem = GetComponent<HealthSystem>();
 
             if(Animator == null)
             {
