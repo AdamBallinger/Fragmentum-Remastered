@@ -19,7 +19,7 @@ namespace Scripts.Combat
                 return;
             }
 
-            damageable.GetHealth().CurrentHealth -= damageProvider.GetDamage();
+            damageable.GetHealth().RemoveHealth(damageProvider.GetDamage());
 
             if(damageable.GetHealth().CurrentHealth <= 0)
             {
