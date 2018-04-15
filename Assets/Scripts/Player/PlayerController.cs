@@ -51,6 +51,7 @@ namespace Scripts.Player
 
         [Header("Combat Settings")]
         public int dashDamage = 1;
+        public GameObject shield;
 
         private Vector3 dashVelocity;
 
@@ -216,8 +217,7 @@ namespace Scripts.Player
         private void ProcessBlocking()
         {
             Blocking = Input.GetAxisRaw("Block") == 1.0f && Grounded;
-
-            // TODO: Blocking collider activation and deactivation.
+            shield.SetActive(Blocking);
         }
 
         /// <summary>
