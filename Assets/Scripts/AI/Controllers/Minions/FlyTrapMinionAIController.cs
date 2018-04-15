@@ -64,12 +64,12 @@ namespace Scripts.AI.Controllers.Minions
 
         public override void OnDamageReceived(int _damage)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public override void OnDeath()
         {
-            throw new System.NotImplementedException();
+            gameObject.SetActive(false);
         }
     }
 }

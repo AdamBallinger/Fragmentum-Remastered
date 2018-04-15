@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 114429362677906218}
   - component: {fileID: 114050088907034504}
   - component: {fileID: 114902607315461598}
+  - component: {fileID: 136089140901155110}
   m_Layer: 0
   m_Name: Fly Trap (Small)
   m_TagString: Untagged
@@ -698,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3afad6262535b940a7cc65d26267549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 25
 --- !u!114 &114429362677906218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -781,6 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77c699c09f0df943a113fe4b8fc9fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableSameObjectCallbacks: 0
   triggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
@@ -825,6 +827,19 @@ MonoBehaviour:
   z: 0
   smoothRotation: 1
   rotateSpeed: 6
+--- !u!136 &136089140901155110
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392219253806184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3
+  m_Height: 14.5
+  m_Direction: 1
+  m_Center: {x: 0, y: -4, z: 0}
 --- !u!137 &137062762483071632
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

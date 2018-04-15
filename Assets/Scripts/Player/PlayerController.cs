@@ -52,6 +52,7 @@ namespace Scripts.Player
         [Header("Combat Settings")]
         public int dashDamage = 1;
         public GameObject shield;
+        public GameObject dashCollider;
 
         private Vector3 dashVelocity;
 
@@ -208,6 +209,8 @@ namespace Scripts.Player
 
                 // TODO: Stamina drain and check later on.
             }
+
+            dashCollider.SetActive(Dashing);
         }
 
 
@@ -289,6 +292,11 @@ namespace Scripts.Player
                              $"G- [{Grounded}] F- [{Falling}]\n" +
                              $"GD- [{groundObj.distance:F}] GO- [{objName}]\n" +
                              $"D- [{Dashing}] B- [{Blocking}]";
+        }
+
+        public void OnDashHit(Collider _collider)
+        {
+            CombatSystem.ProcessDamage(gameObject, _collider.gameObject);
         }
 
         public HealthSystem GetHealth()
