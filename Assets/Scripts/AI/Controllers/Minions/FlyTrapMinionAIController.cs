@@ -1,4 +1,5 @@
 ﻿using Scripts.Abilities.Controllers;
+using Scripts.Combat;
 using UnityEngine;
 
 namespace Scripts.AI.Controllers.Minions
@@ -59,6 +60,16 @@ namespace Scripts.AI.Controllers.Minions
         {
             Gizmos.color = Color.green;
             Gizmos.DrawCube(GetComponent<Transform>().position + Vector3.up * popoutDist, Vector3.one * 0.5f);
+        }
+
+        public override void OnDamageReceived(int _damage)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void OnDeath()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

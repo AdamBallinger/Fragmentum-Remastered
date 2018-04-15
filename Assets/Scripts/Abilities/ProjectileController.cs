@@ -1,13 +1,17 @@
-﻿using Scripts.Extensions;
+﻿using Scripts.Combat;
+using Scripts.Extensions;
 using UnityEngine;
 
 namespace Scripts.Abilities
 {
-    public class ProjectileController : MonoBehaviour
+    public class ProjectileController : MonoBehaviour, IDamageProvider
     {
         public Vector3 Direction { get; set; }
 
         public LayerMask CollisionMask { get; set; }
+
+        [SerializeField]
+        private int damage = 1;
 
         [SerializeField]
         private float speed = 1.0f;
@@ -65,6 +69,8 @@ namespace Scripts.Abilities
         {
             if(CollisionMask.Contains(_col.gameObject.layer) && !deactivating)
             {      
+                CombatSystem.ProcessDamage(gameObject, _col.gameObject);
+
                 if(!delayedDeactivation)
                 {
                     Deactivate();
@@ -90,6 +96,11 @@ namespace Scripts.Abilities
         private void Deactivate()
         {
             gameObject.SetActive(false);
+        }
+
+        public int GetDamage()
+        {
+            return damage;
         }
     }
 }

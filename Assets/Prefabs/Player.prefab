@@ -248,7 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4347937457554496}
   - component: {fileID: 65088236827901580}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -922,6 +922,7 @@ GameObject:
   - component: {fileID: 114948553633080692}
   - component: {fileID: 143256845685607824}
   - component: {fileID: 95972061166579050}
+  - component: {fileID: 114437442243903390}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1230,7 +1231,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1968464730737814}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 125.95816, y: 1.1624146, z: -1}
+  m_LocalPosition: {x: 122.84, y: 1.1624146, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4347937457554496}
@@ -1941,6 +1942,18 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114437442243903390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968464730737814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3afad6262535b940a7cc65d26267549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!114 &114562946293780030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2031,6 +2044,7 @@ MonoBehaviour:
   playerMovementAxis: 0
   gravityStrength: 1.4
   fallDistanceThreshold: 1.8
+  dashDamage: 1
 --- !u!137 &137054770373531116
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

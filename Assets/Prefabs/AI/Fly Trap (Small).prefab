@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 114627068756223032}
   - component: {fileID: 114509560504701240}
   - component: {fileID: 114429362677906218}
+  - component: {fileID: 114050088907034504}
   m_Layer: 0
   m_Name: Fly Trap (Small)
   m_TagString: Untagged
@@ -685,6 +686,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114050088907034504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392219253806184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3afad6262535b940a7cc65d26267549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!114 &114429362677906218
 MonoBehaviour:
   m_ObjectHideFlags: 1

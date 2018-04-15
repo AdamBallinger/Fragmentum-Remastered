@@ -1,10 +1,11 @@
-﻿using TMPro;
+﻿using Scripts.Combat;
+using TMPro;
 using UnityEngine;
 
 namespace Scripts.Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IDamageable, IDamageProvider
     {
         private CharacterController Controller { get; set; }
 
@@ -48,6 +49,9 @@ namespace Scripts.Player
         [Tooltip("The distance that the player must be from the ground before the controller thinks the player is falling.")]
         public float fallDistanceThreshold = 1.0f;
 
+        [Header("Combat Settings")]
+        public int dashDamage = 1;
+
         private Vector3 dashVelocity;
 
         private bool canJump;
@@ -58,12 +62,15 @@ namespace Scripts.Player
 
         private float clampedAxisValue;
 
+        private HealthSystem healthSystem;
+
         private Transform _transform;
 
         private void Start()
         {
             Controller = GetComponent<CharacterController>();
             Animator = GetComponentInChildren<Animator>();
+            healthSystem = GetComponent<HealthSystem>();
 
             _transform = transform;
 
@@ -81,12 +88,12 @@ namespace Scripts.Player
 
         private void SetAnimations()
         {
-            Animator.SetFloat("animSpeedMod", HDelta);
-            Animator.SetBool("isGrounded", Grounded);
-            Animator.SetBool("isRunning", HDelta != 0.0f);
-            Animator.SetBool("isDashing", Dashing);
-            Animator.SetBool("isFalling", Falling);
-            Animator.SetBool("isBlocking", Blocking);
+            Animator?.SetFloat("animSpeedMod", HDelta);
+            Animator?.SetBool("isGrounded", Grounded);
+            Animator?.SetBool("isRunning", HDelta != 0.0f);
+            Animator?.SetBool("isDashing", Dashing);
+            Animator?.SetBool("isFalling", Falling);
+            Animator?.SetBool("isBlocking", Blocking);
         }
 
         private void Update()
@@ -282,6 +289,34 @@ namespace Scripts.Player
                              $"G- [{Grounded}] F- [{Falling}]\n" +
                              $"GD- [{groundObj.distance:F}] GO- [{objName}]\n" +
                              $"D- [{Dashing}] B- [{Blocking}]";
+        }
+
+        public HealthSystem GetHealth()
+        {
+            return healthSystem;
+        }
+
+        public void OnDamageReceived(int _damage)
+        {
+            if(HDelta != 0.0f || !Grounded)
+            {
+                Animator?.Play("Running Damage");
+            }
+            else
+            {
+                Animator?.Play("Standing Damage");
+            }
+        }
+
+        public void OnDeath()
+        {
+            Animator?.SetBool("isDead", true);
+            //TODO: Actual death event...
+        }
+
+        public int GetDamage()
+        {
+            return dashDamage;
         }
 
         private void OnDrawGizmos()

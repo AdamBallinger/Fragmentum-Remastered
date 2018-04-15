@@ -1,9 +1,11 @@
-﻿using Scripts.Utils;
+﻿using Scripts.Combat;
+using Scripts.Utils;
 using UnityEngine;
 
 namespace Scripts.AI.Controllers
 {
-    public abstract class AIController : MonoBehaviour
+    [RequireComponent(typeof(HealthSystem))]
+    public abstract class AIController : MonoBehaviour, IDamageable
     {
         [HideInInspector]
         public new Transform transform;
@@ -12,6 +14,11 @@ namespace Scripts.AI.Controllers
         /// Reference to the rotator component of this AI, which handles rotating the AI body.
         /// </summary>
         public Rotator Rotator { get; private set; }
+
+        /// <summary>
+        /// Reference to the AI health system component of this AI.
+        /// </summary>
+        protected HealthSystem healthSystem;
 
         /// <summary>
         /// Property defines if the AIController controls the rotation of the bat. Useful for allowing external components
@@ -79,5 +86,13 @@ namespace Scripts.AI.Controllers
         /// </summary>
         public virtual void OnManagerActionFinished(AIAction _action) { }
 
+        public HealthSystem GetHealth()
+        {
+            return healthSystem;
+        }
+
+        public abstract void OnDamageReceived(int _damage);
+
+        public abstract void OnDeath();
     }
 }

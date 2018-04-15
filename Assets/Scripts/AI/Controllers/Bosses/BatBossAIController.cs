@@ -39,6 +39,16 @@ namespace Scripts.AI.Controllers.Bosses
             RotateTowards(player.position);
         }
 
+        public override void OnDamageReceived(int _damage)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void OnDeath()
+        {
+            throw new System.NotImplementedException();
+        }
+
         private void OnDrawGizmos()
         {
             if (!drawGizmos) return;
