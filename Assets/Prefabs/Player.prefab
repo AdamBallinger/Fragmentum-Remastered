@@ -2020,6 +2020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  damageCooldown: 1
 --- !u!114 &114562946293780030
 MonoBehaviour:
   m_ObjectHideFlags: 1
