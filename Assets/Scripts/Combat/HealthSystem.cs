@@ -26,13 +26,13 @@ namespace Scripts.Combat
         {
             if(!canTakeDamage)
             {
-                currentCooldownTime += Time.deltaTime;
-
-                if(currentCooldownTime >= damageCooldown)
+                if (currentCooldownTime >= damageCooldown)
                 {
                     currentCooldownTime = 0.0f;
                     canTakeDamage = true;
                 }
+
+                currentCooldownTime += Time.deltaTime;             
             }
         }
 
