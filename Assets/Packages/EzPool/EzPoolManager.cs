@@ -125,7 +125,6 @@ namespace EzPool
 
             var obj = Instantiate(pooledPrefab, Vector3.zero, Quaternion.identity);
             obj.AddComponent<EzPooledObject>().poolManager = this;
-            obj.transform.SetParent(transform);
             obj.SetActive(false);
 
             return obj;
