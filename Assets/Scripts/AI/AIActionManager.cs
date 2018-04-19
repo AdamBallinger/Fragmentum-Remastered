@@ -61,6 +61,15 @@ namespace Scripts.AI
         }
 
         /// <summary>
+        /// Returns the current sequence for this manager.
+        /// </summary>
+        /// <returns></returns>
+        public AIActionSequence GetSequence()
+        {
+            return currentSequence;
+        }
+
+        /// <summary>
         /// Sets the default action for this manager.
         /// </summary>
         /// <param name="_defaultAction"></param>
@@ -210,9 +219,15 @@ namespace Scripts.AI
         /// Toggle the current state of the sequence. True will process a sequence False will pause it. 
         /// </summary>
         /// <param name="_toggle"></param>
-        public void ToggleSequence(bool _toggle)
+        /// <param name="_toggleBehaviour"></param>
+        public void ToggleSequence(bool _toggle, SequenceToggleBehaviour _toggleBehaviour = SequenceToggleBehaviour.Pause)
         {
             sequencePaused = !_toggle;
+
+            if(!_toggle && _toggleBehaviour == SequenceToggleBehaviour.ForceFinish)
+            {
+                currentSequence?.ForceFinishCurrentAction();
+            }
         }
 
         /// <summary>

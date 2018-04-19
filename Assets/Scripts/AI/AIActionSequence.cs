@@ -72,6 +72,15 @@ namespace Scripts.AI
             return Sequence[currentSequenceIndex];
         }
 
+        public void ForceFinishCurrentAction()
+        {
+            if(ActiveAtion != null)
+            {
+                ActiveAtion?.OnActionFinished();
+                ActiveAtion = GetNextInSequence();
+            }
+        }
+
         /// <summary>
         /// Returns if the sequence has finished. If the sequence is repeating this will always be false.
         /// </summary>
@@ -112,5 +121,11 @@ namespace Scripts.AI
         {
             Sequence.Clear();
         }
+    }
+
+    public enum SequenceToggleBehaviour
+    {
+        ForceFinish,
+        Pause
     }
 }
