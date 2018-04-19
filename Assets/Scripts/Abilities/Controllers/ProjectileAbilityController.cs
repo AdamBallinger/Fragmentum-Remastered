@@ -50,6 +50,7 @@ namespace Scripts.Abilities.Controllers
         public override void OnFinish()
         {
             Animator?.SetBool(animationParameter, false);
+            currentDuration = 0.0f;
         }
 
         public override bool HasFinished()

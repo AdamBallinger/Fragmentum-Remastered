@@ -16,6 +16,8 @@ namespace Scripts.AI.Controllers.Minions
         public float attackDelay = 1.0f;
         public AbilityController abilityController;
 
+        private bool playerInRange;
+
         private Transform player;
 
         private void OnEnable()
@@ -40,10 +42,24 @@ namespace Scripts.AI.Controllers.Minions
         {
             if(!hasPoped && _collider.gameObject.CompareTag("Player"))
             {
+                playerInRange = true;
                 hasPoped = true;
                 Animator?.SetBool("Roaring", true);
                 actionManager.SetActionImmediate(new MoveAction(actionManager, transform.position + Vector3.up * popoutDist, popoutSpeed,
                     popoutCurve));
+            }
+            else if(hasPoped)
+            {
+                actionManager.ToggleSequence(true);
+            }
+        }
+
+        public void OnRadiusTriggerExit(Collider _collider)
+        {           
+            if(hasPoped && _collider.gameObject.CompareTag("Player"))
+            {
+                playerInRange = false;
+                actionManager.ToggleSequence(false, SequenceToggleBehaviour.ForceFinish);
             }
         }
 
@@ -52,7 +68,11 @@ namespace Scripts.AI.Controllers.Minions
             if(_action is MoveAction)
             {
                 Animator?.SetBool("Roaring", false);
-                actionManager.ToggleSequence(true);
+
+                if(playerInRange)
+                {
+                    actionManager.ToggleSequence(true);
+                }
             }
         }
 
