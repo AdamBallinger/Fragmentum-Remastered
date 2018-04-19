@@ -161,7 +161,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1334343029094072
 GameObject:
@@ -669,8 +669,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 20, z: 64}
-  m_Center: {x: 0, y: 16, z: 32}
+  m_Size: {x: 10, y: 30, z: 64}
+  m_Center: {x: 0, y: 10, z: 32}
 --- !u!95 &95042323889935632
 Animator:
   serializedVersion: 3
@@ -700,6 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
+  damageCooldown: 1
 --- !u!114 &114429362677906218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -806,7 +807,18 @@ MonoBehaviour:
       PublicKeyToken=null
   triggerExitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114627068756223032}
+        m_MethodName: OnRadiusTriggerExit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Scripts.Utils.TriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114902607315461598
