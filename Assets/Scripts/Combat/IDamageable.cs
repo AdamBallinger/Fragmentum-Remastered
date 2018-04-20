@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Scripts.Combat
+﻿namespace Scripts.Combat
 {
     public interface IDamageable
     {
