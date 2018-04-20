@@ -13,19 +13,19 @@ namespace Scripts.AI
         public AIController Controller { get; }
 
         /// <summary>
-        /// Stores the action queue for each channel.
+        /// The action queue for this action manager.
         /// </summary>
-        private Dictionary<int, List<AIAction>> channels;
+        private List<AIAction> actionQueue;
 
         /// <summary>
-        /// Stores the current action being updated for each channel.
+        /// Default action of this action manager.
         /// </summary>
-        private Dictionary<int, AIAction> channelCurrentAction;
+        private AIAction defaultAction;
 
         /// <summary>
-        /// Stores the current default action for each channel.
+        /// Current action for this manager that is being updated.
         /// </summary>
-        private Dictionary<int, AIAction> channelDefaultActions;
+        private AIAction currentAction;
 
         /// <summary>
         /// The current AI action sequence the manager is processing.
@@ -35,12 +35,7 @@ namespace Scripts.AI
         /// <summary>
         /// Is the current sequence (if any) paused?
         /// </summary>
-        private bool sequencePaused = false;
-
-        /// <summary>
-        /// Defines the maximum number of channels the action manager can use.
-        /// </summary>
-        private const int MAX_CHANNELS = 2;
+        private bool sequencePaused;
 
         /// <summary>
         /// Creates an action manager for a given AI Controller.
@@ -48,17 +43,9 @@ namespace Scripts.AI
         /// <param name="_controller"></param>
         public AIActionManager(AIController _controller)
         {
-            Controller = _controller;
-            channels = new Dictionary<int, List<AIAction>>();
-            channelCurrentAction = new Dictionary<int, AIAction>();
-            channelDefaultActions = new Dictionary<int, AIAction>();
+            actionQueue = new List<AIAction>();
 
-            for(var i = 1; i <= MAX_CHANNELS; i++)
-            {
-                channels.Add(i, new List<AIAction>());
-                channelCurrentAction.Add(i, null);
-                channelDefaultActions.Add(i, null);
-            }
+            Controller = _controller;
         }
 
         /// <summary>
@@ -74,30 +61,18 @@ namespace Scripts.AI
         /// Sets the default action for this manager.
         /// </summary>
         /// <param name="_defaultAction"></param>
-        /// <param name="_channel"></param>
-        public void SetDefaultAIAction(AIAction _defaultAction, int _channel = 1)
+        public void SetDefaultAIAction(AIAction _defaultAction)
         {
-            if(!ChannelValid(_channel))
-            {
-                return;
-            }
-
-            channelDefaultActions[_channel] = _defaultAction;
+            defaultAction = _defaultAction;
         }
 
         /// <summary>
-        /// Enque a new AIAction to the manager.
+        /// Enques an action to the manager.
         /// </summary>
         /// <param name="_newAction"></param>
-        /// <param name="_channel"></param>
-        public void EnqueAction(AIAction _newAction, int _channel = 1)
+        public void EnqueAction(AIAction _newAction)
         {
-            if (!ChannelValid(_channel))
-            {
-                return;
-            }
-
-            channels[_channel].Add(_newAction);
+            actionQueue.Add(_newAction);
         }
 
         /// <summary>
@@ -105,16 +80,11 @@ namespace Scripts.AI
         /// action queue.
         /// </summary>
         /// <param name="_newAction"></param>
-        /// <param name="_channel"></param>
-        public void SetActionImmediate(AIAction _newAction, int _channel = 1)
+        public void SetActionImmediate(AIAction _newAction)
         {
-            if (!ChannelValid(_channel))
-            {
-                return;
-            }
+            OnActionFinished();
 
-            channelCurrentAction[_channel] = null;
-            channels[_channel].Insert(0, _newAction);
+            currentAction = _newAction;
         }
 
         /// <summary>
@@ -129,56 +99,57 @@ namespace Scripts.AI
         /// <summary>
         /// Event for when a new action starts for this manager.
         /// </summary>
-        /// <param name="_channel"></param>
-        private void OnActionStart(int _channel)
+        private void OnActionStart()
         {
-            channelCurrentAction[_channel].OnActionStart();
-            Controller.OnManagerActionStart(channelCurrentAction[_channel]);
+            if(currentAction == null)
+            {
+                return;
+            }
+
+            currentAction.OnActionStart();
+            Controller.OnManagerActionStart(currentAction);
         }
 
         /// <summary>
         /// Event for when an action for this manager has finished what it needed to do.
         /// </summary>
-        private void OnActionFinished(int _channel)
+        private void OnActionFinished()
         {
-            Controller.OnManagerActionFinished(channelCurrentAction[_channel]);
-            channelCurrentAction[_channel].OnActionFinished();
-            channelCurrentAction[_channel] = null;
-        }
-
-        /// <summary>
-        /// Returns whether a given channel has any queued actions.
-        /// </summary>
-        /// <param name="_channel"></param>
-        /// <returns></returns>
-        public bool HasQueuedActions(int _channel = 1)
-        {
-            if (!ChannelValid(_channel))
+            if(currentAction == null)
             {
-                return false;
+                return;
             }
 
-            return channels[_channel].Count > 0;
+            Controller.OnManagerActionFinished(currentAction);
+            currentAction.OnActionFinished();
+            currentAction = null;
         }
 
         /// <summary>
-        /// Gets the current action for a given channel.
+        /// Returns whether the manager has any queued actions.
         /// </summary>
-        /// <param name="_channel"></param>
         /// <returns></returns>
-        public AIAction GetCurrentAction(int _channel = 1)
+        public bool HasQueuedActions()
         {
-            return !ChannelValid(_channel) ? null : channelCurrentAction[_channel];
+            return actionQueue.Count > 0;
         }
 
         /// <summary>
-        /// Gets the default action for a given channel.
+        /// Gets the current action for this manager.
         /// </summary>
-        /// <param name="_channel"></param>
         /// <returns></returns>
-        public AIAction GetDefaultAction(int _channel = 1)
+        public AIAction GetCurrentAction()
         {
-            return !ChannelValid(_channel) ? null : channelDefaultActions[_channel];
+            return currentAction;
+        }
+
+        /// <summary>
+        /// Gets the default action for this manager.
+        /// </summary>
+        /// <returns></returns>
+        public AIAction GetDefaultAction()
+        {
+            return defaultAction;
         }
 
         /// <summary>
@@ -186,29 +157,27 @@ namespace Scripts.AI
         /// </summary>
         public void Update()
         {
-            foreach(var channel in channels)
+            if(currentAction != null && currentAction.HasFinished())
             {
-                if(channelCurrentAction[channel.Key] != null && channelCurrentAction[channel.Key].HasFinished())
-                {
-                    OnActionFinished(channel.Key);
-                }
-
-                if(channelCurrentAction[channel.Key] == null)
-                {
-                    if(channel.Value.Count > 0)
-                    {
-                        channelCurrentAction[channel.Key] = channel.Value[0];
-                        channel.Value.RemoveAt(0);
-                        OnActionStart(channel.Key);
-                    }
-                    else
-                    {
-                        channelCurrentAction[channel.Key] = channelDefaultActions[channel.Key];
-                    }
-                }
-
-                channelCurrentAction[channel.Key]?.Update();
+                OnActionFinished();
             }
+
+            if(currentAction == null)
+            {
+                if(actionQueue.Count > 0)
+                {
+                    currentAction = actionQueue[0];
+                    actionQueue.RemoveAt(0);
+                    OnActionStart();
+                }
+                else
+                {
+                    currentAction = defaultAction;
+                    OnActionStart();
+                }
+            }
+
+            currentAction?.Update();
 
             if (!sequencePaused)
             {
@@ -229,22 +198,6 @@ namespace Scripts.AI
             {
                 currentSequence?.ForceFinishCurrentAction();
             }
-        }
-
-        /// <summary>
-        /// Validates whether a channel is valid.
-        /// </summary>
-        /// <param name="_channel"></param>
-        /// <returns></returns>
-        private bool ChannelValid(int _channel)
-        {
-            if(_channel >= 1 && _channel <= MAX_CHANNELS)
-            {
-                return true;
-            }
-            
-            Debug.LogError($"You can only use channels: 1 to {MAX_CHANNELS} with the action manager!");
-            return false;
         }
     }
 }
