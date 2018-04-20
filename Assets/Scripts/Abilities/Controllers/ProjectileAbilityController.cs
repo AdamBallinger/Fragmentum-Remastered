@@ -30,13 +30,11 @@ namespace Scripts.Abilities.Controllers
 
         public override void OnPreStart()
         {
-            Debug.Log("PreStarting");
             Animator?.SetBool(animationParameter, true);  
         }
 
         public override void OnStart()
         {
-            Debug.Log("Starting");
             currentDuration = 0.0f;
             projectile = projectilePool.GetAvailable();
             projectile.transform.position = transform.TransformPoint(spawnOffset);
@@ -52,7 +50,6 @@ namespace Scripts.Abilities.Controllers
 
         public override void OnFinish()
         {
-            Debug.Log("Finishing");
             Animator?.SetBool(animationParameter, false);
             currentDuration = 0.0f;
         }
