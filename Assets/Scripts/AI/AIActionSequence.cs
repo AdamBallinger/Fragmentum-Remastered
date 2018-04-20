@@ -42,7 +42,7 @@ namespace Scripts.AI
             {
                 ActiveAtion?.OnActionFinished();
                 ActiveAtion = GetNextInSequence();
-                ActiveAtion.OnActionStart();
+                ActiveAtion?.OnActionStart();
             }
 
             return ActiveAtion;
@@ -123,7 +123,7 @@ namespace Scripts.AI
         }
     }
 
-    public enum SequenceToggleBehaviour
+    public enum SequenceStopBehaviour
     {
         ForceFinish,
         Pause

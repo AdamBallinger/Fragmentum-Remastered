@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Scripts.AI.Controllers;
 using UnityEngine;
 
@@ -215,16 +216,16 @@ namespace Scripts.AI
             }
         }
 
-        /// <summary>
-        /// Toggle the current state of the sequence. True will process a sequence False will pause it. 
-        /// </summary>
-        /// <param name="_toggle"></param>
-        /// <param name="_toggleBehaviour"></param>
-        public void ToggleSequence(bool _toggle, SequenceToggleBehaviour _toggleBehaviour = SequenceToggleBehaviour.Pause)
+        public void ResumeSequence()
         {
-            sequencePaused = !_toggle;
+            sequencePaused = false;
+        }
 
-            if(!_toggle && _toggleBehaviour == SequenceToggleBehaviour.ForceFinish)
+        public void StopSequence(SequenceStopBehaviour _behaviour = SequenceStopBehaviour.Pause)
+        {
+            sequencePaused = true;
+
+            if(_behaviour == SequenceStopBehaviour.ForceFinish)
             {
                 currentSequence?.ForceFinishCurrentAction();
             }

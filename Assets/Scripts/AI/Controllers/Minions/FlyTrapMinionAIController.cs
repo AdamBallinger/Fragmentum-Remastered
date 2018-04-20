@@ -24,7 +24,7 @@ namespace Scripts.AI.Controllers.Minions
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-            actionManager.ToggleSequence(false);
+            actionManager.StopSequence();
 
             var sequence = new AIActionSequence(true);
             sequence.AddActionToSequence(new IdleAction(actionManager, attackDelay));
@@ -40,26 +40,41 @@ namespace Scripts.AI.Controllers.Minions
 
         public void OnRadiusTriggerEnter(Collider _collider)
         {
-            if(!hasPoped && _collider.gameObject.CompareTag("Player"))
+            if(_collider.gameObject.CompareTag("Player"))
             {
                 playerInRange = true;
-                hasPoped = true;
-                Animator?.SetBool("Roaring", true);
-                actionManager.SetActionImmediate(new MoveAction(actionManager, transform.position + Vector3.up * popoutDist, popoutSpeed,
-                    popoutCurve));
-            }
-            else if(hasPoped)
-            {
-                actionManager.ToggleSequence(true);
+
+                if (!hasPoped)
+                {                  
+                    hasPoped = true;
+                    Animator?.SetBool("Roaring", true);
+                    actionManager.SetActionImmediate(new MoveAction(actionManager, transform.position + Vector3.up * popoutDist,
+                        popoutSpeed, popoutCurve));
+                }
+                else
+                {
+                    actionManager.ResumeSequence();
+                }         
             }
         }
 
         public void OnRadiusTriggerExit(Collider _collider)
         {           
-            if(hasPoped && _collider.gameObject.CompareTag("Player"))
+            if(_collider.gameObject.CompareTag("Player"))
             {
                 playerInRange = false;
-                actionManager.ToggleSequence(false, SequenceToggleBehaviour.ForceFinish);
+
+                if (hasPoped)
+                {
+                    if(actionManager.GetSequence()?.GetActiveAction() is AbilityAction)
+                    {
+                        actionManager.StopSequence(SequenceStopBehaviour.ForceFinish);
+                    }
+                    else
+                    {
+                        actionManager.StopSequence();
+                    }
+                }              
             }
         }
 
@@ -71,7 +86,7 @@ namespace Scripts.AI.Controllers.Minions
 
                 if(playerInRange)
                 {
-                    actionManager.ToggleSequence(true);
+                    actionManager.ResumeSequence();
                 }
             }
         }
