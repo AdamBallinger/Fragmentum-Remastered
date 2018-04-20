@@ -92,7 +92,7 @@ namespace Scripts.AI.Controllers
             return healthSystem;
         }
 
-        public abstract void OnDamageReceived(int _damage);
+        public virtual void OnDamageReceived(int _damage) { }
 
         public abstract void OnDeath();
     }

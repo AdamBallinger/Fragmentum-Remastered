@@ -97,11 +97,6 @@ namespace Scripts.AI.Controllers.Minions
             Gizmos.DrawCube(GetComponent<Transform>().position + Vector3.up * popoutDist, Vector3.one * 0.5f);
         }
 
-        public override void OnDamageReceived(int _damage)
-        {
-            
-        }
-
         public override void OnDeath()
         {
             gameObject.SetActive(false);
