@@ -7,6 +7,10 @@ namespace Scripts.Utils
         [HideInInspector]
         public Vector3 rotateTarget;
 
+        [Tooltip("If specified, this object will be rotated using this rotator instead of the object the component is placed on. " +
+                 "Useful for controlling specific children of a gameobject.")]
+        public GameObject rotating;
+
         public bool applyYCorrection = true;
 
         public bool x = true;
@@ -18,9 +22,9 @@ namespace Scripts.Utils
 
         private void Update()
         {
-            var originalRotation = transform.rotation;
-            transform.LookAt(rotateTarget);
-            var targetRotation = transform.rotation.eulerAngles;
+            var originalRotation = GetRotated().rotation;
+            GetRotated().LookAt(rotateTarget);
+            var targetRotation = GetRotated().rotation.eulerAngles;
 
             if (!x)
             {
@@ -44,16 +48,16 @@ namespace Scripts.Utils
 
             if(smoothRotation)
             {
-                transform.rotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(targetRotation), rotateSpeed * Time.deltaTime);
+                GetRotated().rotation = Quaternion.Lerp(originalRotation, Quaternion.Euler(targetRotation), rotateSpeed * Time.deltaTime);
                 return;
             }
 
-            transform.rotation = Quaternion.Euler(targetRotation);
+            GetRotated().rotation = Quaternion.Euler(targetRotation);
         }
 
-        //private void OnDrawGizmos()
-        //{
-        //    Gizmos.DrawLine(transform.position, rotateTarget);
-        //}
+        private Transform GetRotated()
+        {
+            return rotating != null ? rotating.transform : transform;
+        }
     }
 }
