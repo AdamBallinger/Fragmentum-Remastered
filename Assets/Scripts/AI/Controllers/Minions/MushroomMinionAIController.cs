@@ -13,6 +13,8 @@ namespace Scripts.AI.Controllers.Minions
         private void OnEnable()
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+            ActionManager.SetDefaultAIAction(new IdleAction(ActionManager, 0.0f));
         }
 
         protected override void ControllerUpdate()
@@ -33,7 +35,7 @@ namespace Scripts.AI.Controllers.Minions
         {
             if(_collider.gameObject.CompareTag("Player"))
             {
-                ActionManager.SetActionImmediate(new IdleAction(ActionManager, 0.0f));
+                ActionManager.SetActionImmediate(null);
                 Animator?.SetBool("Walking", false);
             }
         }

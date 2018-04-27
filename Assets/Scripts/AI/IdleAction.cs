@@ -25,7 +25,13 @@ namespace Scripts.AI
 
         public override void Update()
         {
-            if(duration <= 0.0f)
+            if (ActionManager.Controller.usesGravity)
+            {
+                // Move with 0 force so that gravity still gets applied in they are for some reason idle in the air.
+                ActionManager.Controller.Controller.SimpleMove(Vector3.zero);
+            }
+
+            if (duration <= 0.0f)
             {
                 return;
             }
