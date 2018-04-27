@@ -9,7 +9,6 @@ namespace Scripts.AI.Controllers.Minions
         [Header("Pop-out Settings.")]
         public float popoutSpeed = 1.0f;
         public float popoutDist = 1.0f;
-        public AnimationCurve popoutCurve;
         private bool hasPoped;
 
         [Header("Attack Settings.")]
@@ -24,13 +23,13 @@ namespace Scripts.AI.Controllers.Minions
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-            actionManager.StopSequence();
+            ActionManager.StopSequence();
 
             var sequence = new AIActionSequence(true);
-            sequence.AddActionToSequence(new IdleAction(actionManager, attackDelay));
-            sequence.AddActionToSequence(new AbilityAction(actionManager, abilityController));
+            sequence.AddActionToSequence(new IdleAction(ActionManager, attackDelay));
+            sequence.AddActionToSequence(new AbilityAction(ActionManager, abilityController));
 
-            actionManager.SetActionSequence(sequence);
+            ActionManager.SetActionSequence(sequence);
         }
 
         protected override void ControllerUpdate()
@@ -48,12 +47,12 @@ namespace Scripts.AI.Controllers.Minions
                 {                  
                     hasPoped = true;
                     Animator?.SetBool("Roaring", true);
-                    actionManager.SetActionImmediate(new MoveAction(actionManager, transform.position + Vector3.up * popoutDist,
-                        popoutSpeed, popoutCurve));
+                    ActionManager.SetActionImmediate(new MoveAction(ActionManager, transform.position + Vector3.up * popoutDist,
+                        popoutSpeed));
                 }
                 else
                 {
-                    actionManager.ResumeSequence();
+                    ActionManager.ResumeSequence();
                 }         
             }
         }
@@ -66,13 +65,13 @@ namespace Scripts.AI.Controllers.Minions
 
                 if (hasPoped)
                 {
-                    if(actionManager.GetSequence()?.GetActiveAction() is AbilityAction)
+                    if(ActionManager.GetSequence()?.GetActiveAction() is AbilityAction)
                     {
-                        actionManager.StopSequence(SequenceStopBehaviour.ForceFinish);
+                        ActionManager.StopSequence(SequenceStopBehaviour.ForceFinish);
                     }
                     else
                     {
-                        actionManager.StopSequence();
+                        ActionManager.StopSequence();
                     }
                 }              
             }
@@ -86,7 +85,7 @@ namespace Scripts.AI.Controllers.Minions
 
                 if(playerInRange)
                 {
-                    actionManager.ResumeSequence();
+                    ActionManager.ResumeSequence();
                 }
             }
         }

@@ -24,7 +24,8 @@ namespace Scripts.AI.Controllers.Minions
         {
             if(_collider.gameObject.CompareTag("Player"))
             {
-                actionManager.SetActionImmediate(new ChaseAction(actionManager, player, moveSpeed));
+                //ActionManager.SetActionImmediate(new ChaseAction(ActionManager, player, moveSpeed));
+                ActionManager.SetActionImmediate(new MoveAction(ActionManager, player.position, moveSpeed, true));
                 Animator?.SetBool("Walking", true);
             }
         }
@@ -33,7 +34,7 @@ namespace Scripts.AI.Controllers.Minions
         {
             if(_collider.gameObject.CompareTag("Player"))
             {
-                actionManager.SetActionImmediate(new IdleAction(actionManager, 0.0f));
+                ActionManager.SetActionImmediate(new IdleAction(ActionManager, 0.0f));
                 Animator?.SetBool("Walking", false);
             }
         }

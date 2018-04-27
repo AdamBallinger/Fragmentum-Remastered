@@ -83,8 +83,8 @@ namespace Scripts.AI
         public void SetActionImmediate(AIAction _newAction)
         {
             OnActionFinished();
-
             currentAction = _newAction;
+            OnActionStart();
         }
 
         /// <summary>

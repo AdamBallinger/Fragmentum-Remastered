@@ -919,10 +919,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4372422367545974}
+  - component: {fileID: 95972061166579050}
   - component: {fileID: 114948553633080692}
   - component: {fileID: 143256845685607824}
   - component: {fileID: 54871906744886730}
-  - component: {fileID: 95972061166579050}
   - component: {fileID: 114437442243903390}
   m_Layer: 8
   m_Name: Player
@@ -2516,9 +2516,9 @@ CharacterController:
   serializedVersion: 2
   m_Height: 4
   m_Radius: 1
-  m_SlopeLimit: 45
+  m_SlopeLimit: 90
   m_StepOffset: 0.5
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.1
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!222 &222098126727963536

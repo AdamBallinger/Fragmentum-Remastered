@@ -1,13 +1,21 @@
-﻿using Scripts.Utils;
+﻿using Scripts.Extensions;
 using UnityEngine;
 
 namespace Scripts.AI
 {
     public class MoveAction : AIAction
     {
+        // Local reference to the AIController character controller.
+        private CharacterController controller;
+
         private Vector3 targetPosition;
 
-        private Interpolator interpolator;
+        private float speed;
+
+        /// <summary>
+        /// Local variables to track the time it takes to actually complete this action.
+        /// </summary>
+        private float currentMoveTime, timeToMove;
 
         /// <summary>
         /// Determines if the action will also rotate the AI towards the direction it is moving.
@@ -20,20 +28,19 @@ namespace Scripts.AI
         /// <param name="_actionManager">AI action manager.</param>
         /// <param name="_target">Position the AI moves toward.</param>
         /// <param name="_speed">The speed the AI moves at.</param>
-        /// <param name="_moveCurve">The curve to apply to movement for smoothing.</param>
         /// <param name="_rotateTowards">Controls if the move action overrides the AI rotation to look at the target position.</param>
-        public MoveAction(AIActionManager _actionManager, Vector3 _target, float _speed,
-            AnimationCurve _moveCurve, bool _rotateTowards = false) : base(_actionManager)
+        public MoveAction(AIActionManager _actionManager, Vector3 _target, float _speed, bool _rotateTowards = false) : base(_actionManager)
         {
+            controller = _actionManager.Controller.Controller;
             targetPosition = _target;
-            var start = _actionManager.Controller.transform.position;
-            interpolator = new Interpolator(start, targetPosition, _speed, _moveCurve);
+            speed = _speed;
             rotateTowards = _rotateTowards;
         }
 
         public override void OnActionStart()
         {
-            interpolator.SetStart(ActionManager.Controller.transform.position);
+            currentMoveTime = 0.0f;
+            timeToMove = Vector3.Distance(ActionManager.Controller.transform.position, targetPosition) / speed;
 
             if (rotateTowards)
             {
@@ -43,13 +50,25 @@ namespace Scripts.AI
 
         public override void Update()
         {
-            if(interpolator.HasFinished())
+            if(currentMoveTime >= timeToMove)
             {
                 finished = true;
                 return;
             }
 
-            ActionManager.Controller.transform.position = interpolator.Interpolate();
+            currentMoveTime += Time.deltaTime;
+
+            var direction = ActionManager.Controller.transform.position.DirectionTo(targetPosition);
+
+            if(ActionManager.Controller.usesGravity)
+            {
+
+                controller.SimpleMove(direction * speed);
+            }
+            else
+            {
+                controller.Move(direction * speed * Time.deltaTime);
+            }
 
             if(rotateTowards)
             {
@@ -64,9 +83,7 @@ namespace Scripts.AI
                 ActionManager.Controller.ControlsRotation = true;
             }
 
-            // Reset the action for when its used in a repeating sequence.
             finished = false;
-            interpolator.Reset();
         }
     }
 }

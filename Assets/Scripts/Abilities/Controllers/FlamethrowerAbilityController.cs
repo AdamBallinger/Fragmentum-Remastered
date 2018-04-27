@@ -31,7 +31,7 @@ namespace Scripts.Abilities.Controllers
         [SerializeField]
         private float flamesEndOffset = 0.0f;
 
-        private Interpolator interpolator;
+        private Vector3Interpolator vector3Interpolator;
 
         public AttackDirection attackDirection = AttackDirection.Left;
 
@@ -45,7 +45,7 @@ namespace Scripts.Abilities.Controllers
 
             attackDirection = dot < 0.0f ? AttackDirection.Left : AttackDirection.Right;    
 
-            interpolator = new Interpolator(GetFlamesStart(), GetFlamesEnd(), flamesRotationSpeed, flamesMoveCurve);
+            vector3Interpolator = new Vector3Interpolator(GetFlamesStart(), GetFlamesEnd(), flamesRotationSpeed, flamesMoveCurve);
 
             batAIController.ControlsRotation = false;
             batAIController.Rotator.rotateTarget = GetFlamesStart();
@@ -60,7 +60,7 @@ namespace Scripts.Abilities.Controllers
 
         public override void OnUpdate()
         {
-            var target = interpolator.Interpolate();
+            var target = vector3Interpolator.Interpolate();
 
             flamesRotator.rotateTarget = target;
             batAIController.Rotator.rotateTarget = target;
@@ -78,7 +78,7 @@ namespace Scripts.Abilities.Controllers
 
         public override bool HasFinished()
         {
-            return interpolator.HasFinished();
+            return vector3Interpolator.HasFinished();
         }
 
         /// <summary>

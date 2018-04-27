@@ -4,57 +4,47 @@ using UnityEngine;
 
 namespace Scripts.AI.Controllers
 {
+    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Rotator))]
     [RequireComponent(typeof(HealthSystem))]
     public abstract class AIController : MonoBehaviour, IDamageable
     {
+        public bool usesGravity;
+
         [HideInInspector]
         public new Transform transform;
 
-        /// <summary>
-        /// Reference to the rotator component of this AI, which handles rotating the AI body.
-        /// </summary>
+        public CharacterController Controller { get; private set; }
+
+        protected Animator Animator { get; private set; }
+
         public Rotator Rotator { get; private set; }
 
-        /// <summary>
-        /// Reference to the AI health system component of this AI.
-        /// </summary>
+        protected AIActionManager ActionManager { get; private set; }
+
         protected HealthSystem healthSystem;
 
         /// <summary>
-        /// Property defines if the AIController controls the rotation of the bat. Useful for allowing external components
+        /// Property defines if the AIController controls the rotation of the AI. Useful for allowing external components
         /// to control the rotation of the AI.
         /// </summary>
         public bool ControlsRotation { get; set; } = true;
 
-        protected AIActionManager actionManager;
-
-        protected Animator Animator { get; private set; }
-
         private void Awake()
         {
-            actionManager = new AIActionManager(this);
+            Controller = GetComponent<CharacterController>();
+            ActionManager = new AIActionManager(this);
             transform = GetComponent<Transform>();
             Animator = GetComponent<Animator>();
             Rotator = GetComponent<Rotator>();
             healthSystem = GetComponent<HealthSystem>();
-
-            if(Animator == null)
-            {
-                Debug.LogWarning($"[AIController] Could not find animator component for gameobject: {gameObject.name}. Make sure it " +
-                                 "is on the same object as the AIController component.");
-            }
-
-            if(Rotator == null)
-            {
-                Debug.LogWarning($"[AIController] Could not find Rotator component for gameobject: {gameObject.name}. Make sure it " +
-                               "is on the same object as the AIController component.");
-            }
         }
         
         private void Update()
         {
             ControllerUpdate();
-            actionManager?.Update();
+            ActionManager?.Update();
         }
 
         /// <summary>

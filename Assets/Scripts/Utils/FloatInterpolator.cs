@@ -2,10 +2,10 @@
 
 namespace Scripts.Utils
 {
-    public class Interpolator
+    public class FloatInterpolator
     {
-        private Vector3 initialPosition;
-        private Vector3 targetPosition;
+        private float initial;
+        private float target;
 
         private AnimationCurve curve;
 
@@ -15,10 +15,10 @@ namespace Scripts.Utils
 
         private float rate;
 
-        public Interpolator(Vector3 _start, Vector3 _end, float _speed, AnimationCurve _curve)
+        public FloatInterpolator(float _start, float _end, float _speed, AnimationCurve _curve)
         {
-            initialPosition = _start;
-            targetPosition = _end;
+            initial = _start;
+            target = _end;
             speed = _speed;
             CalculateTRate();
             curve = _curve;
@@ -26,28 +26,28 @@ namespace Scripts.Utils
         }
 
         /// <summary>
-        /// Interpolates and returns the vector between the given start and end.
+        /// Interpolates and returns the float between the given start and end.
         /// </summary>
         /// <returns></returns>
-        public Vector3 Interpolate()
+        public float Interpolate()
         {
-            var interpolated = Vector3.Lerp(initialPosition, targetPosition, curve.Evaluate(t));
+            var interpolated = Mathf.Lerp(initial, target, curve.Evaluate(t));
             t += Time.deltaTime / rate;
             return interpolated;
         }
 
         private void CalculateTRate()
         {
-            rate = Vector3.Distance(initialPosition, targetPosition) / speed;
+            rate = Mathf.Abs(initial - target) / speed;
         }
 
         /// <summary>
         /// Sets the starting position for the interpolator.
         /// </summary>
         /// <param name="_start"></param>
-        public void SetStart(Vector3 _start)
+        public void SetStart(float _start)
         {
-            initialPosition = _start;
+            initial = _start;
             CalculateTRate();
         }
 

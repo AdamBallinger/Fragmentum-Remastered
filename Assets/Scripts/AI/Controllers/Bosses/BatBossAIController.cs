@@ -22,16 +22,16 @@ namespace Scripts.AI.Controllers.Bosses
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
             var actionSequence = new AIActionSequence(true);
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[1], moveSpeed, moveCurve));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[2], moveSpeed, moveCurve));
-            actionSequence.AddActionToSequence(new AbilityAction(actionManager, basicAttackAbility));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[3], moveSpeed, moveCurve));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[0], moveSpeed, moveCurve));
-            actionSequence.AddActionToSequence(new AbilityAction(actionManager, basicAttackAbility));
-            actionSequence.AddActionToSequence(new MoveAction(actionManager, movePoints[4], moveSpeed, moveCurve, true));
-            actionSequence.AddActionToSequence(new AbilityAction(actionManager, flamethrowerAbility));
+            actionSequence.AddActionToSequence(new MoveAction(ActionManager, movePoints[1], moveSpeed));
+            actionSequence.AddActionToSequence(new MoveAction(ActionManager, movePoints[2], moveSpeed));
+            actionSequence.AddActionToSequence(new AbilityAction(ActionManager, basicAttackAbility));
+            actionSequence.AddActionToSequence(new MoveAction(ActionManager, movePoints[3], moveSpeed));
+            actionSequence.AddActionToSequence(new MoveAction(ActionManager, movePoints[0], moveSpeed));
+            actionSequence.AddActionToSequence(new AbilityAction(ActionManager, basicAttackAbility));
+            actionSequence.AddActionToSequence(new MoveAction(ActionManager, movePoints[4], moveSpeed, true));
+            actionSequence.AddActionToSequence(new AbilityAction(ActionManager, flamethrowerAbility));
 
-            actionManager.SetActionSequence(actionSequence);
+            ActionManager.SetActionSequence(actionSequence);
         }
 
         protected override void ControllerUpdate()
