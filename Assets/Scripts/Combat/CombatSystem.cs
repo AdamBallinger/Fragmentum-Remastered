@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Scripts.Combat
 {
@@ -9,7 +10,8 @@ namespace Scripts.Combat
         /// </summary>
         /// <param name="_source"></param>
         /// <param name="_target"></param>
-        public static void ProcessDamage(GameObject _source, GameObject _target)
+        /// <param name="_attackType"></param>
+        public static void ProcessDamage(GameObject _source, GameObject _target, AttackType _attackType)
         {
             var damageProvider = _source.GetComponent<IDamageProvider>();
             var damageable = _target.GetComponent<IDamageable>();
@@ -17,6 +19,16 @@ namespace Scripts.Combat
             if(damageProvider == null || damageable == null)
             {
                 return;
+            }
+
+            var resistance = _target.GetComponent<IResistant>();
+
+            if(resistance != null)
+            {
+                if(resistance.GetResistances().ToList().Contains(_attackType))
+                {
+                    return;
+                }
             }
 
             damageable.GetHealth().RemoveHealth(damageProvider.GetDamage());

@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Scripts.Combat;
+using UnityEngine;
 
 namespace Scripts.AI.Controllers.Minions
 {
-    public class MushroomMinionAIController : AIController
+    public class MushroomMinionAIController : AIController, IResistant
     {
         public float moveSpeed = 1.0f;
 
@@ -39,6 +40,11 @@ namespace Scripts.AI.Controllers.Minions
         public override void OnDeath()
         {
             gameObject.SetActive(false);
+        }
+
+        public AttackType[] GetResistances()
+        {
+            return new[] { AttackType.Player_Dash };
         }
     }
 }

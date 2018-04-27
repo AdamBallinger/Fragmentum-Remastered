@@ -299,7 +299,7 @@ namespace Scripts.Player
 
         public void OnDashHit(Collider _collider)
         {
-            CombatSystem.ProcessDamage(gameObject, _collider.gameObject);
+            CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Player_Dash);
         }
 
         public HealthSystem GetHealth()

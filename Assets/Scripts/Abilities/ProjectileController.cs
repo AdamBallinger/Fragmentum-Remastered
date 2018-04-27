@@ -69,7 +69,7 @@ namespace Scripts.Abilities
         {
             if(CollisionMask.Contains(_col.gameObject.layer) && !deactivating)
             {      
-                CombatSystem.ProcessDamage(gameObject, _col.gameObject);
+                CombatSystem.ProcessDamage(gameObject, _col.gameObject, AttackType.Projectile);
 
                 if(!delayedDeactivation)
                 {
