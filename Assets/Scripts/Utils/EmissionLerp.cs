@@ -4,7 +4,7 @@ namespace Scripts.Utils
 {
     public class EmissionLerp : MonoBehaviour
     {
-        public Renderer renderer;
+        public new Renderer renderer;
         public Color start, end;
 
         public float speed = 1.0f;
