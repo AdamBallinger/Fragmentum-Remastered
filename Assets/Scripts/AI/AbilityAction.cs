@@ -39,7 +39,6 @@ namespace Scripts.AI
             }
 
             AbilityController.OnUpdate();
-            finished = AbilityController.HasFinished();
         }
 
         public override void OnActionStart()
@@ -52,7 +51,11 @@ namespace Scripts.AI
             AbilityController.OnFinish();
             abilityStarted = false;
             currentDelayTime = 0.0f;
-            finished = false;
+        }
+
+        public override bool HasFinished()
+        {
+            return AbilityController.HasFinished();
         }
     }
 }

@@ -7,12 +7,9 @@
         /// </summary>
         public AIActionManager ActionManager { get; }
 
-        protected bool finished;
-
         protected AIAction(AIActionManager _actionManager)
         {
             ActionManager = _actionManager;
-            finished = false;
         }
 
         public virtual void OnActionStart() { }
@@ -21,9 +18,6 @@
 
         public virtual void OnActionFinished() { }
 
-        public bool HasFinished()
-        {
-            return finished;
-        }
+        public abstract bool HasFinished();
     }
 }

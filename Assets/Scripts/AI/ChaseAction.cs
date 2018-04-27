@@ -36,5 +36,11 @@ namespace Scripts.AI
                 controller.Move(direction * speed * Time.deltaTime);
             }
         }
+
+        public override bool HasFinished()
+        {
+            // Chase action will run until its manually interrupted by the action manager.
+            return false;
+        }
     }
 }

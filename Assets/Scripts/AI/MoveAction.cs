@@ -50,12 +50,6 @@ namespace Scripts.AI
 
         public override void Update()
         {
-            if(currentMoveTime >= timeToMove)
-            {
-                finished = true;
-                return;
-            }
-
             currentMoveTime += Time.deltaTime;
 
             var direction = ActionManager.Controller.transform.position.DirectionTo(targetPosition);
@@ -82,8 +76,11 @@ namespace Scripts.AI
             {
                 ActionManager.Controller.ControlsRotation = true;
             }
+        }
 
-            finished = false;
+        public override bool HasFinished()
+        {
+            return currentMoveTime >= timeToMove;
         }
     }
 }

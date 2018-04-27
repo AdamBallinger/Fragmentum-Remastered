@@ -31,17 +31,16 @@ namespace Scripts.AI
             }
 
             currentIdleTime += Time.deltaTime;
-
-            if(currentIdleTime >= duration)
-            {
-                finished = true;
-            }
         }
 
         public override void OnActionFinished()
         {
             currentIdleTime = 0.0f;
-            finished = false;
+        }
+
+        public override bool HasFinished()
+        {
+            return currentIdleTime >= duration;
         }
     }
 }
