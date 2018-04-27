@@ -15,6 +15,13 @@ namespace Scripts.Utils
 
         private bool reversing;
 
+        private MaterialPropertyBlock materialPB;
+
+        private void Start()
+        {
+            materialPB = new MaterialPropertyBlock();
+        }
+
         private void Update()
         {
             if(!reversing)
@@ -40,7 +47,6 @@ namespace Scripts.Utils
                 t -= speed * Time.deltaTime;
             }
 
-            var materialPB = new MaterialPropertyBlock();
             materialPB.SetColor("_EmissionColor", Color.Lerp(start, end, curve.Evaluate(t)));
             renderer.SetPropertyBlock(materialPB);
         }
