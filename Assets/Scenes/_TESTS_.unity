@@ -446,8 +446,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 54848579654777646, guid: 4e7c35dcfc8399b48bf9741bc0904966, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e7c35dcfc8399b48bf9741bc0904966, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2125087565 stripped
@@ -503,6 +502,11 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224344942504302920, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3b6ec8ba9bc3b2408e6825fba31a87e, type: 2}

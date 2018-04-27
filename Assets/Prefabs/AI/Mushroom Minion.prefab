@@ -238,8 +238,8 @@ GameObject:
   - component: {fileID: 114437938012921574}
   - component: {fileID: 114839308110383052}
   - component: {fileID: 114764186309387438}
-  - component: {fileID: 54848579654777646}
   - component: {fileID: 65248735437366208}
+  - component: {fileID: 114707077960976822}
   m_Layer: 0
   m_Name: Mushroom Minion
   m_TagString: Untagged
@@ -597,7 +597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1979050701135190
 GameObject:
   m_ObjectHideFlags: 1
@@ -871,7 +871,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482007718578662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 142.65, y: 1.126, z: -1}
+  m_LocalPosition: {x: 134.49, y: 1.126, z: 2.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4350674330413616}
@@ -1158,21 +1158,6 @@ Transform:
   m_Father: {fileID: 4350674330413616}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54848579654777646
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1482007718578662}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &65185913468273478
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1277,6 +1262,39 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Scripts.Utils.TriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114707077960976822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482007718578662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7ca7e3e930b12499e0267a7d83c5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 137239941787658982}
+  start: {r: 0, g: 0, b: 0, a: 0}
+  end: {r: 0.43529412, g: 0, b: 0, a: 1}
+  speed: 0.625
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114764186309387438
 MonoBehaviour:
   m_ObjectHideFlags: 1
