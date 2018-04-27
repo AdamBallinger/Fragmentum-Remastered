@@ -29,6 +29,9 @@ namespace Scripts.Player
 
         [Header("Movement Settings")]
         public float moveSpeed = 1.0f;
+        [Range(0.0f, 1.0f)]
+        [Tooltip("Affects the movement speed of the player whilst blocking.")]
+        public float blockingModifier = 0.5f;
         public float jumpStrength = 1.0f;
         public int allowedJumps = 2;
         public float dashStrength = 1.0f;
@@ -158,7 +161,7 @@ namespace Scripts.Player
 
                 // Move player left and right
                 var v = Velocity;
-                v += Heading * (Blocking ? moveSpeed / 4 : moveSpeed) * Mathf.Abs(HDelta) * Time.deltaTime;
+                v += Heading * (Blocking ? moveSpeed * blockingModifier : moveSpeed) * Mathf.Abs(HDelta) * Time.deltaTime;
                 Velocity = v;
             }        
         }

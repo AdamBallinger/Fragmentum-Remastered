@@ -2071,6 +2071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugText: {fileID: 114389377364247762}
   moveSpeed: 16
+  blockingModifier: 0.25
   jumpStrength: 28
   allowedJumps: 2
   dashStrength: 28
