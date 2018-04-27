@@ -713,6 +713,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114509560504701240, guid: af59cb91854975740a45deb7b1f07d37,
+        type: 2}
+      propertyPath: collidable.m_Bits
+      value: 4294964168
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af59cb91854975740a45deb7b1f07d37, type: 2}
   m_IsPrefabParent: 0
