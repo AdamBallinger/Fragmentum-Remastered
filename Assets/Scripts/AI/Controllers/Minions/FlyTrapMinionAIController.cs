@@ -44,7 +44,7 @@ namespace Scripts.AI.Controllers.Minions
                 playerInRange = true;
 
                 if (!hasPoped)
-                {                  
+                {
                     hasPoped = true;
                     Animator?.SetBool("Roaring", true);
                     ActionManager.SetActionImmediate(new MoveAction(ActionManager, transform.position + Vector3.up * popoutDist,

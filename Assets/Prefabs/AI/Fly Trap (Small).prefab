@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4782842695238718}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4307045789578480}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Neck_Joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4652978245808122}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4503777582896586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lower_Mouth_Joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4760752403526100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4392139114419340}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: head_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4986437910616230}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4576131655821698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4715617040123960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 4048219922482154}
   - component: {fileID: 114852909424320484}
   - component: {fileID: 65987233128753270}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Radius Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4339695826657898}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4728371741257582}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,8 +207,8 @@ GameObject:
   - component: {fileID: 114429362677906218}
   - component: {fileID: 114050088907034504}
   - component: {fileID: 114902607315461598}
-  - component: {fileID: 136089140901155110}
-  m_Layer: 0
+  - component: {fileID: 143943726198340222}
+  m_Layer: 10
   m_Name: Fly Trap (Small)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4154530850420276}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4922310320383770}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4056059388367404}
   - component: {fileID: 137062762483071632}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Venus_Fly_Trap_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4870091709630504}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Upper_Mouth_Joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4437768292845458}
   - component: {fileID: 137235335030658822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: polySurface2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4022205243562400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4545197622928294}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4805442233684182}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4790234269983224}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Venus_Fly_Trap_Low_Poly:Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +737,7 @@ MonoBehaviour:
   animationParameter: Spitting
   collidable:
     serializedVersion: 2
-    m_Bits: 4294967240
+    m_Bits: 4294966216
 --- !u!114 &114627068756223032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -749,27 +749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2786b3a353ebdbd448d062f62ddb0379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usesGravity: 0
   transform: {fileID: 0}
   popoutSpeed: 4
   popoutDist: 5
-  popoutCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
   attackDelay: 0.75
   abilityController: {fileID: 114509560504701240}
 --- !u!114 &114852909424320484
@@ -833,25 +816,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateTarget: {x: 0, y: 0, z: 0}
+  rotating: {fileID: 0}
   applyYCorrection: 0
   x: 0
   y: 1
   z: 0
   smoothRotation: 1
   rotateSpeed: 6
---- !u!136 &136089140901155110
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1392219253806184}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 3
-  m_Height: 14.5
-  m_Direction: 1
-  m_Center: {x: 0, y: -4, z: 0}
 --- !u!137 &137062762483071632
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -965,3 +936,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.1243211, y: 0.081728935, z: 0.078517675}
     m_Extent: {x: 1.1706957, y: 1.2948344, z: 1.2181573}
   m_DirtyAABB: 0
+--- !u!143 &143943726198340222
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392219253806184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 15
+  m_Radius: 3.5
+  m_SlopeLimit: 90
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.2
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: -3, z: 0}
