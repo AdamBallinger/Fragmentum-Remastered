@@ -1,4 +1,5 @@
 ﻿using Scripts.Combat;
+using Scripts.Player;
 using Scripts.Utils;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ namespace Scripts.AI.Controllers
     public abstract class AIController : MonoBehaviour, IDamageable
     {
         public bool usesGravity;
+
+        public bool clampOnAxis;
+        public PlayerMoveAxis clampedAxis = PlayerMoveAxis.Z;
+        private float clampedValue;
 
         [HideInInspector]
         public new Transform transform;
@@ -39,12 +44,43 @@ namespace Scripts.AI.Controllers
             Animator = GetComponent<Animator>();
             Rotator = GetComponent<Rotator>();
             healthSystem = GetComponent<HealthSystem>();
+
+            if(clampOnAxis)
+            {
+                switch(clampedAxis)
+                {
+                    case PlayerMoveAxis.X:
+                        clampedValue = transform.position.x;
+                        break;
+                    case PlayerMoveAxis.Z:
+                        clampedValue = transform.position.z;
+                        break;
+                }
+            }
         }
         
         private void Update()
         {
             ControllerUpdate();
             ActionManager?.Update();
+
+            if(clampOnAxis)
+            {
+                var currentPos = transform.position;
+
+                switch (clampedAxis)
+                {
+                    case PlayerMoveAxis.X:
+                        currentPos.x = clampedValue;
+                        break;
+
+                    case PlayerMoveAxis.Z:
+                        currentPos.z = clampedValue;
+                        break;
+                }
+
+                transform.position = currentPos;
+            }
         }
 
         /// <summary>
