@@ -18,26 +18,23 @@ namespace Scripts.UI.Dialogue
         private void Start()
         {
             dialogue.Create();
+
+            controller = FindObjectOfType<DialogueController>();
         }
 
         private void OnTriggerEnter(Collider _collider)
         {
-            if(_collider.gameObject.CompareTag("Player") && !hasTriggered)
+            if (controller == null)
+            {
+                Debug.LogError("[DialogueTrigger] -> Failed to find instance of DialogueController in scene!");
+                return;
+            }
+
+            if (_collider.gameObject.CompareTag("Player") && !hasTriggered)
             {
                 if(!canTriggerMultiple)
                 {
                     hasTriggered = true;
-                }
-
-                if(controller == null)
-                {
-                    controller = FindObjectOfType<DialogueController>();
-
-                    if(controller == null)
-                    {
-                        Debug.LogError("[DialogueTrigger] -> Failed to find instance of DialogueController in scene!");
-                        return;
-                    }
                 }
 
                 controller.ShowDialogue(type, dialogue);
