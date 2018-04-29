@@ -1,0 +1,1513 @@
+fileFormatVersion: 2
+guid: 5818d0d56a6da744aac823baca56fdd2
+timeCreated: 1524957155
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: keyboard_mouse_buttons_0
+    21300002: keyboard_mouse_buttons_1
+    21300004: keyboard_mouse_buttons_2
+    21300006: keyboard_mouse_buttons_3
+    21300008: keyboard_mouse_buttons_4
+    21300010: keyboard_mouse_buttons_5
+    21300012: keyboard_mouse_buttons_6
+    21300014: keyboard_mouse_buttons_7
+    21300016: keyboard_mouse_buttons_8
+    21300018: keyboard_mouse_buttons_9
+    21300020: keyboard_mouse_buttons_10
+    21300022: keyboard_mouse_buttons_11
+    21300024: keyboard_mouse_buttons_12
+    21300026: keyboard_mouse_buttons_13
+    21300028: keyboard_mouse_buttons_14
+    21300030: keyboard_mouse_buttons_15
+    21300032: keyboard_mouse_buttons_16
+    21300034: keyboard_mouse_buttons_17
+    21300036: keyboard_mouse_buttons_18
+    21300038: keyboard_mouse_buttons_19
+    21300040: keyboard_mouse_buttons_20
+    21300042: keyboard_mouse_buttons_21
+    21300044: keyboard_mouse_buttons_22
+    21300046: keyboard_mouse_buttons_23
+    21300048: keyboard_mouse_buttons_24
+    21300050: keyboard_mouse_buttons_25
+    21300052: keyboard_mouse_buttons_26
+    21300054: keyboard_mouse_buttons_27
+    21300056: keyboard_mouse_buttons_28
+    21300058: keyboard_mouse_buttons_29
+    21300060: keyboard_mouse_buttons_30
+    21300062: keyboard_mouse_buttons_31
+    21300064: keyboard_mouse_buttons_32
+    21300066: keyboard_mouse_buttons_33
+    21300068: keyboard_mouse_buttons_34
+    21300070: keyboard_mouse_buttons_35
+    21300072: keyboard_mouse_buttons_36
+    21300074: keyboard_mouse_buttons_37
+    21300076: keyboard_mouse_buttons_38
+    21300078: keyboard_mouse_buttons_39
+    21300080: keyboard_mouse_buttons_40
+    21300082: keyboard_mouse_buttons_41
+    21300084: keyboard_mouse_buttons_42
+    21300086: keyboard_mouse_buttons_43
+    21300088: keyboard_mouse_buttons_44
+    21300090: keyboard_mouse_buttons_45
+    21300092: keyboard_mouse_buttons_46
+    21300094: keyboard_mouse_buttons_47
+    21300096: keyboard_mouse_buttons_48
+    21300098: keyboard_mouse_buttons_49
+    21300100: keyboard_mouse_buttons_50
+    21300102: keyboard_mouse_buttons_51
+    21300104: keyboard_mouse_buttons_52
+    21300106: keyboard_mouse_buttons_53
+    21300108: keyboard_mouse_buttons_54
+    21300110: keyboard_mouse_buttons_55
+    21300112: keyboard_mouse_buttons_56
+    21300114: keyboard_mouse_buttons_57
+    21300116: keyboard_mouse_buttons_58
+    21300118: keyboard_mouse_buttons_59
+    21300120: keyboard_mouse_buttons_60
+    21300122: keyboard_mouse_buttons_61
+    21300124: keyboard_mouse_buttons_62
+    21300126: keyboard_mouse_buttons_63
+    21300128: keyboard_mouse_buttons_64
+    21300130: keyboard_mouse_buttons_65
+    21300132: keyboard_mouse_buttons_66
+    21300134: keyboard_mouse_buttons_67
+    21300136: keyboard_mouse_buttons_68
+    21300138: keyboard_mouse_buttons_69
+    21300140: keyboard_mouse_buttons_70
+    21300142: keyboard_mouse_buttons_71
+    21300144: keyboard_mouse_buttons_72
+    21300146: keyboard_mouse_buttons_73
+    21300148: keyboard_mouse_buttons_74
+    21300150: keyboard_mouse_buttons_75
+    21300152: keyboard_mouse_buttons_76
+    21300154: keyboard_mouse_buttons_77
+    21300156: keyboard_mouse_buttons_78
+    21300158: keyboard_mouse_buttons_79
+    21300160: keyboard_mouse_buttons_80
+    21300162: keyboard_mouse_buttons_81
+    21300164: keyboard_mouse_buttons_82
+    21300166: keyboard_mouse_buttons_83
+    21300168: keyboard_mouse_buttons_84
+    21300170: keyboard_mouse_buttons_85
+    21300172: keyboard_mouse_buttons_86
+    21300174: keyboard_mouse_buttons_87
+    21300176: keyboard_mouse_buttons_88
+    21300178: keyboard_mouse_buttons_89
+    21300180: keyboard_mouse_buttons_90
+    21300182: keyboard_mouse_buttons_91
+    21300184: keyboard_mouse_buttons_92
+    21300186: keyboard_mouse_buttons_93
+    21300188: keyboard_mouse_buttons_94
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1190
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 1190
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_2
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1184
+        width: 94
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_3
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 1184
+        width: 94
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_4
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 1166
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1126
+        width: 92
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_6
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1126
+        width: 92
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_7
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 1120
+        width: 92
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_8
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 1120
+        width: 92
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_9
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1092
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1062
+        width: 92
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_11
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1062
+        width: 92
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_12
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 1056
+        width: 92
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_13
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 1050
+        width: 92
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_14
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1018
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 992
+        width: 92
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_16
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 992
+        width: 92
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_17
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 986
+        width: 92
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_18
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 976
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_19
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 944
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 918
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_21
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 918
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_22
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 912
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_23
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 902
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_24
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 870
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_25
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 870
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_26
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 844
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_27
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 844
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_28
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 838
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_29
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 828
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_30
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 796
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_31
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 796
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 769
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_33
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 770
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_34
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 764
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_35
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 754
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_36
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 722
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_37
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 722
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_38
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 696
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_39
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 696
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_40
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 690
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_41
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 680
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_42
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 648
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_43
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 648
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_44
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 622
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_45
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 622
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_46
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 616
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_47
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 606
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_48
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 574
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_49
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 574
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_50
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 548
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_51
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 548
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_52
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 542
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_53
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 532
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_54
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 500
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_55
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 500
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_56
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 474
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_57
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 474
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_58
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 468
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_59
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 458
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_60
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 426
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_61
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 426
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_62
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 400
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_63
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 400
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_64
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 394
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_65
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 384
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_66
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 352
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_67
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 352
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_68
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 326
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_69
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 326
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_70
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 320
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_71
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 310
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_72
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 278
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_73
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 278
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_74
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 252
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_75
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 252
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_76
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 246
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_77
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 236
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_78
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 204
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_79
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 204
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_80
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 178
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_81
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 178
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_82
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 172
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_83
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 162
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_84
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 130
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_85
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 130
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_86
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 104
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_87
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 104
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_88
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 98
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_89
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 88
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_90
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 56
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_91
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 56
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_92
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 30
+        width: 76
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_93
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 11
+        width: 92
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: keyboard_mouse_buttons_94
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 1
+        width: 92
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

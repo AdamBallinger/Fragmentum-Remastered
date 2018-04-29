@@ -20,7 +20,7 @@ namespace Scripts.Camera
             _transform = transform;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (playerTransform == null || !enableFollow) return;
 

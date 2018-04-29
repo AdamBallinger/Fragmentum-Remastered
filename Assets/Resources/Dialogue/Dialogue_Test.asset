@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58012661b18750c48a36d92d79c3312b, type: 3}
+  m_Name: Dialogue_Test
+  m_EditorClassIdentifier: 
+  text: "This is a test dialogue message. \nSo yeah press <sprite=\"xbox_one_buttons\"
+    index=0> or <sprite=\"keyboard_buttons\" index=1> to close this box.\nOr you could
+    choose not too thats totally fine too.@Just one more time!@Ok for real this time
+    it will close."
+  pageSplitter: 64

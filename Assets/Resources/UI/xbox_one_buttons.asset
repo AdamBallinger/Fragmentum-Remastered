@@ -1,0 +1,276 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2019389346, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
+  m_Name: xbox_one_buttons
+  m_EditorClassIdentifier: 
+  hashCode: 1503282764
+  material: {fileID: 21053143641148070}
+  materialHashCode: 0
+  spriteSheet: {fileID: 2800000, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  spriteInfoList:
+  - id: 0
+    x: 8
+    y: 324
+    width: 88
+    height: 87
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_a
+    hashCode: -1931275775
+    unicode: 0
+    pivot: {x: -44, y: 43.5}
+    sprite: {fileID: 21300000, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 1
+    x: 113
+    y: 324
+    width: 88
+    height: 87
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_x
+    hashCode: -1931275752
+    unicode: 0
+    pivot: {x: -44, y: 43.5}
+    sprite: {fileID: 21300002, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 2
+    x: 218
+    y: 324
+    width: 88
+    height: 87
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_y
+    hashCode: -1931275751
+    unicode: 0
+    pivot: {x: -44, y: 43.5}
+    sprite: {fileID: 21300004, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 3
+    x: 323
+    y: 324
+    width: 88
+    height: 87
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_b
+    hashCode: -1931275774
+    unicode: 0
+    pivot: {x: -44, y: 43.5}
+    sprite: {fileID: 21300006, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 4
+    x: 5
+    y: 237
+    width: 94
+    height: 51
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_lb
+    hashCode: 692409326
+    unicode: 0
+    pivot: {x: -47, y: 25.5}
+    sprite: {fileID: 21300008, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 5
+    x: 110
+    y: 237
+    width: 94
+    height: 51
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_rb
+    hashCode: 692409392
+    unicode: 0
+    pivot: {x: -47, y: 25.5}
+    sprite: {fileID: 21300010, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 6
+    x: 219
+    y: 218
+    width: 86
+    height: 92
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_lt
+    hashCode: 692409336
+    unicode: 0
+    pivot: {x: -43, y: 46}
+    sprite: {fileID: 21300012, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 7
+    x: 324
+    y: 217
+    width: 86
+    height: 92
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_rt
+    hashCode: 692409382
+    unicode: 0
+    pivot: {x: -43, y: 46}
+    sprite: {fileID: 21300014, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 8
+    x: 2
+    y: 110
+    width: 98
+    height: 98
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_buttons_8
+    hashCode: 692388299
+    unicode: 0
+    pivot: {x: -49, y: 49}
+    sprite: {fileID: 21300016, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 9
+    x: 107
+    y: 110
+    width: 98
+    height: 98
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_buttons_9
+    hashCode: 692388298
+    unicode: 0
+    pivot: {x: -49, y: 49}
+    sprite: {fileID: 21300018, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 10
+    x: 212
+    y: 110
+    width: 98
+    height: 98
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_buttons_10
+    hashCode: 1373977138
+    unicode: 0
+    pivot: {x: -49, y: 49}
+    sprite: {fileID: 21300020, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 11
+    x: 317
+    y: 110
+    width: 98
+    height: 98
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_buttons_11
+    hashCode: 1373977139
+    unicode: 0
+    pivot: {x: -49, y: 49}
+    sprite: {fileID: 21300022, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 12
+    x: 325
+    y: 12
+    width: 83
+    height: 83
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_buttons_15
+    hashCode: 1373977143
+    unicode: 0
+    pivot: {x: -41.5, y: 41.5}
+    sprite: {fileID: 21300030, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 13
+    x: 108
+    y: 6
+    width: 96
+    height: 95
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_left_thumb
+    hashCode: 2032667074
+    unicode: 0
+    pivot: {x: -48, y: 47.5}
+    sprite: {fileID: 21300026, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 14
+    x: 213
+    y: 6
+    width: 96
+    height: 95
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_button_right_thumb
+    hashCode: -2013876647
+    unicode: 0
+    pivot: {x: -48, y: 47.5}
+    sprite: {fileID: 21300028, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  - id: 15
+    x: 3
+    y: 4
+    width: 98
+    height: 98
+    xOffset: 0
+    yOffset: 62
+    xAdvance: 88
+    scale: 1.25
+    name: xbox_one_buttons_12
+    hashCode: 1373977136
+    unicode: 0
+    pivot: {x: -49, y: 49}
+    sprite: {fileID: 21300024, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+  fallbackSpriteAssets: []
+--- !u!21 &21053143641148070
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TextMeshPro/Sprite
+  m_Shader: {fileID: 4800000, guid: 3a1c68c8292caf046bd21158886c5e40, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c8024b60d7953c34b92f0da6c98b3759, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
