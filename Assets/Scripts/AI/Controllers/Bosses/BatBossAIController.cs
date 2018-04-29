@@ -7,7 +7,6 @@ namespace Scripts.AI.Controllers.Bosses
     {
         public bool drawGizmos = true;
 
-        public AnimationCurve moveCurve;
         public float moveSpeed;
 
         public Vector3[] movePoints;

@@ -56,7 +56,6 @@ namespace Scripts.AI
 
             if(ActionManager.Controller.usesGravity)
             {
-
                 controller.SimpleMove(direction * speed);
             }
             else

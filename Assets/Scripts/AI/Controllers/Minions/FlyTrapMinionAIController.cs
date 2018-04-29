@@ -1,5 +1,4 @@
 ﻿using Scripts.Abilities.Controllers;
-using Scripts.Combat;
 using UnityEngine;
 
 namespace Scripts.AI.Controllers.Minions

@@ -12,17 +12,15 @@ namespace Scripts.AI
         /// <summary>
         /// Callback for when the sequence finishes or completes a cycle if set to repeat.
         /// </summary>
-        private Action completeCallback = null;
+        private Action completeCallback;
 
         private int currentSequenceIndex;
 
         private bool repeating;
 
-        public AIActionSequence(Action _sequenceCompleteCallback) : this(_sequenceCompleteCallback, false)
-        { }
+        public AIActionSequence(Action _sequenceCompleteCallback) : this(_sequenceCompleteCallback, false) { }
 
-        public AIActionSequence(bool _repeating) : this(null, _repeating)
-        { }
+        public AIActionSequence(bool _repeating) : this(null, _repeating) { }
 
         public AIActionSequence(Action _sequenceCompleteCallback = null, bool _repeating = false)
         {
