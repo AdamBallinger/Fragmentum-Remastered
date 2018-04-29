@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.Player;
+using UnityEngine;
 
 namespace Scripts.UI.Dialogue
 {
@@ -10,23 +11,31 @@ namespace Scripts.UI.Dialogue
         [SerializeField]
         private DialogueBox hintDialogueBox = null;
 
+        private PlayerController playerController;
+
         public void ShowDialogue(DialogueType _type, Dialogue _dialogue)
         {
             var db = ToggleDialogueBox(_type, true);
-            db.SetDialogue(_dialogue);
+            db.SetDialogue(_dialogue, _type);
         }
 
-        public void HideDialogue(DialogueBox _dialogueBox)
+        public void HideDialogue(DialogueType _type)
         {
-            _dialogueBox.gameObject.SetActive(false);
+            ToggleDialogueBox(_type, false);
         }
 
         private DialogueBox ToggleDialogueBox(DialogueType _type, bool _state)
         {
+            if(playerController == null)
+            {
+                playerController = FindObjectOfType<PlayerController>();
+            }
+
             switch (_type)
             {
                 case DialogueType.Chat:
                     chatDialogueBox.gameObject.SetActive(_state);
+                    playerController.ControlsEnabled = !_state;
                     return chatDialogueBox;
 
                 case DialogueType.UI_Hint:

@@ -23,6 +23,8 @@ namespace Scripts.Player
 
         public bool Falling => !Grounded && Velocity.y < 0.0f && GetDistanceToGround() >= fallDistanceThreshold;
 
+        public bool ControlsEnabled { get; set; } = true;
+
         private float HDelta { get; set; }
 
         public TextMeshProUGUI debugText;
@@ -103,12 +105,15 @@ namespace Scripts.Player
 
         private void Update()
         {
-            HDelta = Input.GetAxis("Horizontal");
+            HDelta = ControlsEnabled ? Input.GetAxis("Horizontal") : 0.0f;
 
-            ProcessJumping();
-            ProcessDashing();
-            ProcessBlocking();
-            ProcessMovement();
+            if(ControlsEnabled)
+            {
+                ProcessJumping();
+                ProcessDashing();
+                ProcessBlocking();
+                ProcessMovement();
+            }          
 
             ProcessGravity();
 
