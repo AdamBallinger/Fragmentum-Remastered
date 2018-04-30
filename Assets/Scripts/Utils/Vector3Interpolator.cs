@@ -15,14 +15,26 @@ namespace Scripts.Utils
 
         private float rate;
 
-        public Vector3Interpolator(Vector3 _start, Vector3 _end, float _speed, AnimationCurve _curve)
+        private bool speedAsRate;
+
+        /// <summary>
+        /// Linearly interpolate between a given start and end vector3.
+        /// </summary>
+        /// <param name="_start">Where to start interpolating from.</param>
+        /// <param name="_end">Where to interpolate to.</param>
+        /// <param name="_speed">Speed to interpolate at.</param>
+        /// <param name="_curve">Smoothing curve to apply to the interpolation.</param>
+        /// <param name="_speedAsRate">If true, speed will be the time in seconds it takes to interpolate.</param>
+        public Vector3Interpolator(Vector3 _start, Vector3 _end, float _speed, AnimationCurve _curve, bool _speedAsRate = false)
         {
             initialPosition = _start;
             targetPosition = _end;
             speed = _speed;
-            CalculateTRate();
             curve = _curve;
+            speedAsRate = _speedAsRate;
             t = 0.0f;
+
+            CalculateTRate();
         }
 
         /// <summary>
@@ -36,9 +48,27 @@ namespace Scripts.Utils
             return interpolated;
         }
 
+        /// <summary>
+        /// Set a custom rate in which the interpolator steps each frame. By default, the interpolator rate is calculated
+        /// based on the distance between the given start/end vectors. This needs to be called each time the interpolator
+        /// start is changed.
+        /// </summary>
+        /// <param name="_rate"></param>
+        public void SetCustomRate(float _rate)
+        {
+            rate = _rate;
+        }
+
         private void CalculateTRate()
         {
-            rate = Vector3.Distance(initialPosition, targetPosition) / speed;
+            if(speedAsRate)
+            {
+                rate = speed;
+            }
+            else
+            {
+                rate = Vector3.Distance(initialPosition, targetPosition) / speed;
+            }        
         }
 
         /// <summary>
