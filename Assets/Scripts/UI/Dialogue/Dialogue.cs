@@ -19,6 +19,16 @@ namespace Scripts.UI.Dialogue
         public void Create()
         {
             pages = text.Split(pageSplitter);
+
+            // Trim all new lines at the start and end of each page. This is purely for making the dialogue asset easier to read
+            // inside the inspector.
+            for(var i = 0; i < pages.Length; i++)
+            {
+                var page = pages[i];
+                page = page.TrimStart('\n');
+                page = page.TrimEnd('\n');
+                pages[i] = page;
+            }
         }
 
         /// <summary>

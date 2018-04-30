@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "This is a test dialogue message. \nSo yeah press <sprite=\"xbox_one_buttons\"
     index=0> or <sprite=\"keyboard_buttons\" index=1> to close this box.\nOr you could
-    choose not too thats totally fine too.@Just one more time!@Ok for real this time
-    it will close."
+    choose not too thats totally fine too.\n@\nJust one more time!\n@\nOk for real
+    this time it will close."
   pageSplitter: 64

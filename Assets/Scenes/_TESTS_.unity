@@ -450,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 0cd3511f1989e004182643f37cbcf07c, type: 2}
   type: 0
-  canTriggerMultiple: 1
+  canTriggerMultiple: 0
 --- !u!1001 &746085540
 Prefab:
   m_ObjectHideFlags: 0
