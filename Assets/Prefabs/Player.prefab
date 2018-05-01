@@ -2345,8 +2345,8 @@ MonoBehaviour:
   blockingModifier: 0.25
   jumpStrength: 28
   allowedJumps: 2
-  dashStrength: 28
-  dashDuration: 0.2
+  dashStrength: 24
+  dashDuration: 0.25
   dashDelay: 0.25
   playerMovementAxis: 0
   gravityStrength: 1.35
@@ -2354,6 +2354,7 @@ MonoBehaviour:
   dashDamage: 50
   shield: {fileID: 1210668896314706}
   dashCollider: {fileID: 1036739336949158}
+  meshRotationSpeed: 10
 --- !u!137 &137054770373531116
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

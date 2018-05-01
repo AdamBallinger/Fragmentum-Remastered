@@ -11,7 +11,7 @@ namespace Scripts.Player
 
         private Animator Animator { get; set; }
 
-        public Vector3 Heading => _transform.forward;
+        public Vector3 Heading { get; set; }
 
         public Vector3 Velocity { get; private set; }
 
@@ -59,6 +59,9 @@ namespace Scripts.Player
         public GameObject shield;
         public GameObject dashCollider;
 
+        [Header("Visual Settings")]
+        public float meshRotationSpeed = 8.0f;
+
         private Vector3 dashVelocity;
 
         private bool canJump;
@@ -68,6 +71,8 @@ namespace Scripts.Player
         private float dashTime;
 
         private float clampedAxisValue;
+
+        private Quaternion facingRotation;
 
         private HealthSystem healthSystem;
 
@@ -80,8 +85,9 @@ namespace Scripts.Player
             healthSystem = GetComponent<HealthSystem>();
 
             _transform = transform;
+            facingRotation = _transform.rotation;
 
-            switch(playerMovementAxis)
+            switch (playerMovementAxis)
             {
                 case PlayerMoveAxis.X:
                     clampedAxisValue = _transform.position.z;
@@ -106,14 +112,15 @@ namespace Scripts.Player
         private void Update()
         {
             HDelta = ControlsEnabled ? Input.GetAxis("Horizontal") : 0.0f;
+            Heading = HDelta < 0.0f ? Vector3.left : Vector3.right;
 
-            if(ControlsEnabled)
+            if (ControlsEnabled)
             {
                 ProcessJumping();
                 ProcessDashing();
                 ProcessBlocking();
                 ProcessMovement();
-            }          
+            }
 
             ProcessGravity();
 
@@ -122,20 +129,20 @@ namespace Scripts.Player
             var flags = Controller.Move(Velocity);
 
             // Reset Y velocity if the player hits something above.
-            if(flags == CollisionFlags.CollidedAbove)
+            if (flags == CollisionFlags.CollidedAbove)
             {
-                SetVelocity(y : -0.05f);
+                SetVelocity(y: -0.05f);
             }
 
             CorrectPosition();
 
             // Reset Y velocity if grounded so debug text shows correct values.
-            SetVelocity(y : Grounded ? 0.0f : Velocity.y);
+            SetVelocity(y: Grounded ? 0.0f : Velocity.y);
 
             SetDebugText();
 
             // Reset X/Z velocity so the player only moves during input.
-            SetVelocity(0.0f, z : 0.0f);
+            SetVelocity(0.0f, z: 0.0f);
         }
 
         /// <summary>
@@ -144,12 +151,12 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessMovement()
         {
-            if(Dashing)
+            if (Dashing)
             {
                 Velocity = dashVelocity * Time.deltaTime;
                 dashTime += Time.deltaTime;
 
-                if(dashTime >= dashDuration)
+                if (dashTime >= dashDuration)
                 {
                     dashTime = dashDelay;
                     Dashing = false;
@@ -161,14 +168,16 @@ namespace Scripts.Player
                 if (HDelta != 0.0f)
                 {
                     var directionMod = HDelta < 0.0f ? -1.0f : 1.0f;
-                    _transform.rotation = Quaternion.AngleAxis(90.0f * directionMod, _transform.up);
+                    facingRotation = Quaternion.AngleAxis(90.0f * directionMod, _transform.up);
                 }
+
+                _transform.rotation = Quaternion.Slerp(_transform.rotation, facingRotation, meshRotationSpeed * Time.deltaTime);
 
                 // Move player left and right
                 var v = Velocity;
                 v += Heading * (Blocking ? moveSpeed * blockingModifier : moveSpeed) * Mathf.Abs(HDelta) * Time.deltaTime;
                 Velocity = v;
-            }        
+            }
         }
 
         /// <summary>
@@ -177,15 +186,15 @@ namespace Scripts.Player
         private void ProcessJumping()
         {
             // Reset jumping variables when the player is grounded.
-            if(Grounded)
+            if (Grounded)
             {
                 jumpCount = 0;
                 canJump = true;
             }
 
-            if(Input.GetButtonDown("Jump") && canJump)
+            if (Input.GetButtonDown("Jump") && canJump)
             {
-                if (jumpCount < allowedJumps) 
+                if (jumpCount < allowedJumps)
                 {
                     Velocity = _transform.up * jumpStrength * Time.deltaTime;
                     Animator.Play("Jump", 0, 0.0f);
@@ -204,13 +213,13 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessDashing()
         {
-            if(!Dashing && dashTime > 0.0f)
+            if (!Dashing && dashTime > 0.0f)
             {
                 dashTime -= Time.deltaTime;
                 return;
             }
 
-            if(Input.GetButtonDown("Dash") && !Dashing && HDelta != 0.0f)
+            if (Input.GetButtonDown("Dash") && !Dashing && HDelta != 0.0f)
             {
                 Dashing = true;
                 dashVelocity = Heading * dashStrength;
@@ -246,7 +255,7 @@ namespace Scripts.Player
         {
             var pos = _transform.position;
 
-            switch(playerMovementAxis)
+            switch (playerMovementAxis)
             {
                 case PlayerMoveAxis.X:
                     pos.z = clampedAxisValue;
@@ -268,9 +277,9 @@ namespace Scripts.Player
         private void SetVelocity(object x = null, object y = null, object z = null)
         {
             var v = Velocity;
-            if (x != null) v.x = (float) x;
-            if (y != null) v.y = (float) y;
-            if (z != null) v.z = (float) z;
+            if (x != null) v.x = (float)x;
+            if (y != null) v.y = (float)y;
+            if (z != null) v.z = (float)z;
             Velocity = v;
         }
 
@@ -314,7 +323,7 @@ namespace Scripts.Player
 
         public void OnDamageReceived(int _damage)
         {
-            if(HDelta != 0.0f || !Grounded)
+            if (HDelta != 0.0f || !Grounded)
             {
                 Animator?.Play("Running Damage");
             }
