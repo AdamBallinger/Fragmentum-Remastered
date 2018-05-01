@@ -2354,7 +2354,7 @@ MonoBehaviour:
   dashDamage: 50
   shield: {fileID: 1210668896314706}
   dashCollider: {fileID: 1036739336949158}
-  meshRotationSpeed: 10
+  meshRotationSpeed: 12
 --- !u!137 &137054770373531116
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

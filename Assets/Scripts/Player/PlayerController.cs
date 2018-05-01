@@ -86,6 +86,7 @@ namespace Scripts.Player
 
             _transform = transform;
             facingRotation = _transform.rotation;
+            Heading = _transform.forward;
 
             switch (playerMovementAxis)
             {
@@ -112,7 +113,11 @@ namespace Scripts.Player
         private void Update()
         {
             HDelta = ControlsEnabled ? Input.GetAxis("Horizontal") : 0.0f;
-            Heading = HDelta < 0.0f ? Vector3.left : Vector3.right;
+
+            if(HDelta != 0.0f)
+            {
+                Heading = HDelta < 0.0f ? Vector3.left : Vector3.right;
+            }
 
             if (ControlsEnabled)
             {
@@ -196,7 +201,7 @@ namespace Scripts.Player
             {
                 if (jumpCount < allowedJumps)
                 {
-                    Velocity = _transform.up * jumpStrength * Time.deltaTime;
+                    Velocity = _transform.up * (jumpCount == 0 ? jumpStrength : jumpStrength * 0.8f) * Time.deltaTime;
                     Animator.Play("Jump", 0, 0.0f);
 
                     jumpCount++;
