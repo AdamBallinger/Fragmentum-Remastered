@@ -1301,7 +1301,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1968464730737814}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 124.77, y: 1.2299957, z: -1}
+  m_LocalPosition: {x: 126.09, y: 1.2299957, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4347937457554496}
@@ -2349,7 +2349,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashDelay: 0.25
   playerMovementAxis: 0
-  gravityStrength: 1.4
+  gravityStrength: 1.35
   fallDistanceThreshold: 1.8
   dashDamage: 50
   shield: {fileID: 1210668896314706}

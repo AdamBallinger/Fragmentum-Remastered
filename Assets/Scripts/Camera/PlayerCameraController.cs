@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.Player;
+using UnityEngine;
 
 namespace Scripts.Camera
 {
@@ -10,8 +11,9 @@ namespace Scripts.Camera
         public Transform playerTransform;
 
         public Vector3 cameraOffset;
-        public float offsetScale = 1.0f;
-        public float speed = 1.0f;       
+        public float speed = 1.0f;
+
+        private PlayerController playerController;
 
         private Transform _transform;
 
@@ -24,20 +26,20 @@ namespace Scripts.Camera
         {
             if (playerTransform == null || !enableFollow) return;
 
+            if(playerController == null)
+            {
+                playerController = FindObjectOfType<PlayerController>();
+                return;
+            }
+
             var offset = cameraOffset;
             offset.x = playerTransform.forward.x <= 0.0f ? -cameraOffset.x : cameraOffset.x;
 
-            //var newCamPos = Vector3.MoveTowards(_transform.position,
-            //    playerTransform.position + offset * offsetScale, speed * Time.deltaTime);
-
             var newCamPos = _transform.position;
+            var oldY = newCamPos.y;
 
-            newCamPos.x = Mathf.MoveTowards(newCamPos.x, 
-                playerTransform.position.x + offset.x * offsetScale, speed * Time.deltaTime);
-            newCamPos.z = Mathf.MoveTowards(newCamPos.z,
-                playerTransform.position.z + offset.z * offsetScale, speed * Time.deltaTime);
-
-            newCamPos.y = playerTransform.position.y + offset.y;
+            newCamPos = Vector3.MoveTowards(newCamPos, playerTransform.position + offset, speed * Time.deltaTime);
+            newCamPos.y = oldY;
 
             _transform.position = newCamPos;
         }

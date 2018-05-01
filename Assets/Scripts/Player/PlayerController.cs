@@ -135,7 +135,7 @@ namespace Scripts.Player
             SetDebugText();
 
             // Reset X/Z velocity so the player only moves during input.
-            SetVelocity(x : 0.0f, z : 0.0f);
+            SetVelocity(0.0f, z : 0.0f);
         }
 
         /// <summary>
@@ -296,7 +296,7 @@ namespace Scripts.Player
             var groundObj = CastRayToGround();
             var objName = groundObj.transform != null ? groundObj.transform.name : "Nothing";
             // Update debug stuff after all movement is processed.
-            debugText.text = $"V- [x:{Velocity.x:F}] y:{Velocity.y:F}, z:{Velocity.z:F}]\n" +
+            debugText.text = $"V- [x:{Velocity.x:F} y:{Velocity.y:F}, z:{Velocity.z:F}]\n" +
                              $"G- [{Grounded}] F- [{Falling}]\n" +
                              $"GD- [{groundObj.distance:F}] GO- [{objName}]\n" +
                              $"D- [{Dashing}] B- [{Blocking}]";

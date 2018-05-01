@@ -48,17 +48,6 @@ namespace Scripts.Utils
             return interpolated;
         }
 
-        /// <summary>
-        /// Set a custom rate in which the interpolator steps each frame. By default, the interpolator rate is calculated
-        /// based on the distance between the given start/end vectors. This needs to be called each time the interpolator
-        /// start is changed.
-        /// </summary>
-        /// <param name="_rate"></param>
-        public void SetCustomRate(float _rate)
-        {
-            rate = _rate;
-        }
-
         private void CalculateTRate()
         {
             if(speedAsRate)
