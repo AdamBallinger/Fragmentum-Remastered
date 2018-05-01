@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Scripts.Camera
 {
-    [ExecuteInEditMode]
     public class PlayerCameraController : MonoBehaviour
     {
         public bool enableFollow = true;
@@ -41,8 +40,9 @@ namespace Scripts.Camera
             var newCamPos = _transform.position;
             var targetPos = playerTransform.position + offset;
 
-            newCamPos = Vector3.MoveTowards(newCamPos, targetPos, speed * Time.deltaTime);
-            newCamPos.y = anchorY;
+            newCamPos.x = Mathf.MoveTowards(newCamPos.x, targetPos.x, speed * Time.deltaTime);
+            newCamPos.z = Mathf.MoveTowards(newCamPos.z, targetPos.z, speed * Time.deltaTime);
+            newCamPos.y = anchorY + offset.y;
 
             _transform.position = newCamPos;
         }
