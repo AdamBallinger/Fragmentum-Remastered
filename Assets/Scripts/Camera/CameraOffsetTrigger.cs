@@ -88,5 +88,13 @@ namespace Scripts.Camera
         {
             GetComponent<BoxCollider>().isTrigger = true;
         }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawCube(transform.position + cameraOffset, Vector3.one);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, transform.position + cameraOffset);
+        }
     }
 }
