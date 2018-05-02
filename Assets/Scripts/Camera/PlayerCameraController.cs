@@ -9,19 +9,16 @@ namespace Scripts.Camera
 
         public Transform playerTransform;
 
-        public Vector3 cameraOffset;
+        public float xOffset;
         public float speed = 1.0f;
 
         private PlayerController playerController;
 
         private Transform _transform;
 
-        private float anchorY;
-
         private void Start()
         {
             _transform = transform;
-            anchorY = _transform.position.y;
         }
 
         private void LateUpdate()
@@ -34,15 +31,12 @@ namespace Scripts.Camera
                 return;
             }
 
-            var offset = cameraOffset;
-            offset.x = playerController.Heading.x <= 0.0f ? -cameraOffset.x : cameraOffset.x;
+            var offset = playerController.Heading.x <= 0.0f ? -xOffset : xOffset;
 
             var newCamPos = _transform.position;
-            var targetPos = playerTransform.position + offset;
+            var targetPos = playerTransform.position.x + offset;
 
-            newCamPos.x = Mathf.MoveTowards(newCamPos.x, targetPos.x, speed * Time.deltaTime);
-            newCamPos.z = Mathf.MoveTowards(newCamPos.z, targetPos.z, speed * Time.deltaTime);
-            newCamPos.y = anchorY + offset.y;
+            newCamPos.x = Mathf.MoveTowards(newCamPos.x, targetPos, speed * Time.deltaTime);
 
             _transform.position = newCamPos;
         }

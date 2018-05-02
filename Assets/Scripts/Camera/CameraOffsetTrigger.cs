@@ -14,13 +14,14 @@ namespace Scripts.Camera
 
         public AnimationCurve curve;
 
-        public CameraTriggerBehaviour behaviour = CameraTriggerBehaviour.None;
+        public CameraTriggerBehaviour behaviour = CameraTriggerBehaviour.Pickup;
 
         public CameraOffsetTrigger[] cancelOut;
 
         private PlayerCameraController cameraController;
 
-        private Vector3Interpolator interpolator;
+        private FloatInterpolator offsetInterpolator;
+        private Vector3Interpolator moveInterpolator;
 
         private void Start()
         {
@@ -49,24 +50,25 @@ namespace Scripts.Camera
                 {
                     case CameraTriggerBehaviour.Drop:
                         cameraController.enableFollow = false;
-                        StartCoroutine(MoveCamera());
                         break;
 
                     case CameraTriggerBehaviour.Pickup:
                         cameraController.enableFollow = true;
-                        StartCoroutine(OffsetCamera());
                         break;
                 }
+
+                StartCoroutine(OffsetCamera());
+                StartCoroutine(MoveCamera());
             }
         }
 
         private IEnumerator OffsetCamera()
         {
-            interpolator = new Vector3Interpolator(cameraController.cameraOffset, cameraOffset, moveTime, curve, true);
+            offsetInterpolator = new FloatInterpolator(cameraController.xOffset, cameraOffset.x, moveTime, curve);
 
-            while (!interpolator.HasFinished())
+            while (!offsetInterpolator.HasFinished())
             {
-                cameraController.cameraOffset = interpolator.Interpolate();
+                cameraController.xOffset = offsetInterpolator.Interpolate();
 
                 yield return null;
             }
@@ -74,11 +76,22 @@ namespace Scripts.Camera
 
         private IEnumerator MoveCamera()
         {
-            interpolator = new Vector3Interpolator(cameraController.transform.position, transform.position + cameraOffset, moveTime, curve, true);
+            moveInterpolator = new Vector3Interpolator(cameraController.transform.position, transform.position + cameraOffset, moveTime, curve, true);
 
-            while(!interpolator.HasFinished())
+            while(!moveInterpolator.HasFinished())
             {
-                cameraController.transform.position = interpolator.Interpolate();
+                var pos = cameraController.transform.position;
+                var interpolated = moveInterpolator.Interpolate();
+
+                if(behaviour == CameraTriggerBehaviour.Drop)
+                {
+                    pos.x = interpolated.x;
+                }
+
+                pos.y = interpolated.y;
+                pos.z = interpolated.z;
+
+                cameraController.transform.position = pos;
 
                 yield return null;
             }

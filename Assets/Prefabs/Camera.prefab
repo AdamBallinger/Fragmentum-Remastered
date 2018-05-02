@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableFollow: 1
   playerTransform: {fileID: 0}
-  cameraOffset: {x: 1.5, y: 2, z: -11}
+  xOffset: 3
   speed: 25
 --- !u!124 &124208088946437600
 Behaviour:

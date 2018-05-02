@@ -15,7 +15,7 @@ namespace Scripts.Camera
         [Tooltip("The curve used for smoothing the interpolation when rotation the camera.")]
         public AnimationCurve curve;
 
-        public CameraTriggerBehaviour behaviour = CameraTriggerBehaviour.None;
+        public CameraTriggerBehaviour behaviour = CameraTriggerBehaviour.Pickup;
 
         [Tooltip("Collection of rotation triggers to cancel if this trigger is activated.")]
         public CameraRotationTrigger[] cancelOut;
