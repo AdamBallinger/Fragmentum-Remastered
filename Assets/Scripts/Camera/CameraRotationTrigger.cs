@@ -15,26 +15,28 @@ namespace Scripts.Camera
         [Tooltip("The curve used for smoothing the interpolation when rotation the camera.")]
         public AnimationCurve curve;
 
+        public CameraTriggerBehaviour behaviour = CameraTriggerBehaviour.None;
+
         [Tooltip("Collection of rotation triggers to cancel if this trigger is activated.")]
         public CameraRotationTrigger[] cancelOut;
 
-        private GameObject cameraObject;
+        private PlayerCameraController cameraController;
 
         private RotationInterpolator interpolator;
 
         private void Start()
         {
-            cameraObject = UnityEngine.Camera.main.gameObject;
+            cameraController = UnityEngine.Camera.main.gameObject.GetComponent<PlayerCameraController>();
 
-            if(cameraObject == null)
+            if(cameraController == null)
             {
-                Debug.LogError("[CameraRotationTrigger] -> No camera detected in scene!");
+                Debug.LogError("[CameraRotationTrigger] -> No camera controller detected in scene!");
             }
         }
 
         private void OnTriggerEnter(Collider _collider)
         {
-            if (cameraObject == null) return;
+            if (cameraController == null) return;
 
             if(_collider.gameObject.CompareTag("Player"))
             {
@@ -45,17 +47,28 @@ namespace Scripts.Camera
                     trigger.StopAllCoroutines();
                 }
 
+                switch (behaviour)
+                {
+                    case CameraTriggerBehaviour.Drop:
+                        cameraController.enableFollow = false;
+                        break;
+
+                    case CameraTriggerBehaviour.Pickup:
+                        cameraController.enableFollow = true;
+                        break;
+                }
+
                 StartCoroutine(RotateCamera());
             }
         }
 
         private IEnumerator RotateCamera()
         {
-            interpolator = new RotationInterpolator(cameraObject.transform.rotation.eulerAngles, targetRotation, rotationTime, curve);
+            interpolator = new RotationInterpolator(cameraController.transform.rotation.eulerAngles, targetRotation, rotationTime, curve);
 
             while(!interpolator.HasFinished())
             {
-                cameraObject.transform.rotation = Quaternion.Euler(interpolator.Interpolate());
+                cameraController.transform.rotation = Quaternion.Euler(interpolator.Interpolate());
                 yield return null;
             }
         }

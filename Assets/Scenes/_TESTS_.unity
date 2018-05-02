@@ -251,13 +251,14 @@ GameObject:
   - component: {fileID: 324078418}
   - component: {fileID: 324078417}
   - component: {fileID: 324078416}
+  - component: {fileID: 324078419}
   m_Layer: 0
   m_Name: OffsetTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &324078416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c1855a95ca7a64ab88a84a063f9839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraOffset: {x: 0, y: 3, z: -13}
   moveTime: 0.85
   curve:
     serializedVersion: 2
@@ -317,6 +319,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &324078419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324078415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f175e7439d6ce6a4895b2b0ec4d60599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRotation: {x: 10, y: 0, z: 0}
+  rotationTime: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  behaviour: 0
+  cancelOut: []
 --- !u!1 &405235968
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &724863568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c1855a95ca7a64ab88a84a063f9839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraOffset: {x: 4, y: 0, z: -11}
   moveTime: 1
   curve:
     serializedVersion: 2
@@ -1146,7 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175e7439d6ce6a4895b2b0ec4d60599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRotation: {x: 9.2, y: 25, z: 0}
+  targetRotation: {x: 12, y: 25, z: 0}
   rotationTime: 1
   curve:
     serializedVersion: 2
@@ -1154,18 +1190,19 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  behaviour: 1
   cancelOut:
   - {fileID: 2018891106}
 --- !u!65 &1813726872
@@ -1178,7 +1215,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 23.9, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1813726873
 Transform:
@@ -1187,7 +1224,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1813726870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 132.81, y: 3.23, z: -1}
+  m_LocalPosition: {x: 145.43, y: 3.23, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1243,7 +1280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1976380707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1255,7 +1292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c1855a95ca7a64ab88a84a063f9839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTime: 0.85
+  cameraOffset: {x: 4, y: 1, z: -9}
+  moveTime: 1
   curve:
     serializedVersion: 2
     m_Curve:
@@ -1392,7 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175e7439d6ce6a4895b2b0ec4d60599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRotation: {x: 9.2, y: -25, z: 0}
+  targetRotation: {x: 0, y: 0, z: 0}
   rotationTime: 1
   curve:
     serializedVersion: 2
@@ -1400,18 +1438,19 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  behaviour: 2
   cancelOut:
   - {fileID: 1813726871}
 --- !u!65 &2018891107
@@ -1424,7 +1463,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 16.44, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2018891108
 Transform:
@@ -1433,7 +1472,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2018891105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 119.65, y: 3.23, z: -1}
+  m_LocalPosition: {x: 144.317, y: 3.23, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
