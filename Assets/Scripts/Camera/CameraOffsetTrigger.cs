@@ -56,9 +56,9 @@ namespace Scripts.Camera
                         cameraController.enableFollow = true;
                         break;
                 }
-
-                StartCoroutine(OffsetCamera());
+             
                 StartCoroutine(MoveCamera());
+                StartCoroutine(OffsetCamera());
             }
         }
 
@@ -104,10 +104,19 @@ namespace Scripts.Camera
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawCube(transform.position + cameraOffset, Vector3.one);
+            Gizmos.color = Color.green;
+            Gizmos.DrawCube(transform.position + cameraOffset, Vector3.one / 2.0f);
+            Gizmos.DrawCube(transform.position + new Vector3(-cameraOffset.x, cameraOffset.y, cameraOffset.z), Vector3.one / 2.0f);
+
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(transform.position, transform.position + cameraOffset);
+            Gizmos.DrawLine(transform.position, transform.position + new Vector3(0.0f, cameraOffset.y, cameraOffset.z));
+            Gizmos.DrawLine(transform.position + new Vector3(0.0f, cameraOffset.y, cameraOffset.z),
+                transform.position + cameraOffset);
+            Gizmos.DrawLine(transform.position + new Vector3(0.0f, cameraOffset.y, cameraOffset.z),
+                transform.position + new Vector3(-cameraOffset.x, cameraOffset.y, cameraOffset.z));
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawCube(transform.position + new Vector3(0.0f, cameraOffset.y, cameraOffset.z), Vector3.one);
         }
     }
 }
