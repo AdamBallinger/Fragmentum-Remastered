@@ -24,9 +24,7 @@ namespace Scripts.UI.Dialogue
             for(var i = 0; i < pages.Length; i++)
             {
                 var page = pages[i];
-                page = page.TrimStart('\n');
-                page = page.TrimEnd('\n');
-                pages[i] = page;
+                pages[i] = page.TrimStart('\n').TrimEnd('\n');
             }
         }
 
