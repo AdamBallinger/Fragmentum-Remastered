@@ -1230,7 +1230,7 @@ MonoBehaviour:
   clampOnAxis: 1
   clampedAxis: 1
   transform: {fileID: 0}
-  moveSpeed: 3
+  moveSpeed: 4
 --- !u!114 &114561774112401148
 MonoBehaviour:
   m_ObjectHideFlags: 1
