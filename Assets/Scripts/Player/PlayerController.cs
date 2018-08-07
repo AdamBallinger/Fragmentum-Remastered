@@ -1,4 +1,5 @@
-﻿using Scripts.Combat;
+﻿using System;
+using Scripts.Combat;
 using TMPro;
 using UnityEngine;
 
@@ -104,7 +105,7 @@ namespace Scripts.Player
         {
             Animator?.SetFloat("animSpeedMod", HDelta);
             Animator?.SetBool("isGrounded", Grounded);
-            Animator?.SetBool("isRunning", HDelta != 0.0f);
+            Animator?.SetBool("isRunning", Math.Abs(HDelta) > 0.0f);
             Animator?.SetBool("isDashing", Dashing);
             Animator?.SetBool("isFalling", Falling);
             Animator?.SetBool("isBlocking", Blocking);
@@ -114,7 +115,7 @@ namespace Scripts.Player
         {
             HDelta = ControlsEnabled ? Input.GetAxis("Horizontal") : 0.0f;
 
-            if(HDelta != 0.0f)
+            if(Math.Abs(HDelta) > 0.0f)
             {
                 Heading = HDelta < 0.0f ? Vector3.left : Vector3.right;
             }
@@ -170,7 +171,7 @@ namespace Scripts.Player
             else
             {
                 // Rotate player to face where they will move.
-                if (HDelta != 0.0f)
+                if (Math.Abs(HDelta) > 0.0f)
                 {
                     var directionMod = HDelta < 0.0f ? -1.0f : 1.0f;
                     facingRotation = Quaternion.AngleAxis(90.0f * directionMod, _transform.up);
@@ -224,7 +225,7 @@ namespace Scripts.Player
                 return;
             }
 
-            if (Input.GetButtonDown("Dash") && !Dashing && HDelta != 0.0f)
+            if (Input.GetButtonDown("Dash") && !Dashing && Math.Abs(HDelta) > 0.0f)
             {
                 Dashing = true;
                 dashVelocity = Heading * dashStrength;
@@ -241,7 +242,7 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessBlocking()
         {
-            Blocking = Input.GetAxisRaw("Block") == 1.0f && Grounded;
+            Blocking = Input.GetButton("Block") && Grounded;
             shield.SetActive(Blocking);
         }
 
@@ -328,7 +329,7 @@ namespace Scripts.Player
 
         public void OnDamageReceived(int _damage)
         {
-            if (HDelta != 0.0f || !Grounded)
+            if (Math.Abs(HDelta) > 0.0f || !Grounded)
             {
                 Animator?.Play("Running Damage");
             }
