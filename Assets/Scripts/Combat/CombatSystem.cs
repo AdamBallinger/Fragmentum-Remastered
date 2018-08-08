@@ -18,7 +18,6 @@ namespace Scripts.Combat
 
             if(damageProvider == null || damageable == null)
             {
-                Debug.Log($"Null dealer or provider on objects {_source.name} and {_target.name}");
                 return;
             }
 
