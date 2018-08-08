@@ -317,9 +317,25 @@ namespace Scripts.Player
                              $"D- [{Dashing}] B- [{Blocking}]";
         }
 
+        /// <summary>
+        /// Event called when the player dashes into a target.
+        /// </summary>
+        /// <param name="_collider"></param>
         public void OnDashHit(Collider _collider)
         {
             CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Player_Dash);
+        }
+        
+        /// <summary>
+        /// Event called when the player jumps on the head of a target.
+        /// </summary>
+        /// <param name="_collider"></param>
+        public void OnFeetHit(Collider _collider)
+        {
+            if(_collider.gameObject.CompareTag("AI_Head"))
+            {
+                CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Head_Hit);
+            }
         }
 
         public HealthSystem GetHealth()

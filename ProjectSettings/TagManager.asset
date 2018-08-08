@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerTarget
+  - AI_Head
   layers:
   - Default
   - TransparentFX

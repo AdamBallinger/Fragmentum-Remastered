@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.Combat
 {
-    public class CombatSystem
+    public static class CombatSystem
     {
         /// <summary>
         /// Process damage for a target from a source.
@@ -14,14 +14,15 @@ namespace Scripts.Combat
         public static void ProcessDamage(GameObject _source, GameObject _target, AttackType _attackType)
         {
             var damageProvider = _source.GetComponent<IDamageProvider>();
-            var damageable = _target.GetComponent<IDamageable>();
+            var damageable = _target.GetComponentInParent<IDamageable>();
 
             if(damageProvider == null || damageable == null)
             {
+                Debug.Log($"Null dealer or provider on objects {_source.name} and {_target.name}");
                 return;
             }
 
-            var resistance = _target.GetComponent<IResistant>();
+            var resistance = _target.GetComponentInParent<IResistant>();
 
             if(resistance != null)
             {

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4373035550524286}
   - component: {fileID: 65185913468273478}
   - component: {fileID: 114770997026440646}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Radius Exit Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,6 +176,22 @@ GameObject:
   m_Layer: 11
   m_Name: polySurface13
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1385355457966206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4457061623824164}
+  - component: {fileID: 65677242607762666}
+  m_Layer: 11
+  m_Name: Head Collider
+  m_TagString: AI_Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,7 +608,7 @@ GameObject:
   - component: {fileID: 4556401342427480}
   - component: {fileID: 65361539498432002}
   - component: {fileID: 114561774112401148}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Radius Enter Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,6 +894,7 @@ Transform:
   - {fileID: 4350674330413616}
   - {fileID: 4556401342427480}
   - {fileID: 4373035550524286}
+  - {fileID: 4457061623824164}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -964,6 +981,19 @@ Transform:
   - {fileID: 4055736395466248}
   m_Father: {fileID: 4371874504015228}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4457061623824164
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385355457966206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4366355003074032}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4470474190506816
 Transform:
@@ -1198,6 +1228,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 50, y: 10, z: 2}
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!65 &65677242607762666
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385355457966206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 3.3, z: 0}
 --- !u!95 &95640936292410790
 Animator:
   serializedVersion: 3
@@ -1797,10 +1839,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3.75
+  m_Height: 3.5
   m_Radius: 1.15
   m_SlopeLimit: 65
   m_StepOffset: 0.6
   m_SkinWidth: 0.1
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 1.75, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}

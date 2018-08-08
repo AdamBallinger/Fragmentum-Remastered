@@ -3,6 +3,7 @@
     public enum AttackType
     {
         Projectile,
-        Player_Dash
+        Player_Dash,
+        Head_Hit
     }
 }
