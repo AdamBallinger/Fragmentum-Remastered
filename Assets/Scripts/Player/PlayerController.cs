@@ -336,6 +336,7 @@ namespace Scripts.Player
             {
                 CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Head_Hit);
                 Velocity = _transform.up * (jumpStrength * 0.5f) * Time.deltaTime;
+                Animator.Play("Jump", 0, 0.0f);
             }
         }
 
