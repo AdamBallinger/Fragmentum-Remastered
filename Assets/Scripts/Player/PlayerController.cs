@@ -335,6 +335,7 @@ namespace Scripts.Player
             if(_collider.gameObject.CompareTag("AI_Head"))
             {
                 CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Head_Hit);
+                Velocity = _transform.up * (jumpStrength * 0.5f) * Time.deltaTime;
             }
         }
 
