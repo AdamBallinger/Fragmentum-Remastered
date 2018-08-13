@@ -31,9 +31,9 @@ namespace Scripts.Combat
                 }
             }
 
-            damageable.GetHealth().RemoveHealth(damageProvider.GetDamage());
+            damageable.GetHealth()?.RemoveHealth(damageProvider.GetDamage());
 
-            if(damageable.GetHealth().CurrentHealth <= 0)
+            if(damageable.GetHealth()?.CurrentHealth <= 0)
             {
                 damageable.OnDeath();
             }
