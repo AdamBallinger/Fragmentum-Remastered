@@ -417,7 +417,7 @@ Subshader
 	GrabPass { "_RefractionTex" }
 	
 	Pass {
-			Blend SrcAlpha OneMinusSrcAlpha
+			Blend One SrcColor
 			ZTest LEqual
 			ZWrite Off
 			Cull Off
@@ -446,7 +446,7 @@ Subshader
 	ColorMask RGB
 	
 	Pass {
-			Blend SrcAlpha OneMinusSrcAlpha
+			Blend One SrcColor
 			ZTest LEqual
 			ZWrite Off
 			Cull Off
@@ -475,7 +475,7 @@ Subshader
 	ColorMask RGB
 	
 	Pass {
-			Blend SrcAlpha OneMinusSrcAlpha
+			Blend One SrcColor
 			ZTest LEqual
 			ZWrite Off
 			Cull Off

@@ -3,7 +3,7 @@
 namespace Scripts.Combat
 {
     public class DestructibleObject : MonoBehaviour, IDamageable, IResistant
-    {
+    {      
         public HealthSystem GetHealth()
         {
             return null;

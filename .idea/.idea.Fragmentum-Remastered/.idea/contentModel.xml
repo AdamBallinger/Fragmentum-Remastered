@@ -51,6 +51,18 @@
           <e p="EzPooledObject.cs" t="Include" />
           <e p="EzPoolManager.cs" t="Include" />
         </e>
+        <e p="HolyShift" t="Include">
+          <e p="README.txt" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="CheckForStandardAssets.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="FXWaterLowpoly.shader" t="Include" />
+            <e p="WaterInclude.cginc" t="Include" />
+          </e>
+        </e>
         <e p="Mirza Beig" t="Include">
           <e p="_DOCS" t="Include">
             <e p="README - Action VFX.txt" t="Include" />
@@ -597,6 +609,7 @@
         <e p="Combat" t="Include">
           <e p="AttackType.cs" t="Include" />
           <e p="CombatSystem.cs" t="Include" />
+          <e p="DestructibleObject.cs" t="Include" />
           <e p="HealthSystem.cs" t="Include" />
           <e p="IDamageable.cs" t="Include" />
           <e p="IDamageProvider.cs" t="Include" />
@@ -632,9 +645,7 @@
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
-      <e p="Temp" t="ExcludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-      </e>
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
   </component>
 </project>
