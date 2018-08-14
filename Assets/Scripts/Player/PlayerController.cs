@@ -251,7 +251,7 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessGravity()
         {
-            Velocity += Vector3.down * gravityStrength * Time.deltaTime;
+            Velocity += Vector3.down * (gravityStrength * Time.deltaTime);
         }
 
         /// <summary>
