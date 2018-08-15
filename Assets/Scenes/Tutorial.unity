@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 26948061}
   - component: {fileID: 26948060}
   - component: {fileID: 26948059}
+  - component: {fileID: 26948062}
   m_Layer: 0
   m_Name: Scene Exit Camera Trigger
   m_TagString: Untagged
@@ -344,6 +345,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &26948062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26948058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77c699c09f0df943a113fe4b8fc9fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSameObjectCallbacks: 0
+  triggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1198391737}
+        m_MethodName: FadeIn
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1556003358}
+        m_MethodName: SetPhysicalInput
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1556003358}
+        m_MethodName: VirtualMovePlayer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Scripts.Utils.TriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  triggerStayEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Scripts.Utils.TriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Scripts.Utils.TriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &33077027
 Prefab:
   m_ObjectHideFlags: 0
@@ -2223,8 +2284,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 570190694}
-  m_LocalRotation: {x: -0.052335896, y: 0, z: 0, w: 0.9986295}
-  m_LocalPosition: {x: -171.6, y: 28.09, z: 105.29}
+  m_LocalRotation: {x: -0.26053864, y: 0.12381725, z: 0.033712063, w: 0.9568973}
+  m_LocalPosition: {x: -6.874615, y: 11.168133, z: 80.891716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2498,16 +2559,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224344942504302920, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224587523360344846, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4372422367545974, guid: d3b6ec8ba9bc3b2408e6825fba31a87e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -171.6
@@ -2543,11 +2594,21 @@ Prefab:
     - target: {fileID: 114389377364247762, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114389377364247762, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
         type: 2}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224344942504302920, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224587523360344846, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
+        type: 2}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7703,6 +7764,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: eaa40cdd359ffc2439eb854eec6152e1, type: 3}
   m_PrefabInternal: {fileID: 1625542224}
+--- !u!114 &1198391737 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114041519910395380, guid: 6cc35d52d2f453843a7ee870a27f2031,
+    type: 2}
+  m_PrefabInternal: {fileID: 2129704914}
+  m_Script: {fileID: 11500000, guid: 23ccc6c24bc6d3143a4cc21969898fb4, type: 3}
 --- !u!1001 &1215426734
 Prefab:
   m_ObjectHideFlags: 0
@@ -9081,6 +9148,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4566491299753262, guid: e6789fc3bf94bc745b9478875d19f2e9,
     type: 2}
   m_PrefabInternal: {fileID: 1530429413}
+--- !u!114 &1556003358 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114157577786013776, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
+    type: 2}
+  m_PrefabInternal: {fileID: 657481863}
+  m_Script: {fileID: 11500000, guid: 943fdd9d58184757925b2e771d3733d9, type: 3}
 --- !u!1001 &1568763184
 Prefab:
   m_ObjectHideFlags: 0

@@ -1010,6 +1010,7 @@ GameObject:
   - component: {fileID: 143256845685607824}
   - component: {fileID: 54871906744886730}
   - component: {fileID: 114437442243903390}
+  - component: {fileID: 114157577786013776}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1318,7 +1319,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1968464730737814}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 119.43, y: 13.32, z: -1}
+  m_LocalPosition: {x: -171.6, y: 35.969997, z: 110.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4347937457554496}
@@ -2009,6 +2010,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Scripts.Utils.TriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114157577786013776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968464730737814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943fdd9d58184757925b2e771d3733d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114344514056388110
 MonoBehaviour:
   m_ObjectHideFlags: 1

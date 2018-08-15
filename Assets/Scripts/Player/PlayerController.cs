@@ -9,6 +9,8 @@ namespace Scripts.Player
     public class PlayerController : MonoBehaviour, IDamageable, IDamageProvider
     {
         private CharacterController Controller { get; set; }
+        
+        private PlayerInputController InputController { get; set; }
 
         private Animator Animator { get; set; }
 
@@ -26,20 +28,24 @@ namespace Scripts.Player
 
         public bool ControlsEnabled { get; set; } = true;
 
-        private float HDelta { get; set; }
+        //private float HDelta { get; set; }
 
         public TextMeshProUGUI debugText;
 
         [Header("Movement Settings")]
         public float moveSpeed = 1.0f;
+
         [Range(0.0f, 1.0f)]
         [Tooltip("Affects the movement speed of the player whilst blocking.")]
         public float blockingModifier = 0.5f;
+
         public float jumpStrength = 1.0f;
         public int allowedJumps = 2;
         public float dashStrength = 1.0f;
+
         [Range(0, 2)]
         public float dashDuration = 1.0f;
+
         [Range(0, 2)]
         [Tooltip("Delay in seconds between being able to dash repeatedly.")]
         public float dashDelay = 0.5f;
@@ -52,11 +58,13 @@ namespace Scripts.Player
         [Header("Physics Settings")]
         [Range(0.0f, 10.0f)]
         public float gravityStrength = 1.0f;
+
         [Tooltip("The distance that the player must be from the ground before the controller thinks the player is falling.")]
         public float fallDistanceThreshold = 1.0f;
 
         [Header("Combat Settings")]
         public int dashDamage = 1;
+
         public GameObject shield;
         public GameObject dashCollider;
 
@@ -82,6 +90,7 @@ namespace Scripts.Player
         private void Start()
         {
             Controller = GetComponent<CharacterController>();
+            InputController = GetComponent<PlayerInputController>();
             Animator = GetComponentInChildren<Animator>();
             healthSystem = GetComponent<HealthSystem>();
 
@@ -103,9 +112,9 @@ namespace Scripts.Player
 
         private void SetAnimations()
         {
-            Animator?.SetFloat("animSpeedMod", HDelta);
+            Animator?.SetFloat("animSpeedMod", InputController.HDelta);
             Animator?.SetBool("isGrounded", Grounded);
-            Animator?.SetBool("isRunning", Math.Abs(HDelta) > 0.0f);
+            Animator?.SetBool("isRunning", Math.Abs(InputController.HDelta) > 0.0f);
             Animator?.SetBool("isDashing", Dashing);
             Animator?.SetBool("isFalling", Falling);
             Animator?.SetBool("isBlocking", Blocking);
@@ -113,11 +122,9 @@ namespace Scripts.Player
 
         private void Update()
         {
-            HDelta = ControlsEnabled ? Input.GetAxis("Horizontal") : 0.0f;
-
-            if(Math.Abs(HDelta) > 0.0f)
+            if (Math.Abs(InputController.HDelta) > 0.0f)
             {
-                Heading = HDelta < 0.0f ? Vector3.left : Vector3.right;
+                Heading = InputController.HDelta < 0.0f ? Vector3.left : Vector3.right;
             }
 
             if (ControlsEnabled)
@@ -171,9 +178,9 @@ namespace Scripts.Player
             else
             {
                 // Rotate player to face where they will move.
-                if (Math.Abs(HDelta) > 0.0f)
+                if (Math.Abs(InputController.HDelta) > 0.0f)
                 {
-                    var directionMod = HDelta < 0.0f ? -1.0f : 1.0f;
+                    var directionMod = InputController.HDelta < 0.0f ? -1.0f : 1.0f;
                     facingRotation = Quaternion.AngleAxis(90.0f * directionMod, _transform.up);
                 }
 
@@ -181,7 +188,8 @@ namespace Scripts.Player
 
                 // Move player left and right
                 var v = Velocity;
-                v += Heading * (Blocking ? moveSpeed * blockingModifier : moveSpeed) * Mathf.Abs(HDelta) * Time.deltaTime;
+                v += Heading * (Blocking ? moveSpeed * blockingModifier : moveSpeed) * Mathf.Abs(InputController.HDelta) *
+                     Time.deltaTime;
                 Velocity = v;
             }
         }
@@ -198,7 +206,7 @@ namespace Scripts.Player
                 canJump = true;
             }
 
-            if (Input.GetButtonDown("Jump") && canJump)
+            if (InputController.Jump && canJump)
             {
                 if (jumpCount < allowedJumps)
                 {
@@ -225,7 +233,7 @@ namespace Scripts.Player
                 return;
             }
 
-            if (Input.GetButtonDown("Dash") && !Dashing && Math.Abs(HDelta) > 0.0f)
+            if (Input.GetButtonDown("Dash") && !Dashing && Math.Abs(InputController.HDelta) > 0.0f)
             {
                 Dashing = true;
                 dashVelocity = Heading * dashStrength;
@@ -235,7 +243,6 @@ namespace Scripts.Player
 
             dashCollider.SetActive(Dashing);
         }
-
 
         /// <summary>
         /// Handles player blocking input and blocking collider activation/deactivation.
@@ -283,9 +290,9 @@ namespace Scripts.Player
         private void SetVelocity(object x = null, object y = null, object z = null)
         {
             var v = Velocity;
-            if (x != null) v.x = (float)x;
-            if (y != null) v.y = (float)y;
-            if (z != null) v.z = (float)z;
+            if (x != null) v.x = (float) x;
+            if (y != null) v.y = (float) y;
+            if (z != null) v.z = (float) z;
             Velocity = v;
         }
 
@@ -325,14 +332,14 @@ namespace Scripts.Player
         {
             CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Player_Dash);
         }
-        
+
         /// <summary>
         /// Event called when the player jumps on the head of a target.
         /// </summary>
         /// <param name="_collider"></param>
         public void OnFeetHit(Collider _collider)
         {
-            if(_collider.gameObject.CompareTag("AI_Head"))
+            if (_collider.gameObject.CompareTag("AI_Head"))
             {
                 CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Head_Hit);
                 Velocity = _transform.up * (jumpStrength * 0.5f) * Time.deltaTime;
@@ -347,7 +354,7 @@ namespace Scripts.Player
 
         public void OnDamageReceived(int _damage)
         {
-            if (Math.Abs(HDelta) > 0.0f || !Grounded)
+            if (Math.Abs(InputController.HDelta) > 0.0f || !Grounded)
             {
                 Animator?.Play("Running Damage");
             }
