@@ -9,7 +9,7 @@ namespace Scripts.Player
     public class PlayerController : MonoBehaviour, IDamageable, IDamageProvider
     {
         private CharacterController Controller { get; set; }
-        
+
         private PlayerInputController InputController { get; set; }
 
         private Animator Animator { get; set; }
@@ -27,8 +27,6 @@ namespace Scripts.Player
         public bool Falling => !Grounded && Velocity.y < 0.0f && GetDistanceToGround() >= fallDistanceThreshold;
 
         public bool ControlsEnabled { get; set; } = true;
-
-        //private float HDelta { get; set; }
 
         public TextMeshProUGUI debugText;
 
@@ -233,7 +231,7 @@ namespace Scripts.Player
                 return;
             }
 
-            if (Input.GetButtonDown("Dash") && !Dashing && Math.Abs(InputController.HDelta) > 0.0f)
+            if (InputController.Dash && !Dashing && Math.Abs(InputController.HDelta) > 0.0f)
             {
                 Dashing = true;
                 dashVelocity = Heading * dashStrength;
@@ -249,7 +247,7 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessBlocking()
         {
-            Blocking = Input.GetButton("Block") && Grounded;
+            Blocking = InputController.Block && Grounded;
             shield.SetActive(Blocking);
         }
 
