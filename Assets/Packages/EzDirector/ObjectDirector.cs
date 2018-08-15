@@ -122,6 +122,11 @@ namespace EzDirector
                 yield return null;
             }
         }
+        
+        public void Resume()
+        {
+            halted = false;
+        }
 
         private void OnDrawGizmos()
         {
