@@ -753,6 +753,7 @@
           <e p="MoveAction.cs" t="Include" />
         </e>
         <e p="Camera" t="Include">
+          <e p="CameraFade.cs" t="Include" />
           <e p="CameraOffsetTrigger.cs" t="Include" />
           <e p="CameraRotationTrigger.cs" t="Include" />
           <e p="CameraShake.cs" t="Include" />
