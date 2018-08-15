@@ -43,9 +43,8 @@ namespace Scripts.Utils
         /// <returns></returns>
         public Vector3 Interpolate()
         {
-            var interpolated = Vector3.Lerp(initialPosition, targetPosition, curve.Evaluate(t));
-            t += Time.deltaTime / rate;
-            return interpolated;
+            t += Time.deltaTime / rate;          
+            return Vector3.Lerp(initialPosition, targetPosition, curve.Evaluate(t));
         }
 
         private void CalculateTRate()

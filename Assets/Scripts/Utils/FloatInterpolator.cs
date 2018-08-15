@@ -13,14 +13,11 @@ namespace Scripts.Utils
 
         private float t;
 
-        private float rate;
-
         public FloatInterpolator(float _start, float _end, float _speed, AnimationCurve _curve)
         {
             initial = _start;
             target = _end;
             speed = _speed;
-            CalculateTRate();
             curve = _curve;
             t = 0.0f;
         }
@@ -31,14 +28,8 @@ namespace Scripts.Utils
         /// <returns></returns>
         public float Interpolate()
         {
-            var interpolated = Mathf.Lerp(initial, target, curve.Evaluate(t));
-            t += Time.deltaTime / rate;
-            return interpolated;
-        }
-
-        private void CalculateTRate()
-        {
-            rate = Mathf.Abs(initial - target) / speed;
+            t += Time.deltaTime / speed;
+            return Mathf.Lerp(initial, target, curve.Evaluate(t));
         }
 
         /// <summary>
@@ -48,7 +39,6 @@ namespace Scripts.Utils
         public void SetStart(float _start)
         {
             initial = _start;
-            CalculateTRate();
         }
 
         public void Reset()

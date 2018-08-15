@@ -35,11 +35,12 @@ namespace Scripts.Utils
         /// <returns></returns>
         public Vector3 Interpolate()
         {
+            t += Time.deltaTime / rate;
+            
             var x = Mathf.LerpAngle(startRotation.x, endRotation.x, curve.Evaluate(t));
             var y = Mathf.LerpAngle(startRotation.y, endRotation.y, curve.Evaluate(t));
             var z = Mathf.LerpAngle(startRotation.z, endRotation.z, curve.Evaluate(t));
 
-            t += Time.deltaTime / rate;
             return new Vector3(x, y, z);
         } 
 
