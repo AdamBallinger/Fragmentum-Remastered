@@ -38,7 +38,6 @@ namespace Scripts.Camera
             shakeDuration = 0.0f;
 
             cameraTransform = transform;
-            StartShake(5.0f);
         }
 
         public void StartShake(float _duration, float _magnitude = 1.0f, float _intensity = 10.0f)
