@@ -40,7 +40,7 @@ namespace Scripts.Camera
             cameraTransform = transform;
         }
 
-        public void StartShake(float _duration, float _magnitude = 1.0f, float _intensity = 10.0f)
+        public void StartShake(float _duration, float _magnitude = 0.5f, float _intensity = 10.0f)
         {
             isShaking = true;
             shakeDuration = _duration;
@@ -70,7 +70,7 @@ namespace Scripts.Camera
 
             if (Vector3.Distance(newPosition, cameraTransform.localPosition) <= shakeMagnitude)
             {
-                newPosition = originalPosition + Random.insideUnitSphere * shakeMagnitude;
+                newPosition = originalPosition + (Vector3)Random.insideUnitCircle * shakeMagnitude;
             }
 
             cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newPosition, shakeIntensity * Time.deltaTime);
