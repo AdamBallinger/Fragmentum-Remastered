@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
 // ReSharper disable CheckNamespace
 
 namespace EzDirector
@@ -54,16 +55,14 @@ namespace EzDirector
 
         private IEnumerator Director()
         {
-            if (onStart != null)
-                onStart.Invoke();
+            onStart?.Invoke();
 
             foreach (var point in directorPoints)
             {
                 yield return LerpObjectPositionAndRotation(point);
             }
 
-            if (onFinish != null)
-                onFinish.Invoke();
+            onFinish?.Invoke();
 
             yield return null;
         }
@@ -79,7 +78,7 @@ namespace EzDirector
 
             while (true)
             {
-                if (_data.transitionTime == 0.0f)
+                if (Math.Abs(_data.transitionTime) <= 0.0f)
                 {
                     directedObject.transform.position = _data.objectPosition;
                     directedObject.transform.rotation = Quaternion.Euler(_data.objectRotation);
@@ -87,10 +86,16 @@ namespace EzDirector
                 }
                 else
                 {
-                    directedObject.transform.position = Vector3.Lerp(initialPos, _data.objectPosition, _data.enableCustomCurve ? _data.moveCurve.Evaluate(t) : defaultCurve.Evaluate(t));
-                    rotation.x = Mathf.LerpAngle(initialRot.x, _data.objectRotation.x, _data.enableCustomCurve ? _data.moveCurve.Evaluate(t) : defaultCurve.Evaluate(t));
-                    rotation.y = Mathf.LerpAngle(initialRot.y, _data.objectRotation.y, _data.enableCustomCurve ? _data.moveCurve.Evaluate(t) : defaultCurve.Evaluate(t));
-                    rotation.z = Mathf.LerpAngle(initialRot.z, _data.objectRotation.z, _data.enableCustomCurve ? _data.moveCurve.Evaluate(t) : defaultCurve.Evaluate(t));
+                    directedObject.transform.position = Vector3.Lerp(initialPos, _data.objectPosition,
+                                                                     _data.enableCustomCurve
+                                                                         ? _data.moveCurve.Evaluate(t)
+                                                                         : defaultCurve.Evaluate(t));
+                    rotation.x = Mathf.LerpAngle(initialRot.x, _data.objectRotation.x,
+                                                 _data.enableCustomCurve ? _data.moveCurve.Evaluate(t) : defaultCurve.Evaluate(t));
+                    rotation.y = Mathf.LerpAngle(initialRot.y, _data.objectRotation.y,
+                                                 _data.enableCustomCurve ? _data.moveCurve.Evaluate(t) : defaultCurve.Evaluate(t));
+                    rotation.z = Mathf.LerpAngle(initialRot.z, _data.objectRotation.z,
+                                                 _data.enableCustomCurve ? _data.moveCurve.Evaluate(t) : defaultCurve.Evaluate(t));
                     directedObject.transform.rotation = Quaternion.Euler(rotation);
                 }
 
@@ -98,11 +103,10 @@ namespace EzDirector
 
                 if (t >= 1.0f)
                 {
-                    if (onPointReached != null)
-                        onPointReached.Invoke();
+                    onPointReached?.Invoke();
 
-                    if (_data.enableCallback && _data.onReached != null)
-                        _data.onReached.Invoke();
+                    if (_data.enableCallback)
+                        _data.onReached?.Invoke();
 
                     if (_data.haltOnReach)
                     {
