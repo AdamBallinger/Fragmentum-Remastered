@@ -6,6 +6,10 @@ namespace Scripts.Player
     {
         public bool UsePhysicalInput { get; set; } = true;
 
+        public bool EnableJump { get; set; } = true;
+        public bool EnableDash { get; set; } = true;
+        public bool EnableBlock { get; set; } = true;
+        
         public float HDelta { get; set; }
         public bool Jump { get; set; }
         public bool Dash { get; set; }
@@ -22,15 +26,22 @@ namespace Scripts.Player
                 Block = false;
 
                 HDelta = Input.GetAxis("Horizontal");
-                Jump = Input.GetButtonDown("Jump");
-                Dash = Input.GetButtonDown("Dash");
-                Block = Input.GetButton("Block");
+                Jump = Input.GetButtonDown("Jump") && EnableJump;
+                Dash = Input.GetButtonDown("Dash") && EnableDash;
+                Block = Input.GetButton("Block") && EnableBlock;
             }
         }
         
         public void SetPhysicalInput(bool _toggle)
         {
             UsePhysicalInput = _toggle;
+        }
+        
+        public void DisableAllActions()
+        {
+            EnableJump = false;
+            EnableDash = false;
+            EnableBlock = false;
         }
 
         /// <summary>
