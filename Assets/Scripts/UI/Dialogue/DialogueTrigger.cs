@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Scripts.UI.Dialogue
 {
@@ -10,6 +11,9 @@ namespace Scripts.UI.Dialogue
 
         [Tooltip("Toggles if this dialogue trigger can be triggered multiple times.")]
         public bool canTriggerMultiple;
+
+        public UnityEvent onDialogueOpen;
+        public UnityEvent onDialogueClose;      
 
         private DialogueController controller;
 
@@ -37,7 +41,8 @@ namespace Scripts.UI.Dialogue
                     hasTriggered = true;
                 }
 
-                controller.ShowDialogue(type, dialogue);
+                onDialogueOpen?.Invoke();
+                controller.ShowDialogue(type, dialogue, onDialogueClose);
             }
         }
     }

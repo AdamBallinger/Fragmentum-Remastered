@@ -35,6 +35,7 @@ namespace Scripts.Player
         public void SetPhysicalInput(bool _toggle)
         {
             UsePhysicalInput = _toggle;
+            HDelta = 0.0f;
         }
         
         public void DisableAllActions()

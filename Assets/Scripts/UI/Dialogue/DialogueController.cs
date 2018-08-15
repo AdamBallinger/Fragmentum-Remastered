@@ -1,5 +1,6 @@
 ﻿using Scripts.Player;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Scripts.UI.Dialogue
 {
@@ -13,10 +14,10 @@ namespace Scripts.UI.Dialogue
 
         private PlayerController playerController;
 
-        public void ShowDialogue(DialogueType _type, Dialogue _dialogue)
+        public void ShowDialogue(DialogueType _type, Dialogue _dialogue, UnityEvent _onCloseCallback)
         {
             var db = ToggleDialogueBox(_type, true);
-            db.SetDialogue(_dialogue, _type);
+            db.SetDialogue(_dialogue, _type, _onCloseCallback);
         }
 
         public void HideDialogue(DialogueType _type)

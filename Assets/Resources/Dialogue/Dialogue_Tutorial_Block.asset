@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58012661b18750c48a36d92d79c3312b, type: 3}
+  m_Name: Dialogue_Tutorial_Block
+  m_EditorClassIdentifier: 
+  text: "Before you go, your shield is useful for more than just smacking things with!
+    \n@\nBelieve it or not you can use it to protect yourself from most projectiles
+    your enemies will launch at you!\n@\nJust remember you can't jump with your shield
+    up, and you will walk slightly slower too!\n@\nHold <sprite=\"xbox_one_buttons\"
+    index=3> to block.\n@\nOne more thing! If you come across anything that doesn't
+    seem to be affected by your shield smacks, try giving them a boot to the head.
+    That usually does the trick!\n@\nGood luck Sir Thanatos! Gloom Forest is just
+    ahead."
+  pageSplitter: 64
