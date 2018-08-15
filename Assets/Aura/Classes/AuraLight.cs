@@ -136,10 +136,6 @@ namespace AuraAPI
 
         #region Private Members
         /// <summary>
-        /// Tells if the light is registered to the LightsManager
-        /// </summary>
-        private bool _isRegistered;
-        /// <summary>
         /// Tells if the component is initialized
         /// </summary>
         private bool _isInitialized;
@@ -455,7 +451,7 @@ namespace AuraAPI
             _previousUseCookie = CastsCookie;
 
             Aura.LightsManager.Register(this, CastsShadows, CastsCookie);
-            _isRegistered = true;
+            //_isRegistered = true;
 
             Aura.OnPreCullEvent += Aura_onPreCullEvent;
             Aura.OnPreRenderEvent += Aura_onPreRenderEvent;
@@ -469,7 +465,7 @@ namespace AuraAPI
         private void Uninitialize()
         {
             Aura.LightsManager.Unregister(this);
-            _isRegistered = false;
+            //_isRegistered = false;
 
             if(_previousUseShadow)
             {

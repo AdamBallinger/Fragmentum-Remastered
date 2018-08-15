@@ -26,9 +26,10 @@ namespace Scripts.Camera
 
         private void Start()
         {
-            cameraController = UnityEngine.Camera.main.gameObject.GetComponent<PlayerCameraController>();
+            cameraController = GameObject.FindGameObjectWithTag("Camera_Container")
+                                         .GetComponent<PlayerCameraController>();
 
-            if(cameraController == null)
+            if (cameraController == null)
             {
                 Debug.LogError("[CameraRotationTrigger] -> No camera controller detected in scene!");
             }
@@ -38,11 +39,11 @@ namespace Scripts.Camera
         {
             if (cameraController == null) return;
 
-            if(_collider.gameObject.CompareTag("Player"))
+            if (_collider.gameObject.CompareTag("Player"))
             {
                 StopAllCoroutines();
 
-                foreach(var trigger in cancelOut)
+                foreach (var trigger in cancelOut)
                 {
                     trigger.StopAllCoroutines();
                 }
@@ -64,9 +65,10 @@ namespace Scripts.Camera
 
         private IEnumerator RotateCamera()
         {
-            interpolator = new RotationInterpolator(cameraController.transform.rotation.eulerAngles, targetRotation, rotationTime, curve);
+            interpolator = new RotationInterpolator(cameraController.transform.rotation.eulerAngles, targetRotation,
+                                                    rotationTime, curve);
 
-            while(!interpolator.HasFinished())
+            while (!interpolator.HasFinished())
             {
                 cameraController.transform.rotation = Quaternion.Euler(interpolator.Interpolate());
                 yield return null;

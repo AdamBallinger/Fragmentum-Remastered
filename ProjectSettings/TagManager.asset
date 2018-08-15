@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerTarget
   - AI_Head
+  - Camera_Container
   layers:
   - Default
   - TransparentFX

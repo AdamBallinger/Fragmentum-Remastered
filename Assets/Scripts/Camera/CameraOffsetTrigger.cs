@@ -25,7 +25,8 @@ namespace Scripts.Camera
 
         private void Start()
         {
-            cameraController = UnityEngine.Camera.main.GetComponent<PlayerCameraController>();
+            cameraController = GameObject.FindGameObjectWithTag("Camera_Container")
+                                         ?.GetComponent<PlayerCameraController>();
 
             if (cameraController == null)
             {
@@ -56,7 +57,7 @@ namespace Scripts.Camera
                         cameraController.enableFollow = true;
                         break;
                 }
-             
+
                 StartCoroutine(MoveCamera());
                 StartCoroutine(OffsetCamera());
             }
@@ -76,14 +77,15 @@ namespace Scripts.Camera
 
         private IEnumerator MoveCamera()
         {
-            moveInterpolator = new Vector3Interpolator(cameraController.transform.position, transform.position + cameraOffset, moveTime, curve, true);
+            moveInterpolator = new Vector3Interpolator(cameraController.transform.position,
+                                                       transform.position + cameraOffset, moveTime, curve, true);
 
-            while(!moveInterpolator.HasFinished())
+            while (!moveInterpolator.HasFinished())
             {
                 var pos = cameraController.transform.position;
                 var interpolated = moveInterpolator.Interpolate();
 
-                if(behaviour == CameraTriggerBehaviour.Drop)
+                if (behaviour == CameraTriggerBehaviour.Drop)
                 {
                     pos.x = interpolated.x;
                 }
@@ -106,14 +108,15 @@ namespace Scripts.Camera
         {
             Gizmos.color = Color.green;
             Gizmos.DrawCube(transform.position + cameraOffset, Vector3.one / 2.0f);
-            Gizmos.DrawCube(transform.position + new Vector3(-cameraOffset.x, cameraOffset.y, cameraOffset.z), Vector3.one / 2.0f);
+            Gizmos.DrawCube(transform.position + new Vector3(-cameraOffset.x, cameraOffset.y, cameraOffset.z),
+                            Vector3.one / 2.0f);
 
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(transform.position, transform.position + new Vector3(0.0f, cameraOffset.y, cameraOffset.z));
             Gizmos.DrawLine(transform.position + new Vector3(0.0f, cameraOffset.y, cameraOffset.z),
-                transform.position + cameraOffset);
+                            transform.position + cameraOffset);
             Gizmos.DrawLine(transform.position + new Vector3(0.0f, cameraOffset.y, cameraOffset.z),
-                transform.position + new Vector3(-cameraOffset.x, cameraOffset.y, cameraOffset.z));
+                            transform.position + new Vector3(-cameraOffset.x, cameraOffset.y, cameraOffset.z));
 
             Gizmos.color = Color.red;
             Gizmos.DrawCube(transform.position + new Vector3(0.0f, cameraOffset.y, cameraOffset.z), Vector3.one);
