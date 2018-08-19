@@ -7,7 +7,7 @@ namespace Scripts.Camera
     {
         public bool enableFollow = true;
 
-        public Transform playerTransform;
+        private Transform playerTransform;
 
         public float xOffset;
         public float speed = 1.0f;
@@ -18,6 +18,13 @@ namespace Scripts.Camera
 
         private void Start()
         {
+            playerTransform = GameObject.FindGameObjectWithTag("PlayerTarget").transform;
+            
+            if(playerTransform == null)
+            {
+                Debug.LogError("[PlayerCameraController] -> No player target found for camera to follow!");
+            }
+            
             _transform = transform;
         }
 
