@@ -2903,6 +2903,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 224587523360344846, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3b6ec8ba9bc3b2408e6825fba31a87e, type: 2}
   m_IsPrefabParent: 0
@@ -8347,6 +8352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242417379}
   - component: {fileID: 1242417378}
+  - component: {fileID: 1242417380}
   m_Layer: 0
   m_Name: WaterReflectionCamera
   m_TagString: Untagged
@@ -8396,13 +8402,21 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1242417377}
-  m_LocalRotation: {x: 0.1933021, y: 0.08963927, z: 0.017739017, w: -0.9768748}
-  m_LocalPosition: {x: -20.253857, y: 14.791138, z: 85.64553}
+  m_LocalRotation: {x: 0.1954468, y: 0.03529611, z: 0.0070386105, w: -0.98005366}
+  m_LocalPosition: {x: -90.46552, y: -266.43164, z: -13.2579365}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1242417380
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1242417377}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &1247900485 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: c3d721bbd70231d4fa4047006a555fa5, type: 3}
@@ -11000,11 +11014,6 @@ Prefab:
     - {fileID: 9500000, guid: 2afff5e11563bf245baed45509ff3720, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 2afff5e11563bf245baed45509ff3720, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1805551886 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4437126386611192, guid: d3b6ec8ba9bc3b2408e6825fba31a87e,
-    type: 2}
-  m_PrefabInternal: {fileID: 657481863}
 --- !u!1001 &1823447532
 Prefab:
   m_ObjectHideFlags: 0
@@ -12167,23 +12176,15 @@ Prefab:
       propertyPath: m_Name
       value: Camera_Container
       objectReference: {fileID: 0}
-    - target: {fileID: 114032997458601898, guid: 6cc35d52d2f453843a7ee870a27f2031,
-        type: 2}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 1805551886}
     - target: {fileID: 224960363808003040, guid: 6cc35d52d2f453843a7ee870a27f2031,
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4237328887512468, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4237328887512468, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 3.6420002
+    - target: {fileID: 114032997458601898, guid: 6cc35d52d2f453843a7ee870a27f2031,
+        type: 2}
+      propertyPath: enableFollow
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 2}

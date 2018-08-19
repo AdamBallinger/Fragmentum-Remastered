@@ -757,6 +757,7 @@
           <e p="CameraOffsetTrigger.cs" t="Include" />
           <e p="CameraRotationTrigger.cs" t="Include" />
           <e p="CameraShake.cs" t="Include" />
+          <e p="CameraSuperSample.cs" t="Include" />
           <e p="CameraTriggerBehaviour.cs" t="Include" />
           <e p="PlayerCameraController.cs" t="Include" />
         </e>

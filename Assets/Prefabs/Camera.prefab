@@ -25,7 +25,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1589328620771742
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,15 +139,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828755091430886}
-  m_LocalRotation: {x: 0, y: 0.14651524, z: 0, w: -0.9892084}
-  m_LocalPosition: {x: -171.22, y: 39.61, z: 103.09}
+  m_LocalRotation: {x: 0.12607662, y: 0, z: 0, w: 0.99202055}
+  m_LocalPosition: {x: -73.74, y: 317, z: 18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4364795985352336}
   - {fileID: 224960363808003040}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -16.85, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.486001, y: 0, z: 0}
 --- !u!4 &4364795985352336
 Transform:
   m_ObjectHideFlags: 1
@@ -231,8 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df0aae19692bee4582911150828898c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableFollow: 1
-  playerTransform: {fileID: 0}
+  enableFollow: 0
   xOffset: 3
   speed: 30
 --- !u!114 &114041519910395380
