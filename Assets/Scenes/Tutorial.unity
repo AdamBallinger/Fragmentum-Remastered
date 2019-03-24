@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 26948060}
   - component: {fileID: 26948059}
   - component: {fileID: 26948062}
+  - component: {fileID: 26948063}
   m_Layer: 0
   m_Name: Scene Exit Camera Trigger
   m_TagString: Untagged
@@ -393,6 +394,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 26948063}
+        m_MethodName: LoadScene
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Scripts.Utils.TriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   triggerStayEvent:
@@ -405,6 +417,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Scripts.Utils.TriggerEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &26948063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26948058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abd9318461fa904daa8b5565278f278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Forest
 --- !u!1001 &33077027
 Prefab:
   m_ObjectHideFlags: 0
@@ -2565,8 +2589,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 570190694}
-  m_LocalRotation: {x: -0.03177943, y: 0, z: 0, w: 0.9994949}
-  m_LocalPosition: {x: -156.6349, y: 25.14, z: 94}
+  m_LocalRotation: {x: -0.21018256, y: 0.2283041, z: 0.050541524, w: 0.9492872}
+  m_LocalPosition: {x: -4.680699, y: 18.207912, z: 95.779625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
