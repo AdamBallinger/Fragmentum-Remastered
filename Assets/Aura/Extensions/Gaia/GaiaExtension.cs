@@ -1,25 +1,4 @@
-﻿///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///                                                                                                                                                             ///
-///     MIT License                                                                                                                                             ///
-///                                                                                                                                                             ///
-///     Copyright (c) 2016 Raphaël Ernaelsten (@RaphErnaelsten)                                                                                                 ///
-///                                                                                                                                                             ///
-///     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),      ///
-///     to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute,                  ///
-///     and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:              ///
-///                                                                                                                                                             ///
-///     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.                          ///
-///                                                                                                                                                             ///
-///     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     ///
-///     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER      ///
-///     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS    ///
-///     IN THE SOFTWARE.                                                                                                                                        ///
-///                                                                                                                                                             ///
-///     PLEASE CONSIDER CREDITING AURA IN YOUR PROJECTS. IF RELEVANT, USE THE UNMODIFIED LOGO PROVIDED IN THE "LICENSE" FOLDER.                                 ///
-///                                                                                                                                                             ///
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-#if GAIA_PRESENT && UNITY_EDITOR
+﻿#if GAIA_PRESENT && UNITY_EDITOR
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,13 +14,17 @@ namespace Gaia.GX.RaphaelErnaelsten
     /// </summary>
     public class GaiaExtension : MonoBehaviour
     {
-        private static readonly Vector3Int veryLowQualityResolution = new Vector3Int(40, 23, 16);
-        private static readonly Vector3Int lowQualityResolution = new Vector3Int(80, 45, 32);
-        private static readonly Vector3Int mediumQualityResolution = lowQualityResolution * 2;
-        private static readonly Vector3Int highQualityResolution = mediumQualityResolution * 2;
-        private static readonly Vector3Int ultraHighQualityResolution = highQualityResolution * 2;
+        private static readonly Vector3Int _veryLowQualityResolution = new Vector3Int(40, 23, 16);
+        private static readonly Vector3Int _lowQualityResolution = new Vector3Int(80, 45, 32);
+        private static readonly Vector3Int _mediumQualityResolution = _lowQualityResolution * 2;
+        private static readonly Vector3Int _highQualityResolution = _mediumQualityResolution * 2;
+        private static readonly Vector3Int _ultraHighQualityResolution = _highQualityResolution * 2;
+        private static readonly float _spawnDistanceFromCamera = 50.0f;
+        private static readonly float _spawnHeightTolerance = 10.0f;
+        private static readonly int _normalAveragingRings = 3;
+        private static readonly int _normalAveragingSamplesFactor = 5;
 
-#region Generic informational methods
+        #region Generic informational methods
 
         /// <summary>
         /// Returns the publisher name if provided. 
@@ -63,10 +46,10 @@ namespace Gaia.GX.RaphaelErnaelsten
             return "Aura - Volumetric Lighting";
         }
 
-#endregion
+        #endregion
 
-#region Methods exposed by Gaia as buttons must be prefixed with GX_  
-#region Presets
+        #region Methods exposed by Gaia as buttons must be prefixed with GX_  
+        #region Presets
         public static void GX_Presets_Dawn()
         {
             Aura mainComponent = SetupAura();
@@ -331,41 +314,134 @@ namespace Gaia.GX.RaphaelErnaelsten
                 DestroyImmediate(auraComponents[i]);
             }
         }
-#endregion
+        #endregion
+        #region Presets
+        public static void GX_Volumes_GlobalDensityNoise()
+        {
+            GaiaSceneInfo gaiaSceneInfo = GaiaSceneInfo.GetSceneInfo();
 
-#region Quality
+            GameObject globalVolumeObject = AuraVolume.CreateGameObject("Aura Global Volume", VolumeTypeEnum.Global);
+            globalVolumeObject.transform.position = gaiaSceneInfo.m_centrePointOnTerrain;
+            AuraVolume globalVolume = globalVolumeObject.GetComponent<AuraVolume>();
+            SetupVolumeDefaultNoise(globalVolume);
+            SetupVolumeDefaultDensity(globalVolume);
+            globalVolume.color.injectionParameters.enable = false;
+            globalVolume.anisotropy.injectionParameters.enable = false;
+        }
+
+        public static void GX_Volumes_GlobalAnisotropyNoise()
+        {
+            GaiaSceneInfo gaiaSceneInfo = GaiaSceneInfo.GetSceneInfo();
+
+            GameObject globalVolumeObject = AuraVolume.CreateGameObject("Aura Global Volume", VolumeTypeEnum.Global);
+            globalVolumeObject.transform.position = gaiaSceneInfo.m_centrePointOnTerrain;
+            AuraVolume globalVolume = globalVolumeObject.GetComponent<AuraVolume>();
+            SetupVolumeDefaultNoise(globalVolume);
+            globalVolume.density.injectionParameters.enable = false;
+            globalVolume.color.injectionParameters.enable = false;
+            SetupVolumeDefaultAnisotropy(globalVolume);
+        }
+
+        public static void GX_Volumes_FogBox()
+        {
+            GameObject volumeObject = AuraVolume.CreateGameObject("Aura Box Volume", VolumeTypeEnum.Box);
+            SetSpawnTransform(volumeObject);
+
+            AuraVolume volume = volumeObject.GetComponent<AuraVolume>();
+            SetupDefaultNoiseVolume(volume);
+            volume.density.injectionParameters.strength = 1.0f;
+        }
+
+        public static void GX_Volumes_FogPlanar()
+        {
+            GameObject volumeObject = AuraVolume.CreateGameObject("Aura Planar Volume", VolumeTypeEnum.Planar);
+            SetSpawnTransform(volumeObject, false);
+
+            AuraVolume volume = volumeObject.GetComponent<AuraVolume>();
+            SetupDefaultNoiseVolume(volume);
+            volume.density.injectionParameters.strength = 1.0f;
+        }
+
+        public static void GX_Volumes_MagicalArea()
+        {
+            GameObject volumeObject = AuraVolume.CreateGameObject("Aura Magical Area Volume", VolumeTypeEnum.Cylinder);
+            SetSpawnTransform(volumeObject);
+
+            AuraVolume volume = volumeObject.GetComponent<AuraVolume>();
+            volume.volumeShape.fading.widthCylinderFade = 0.5f;
+            volume.volumeShape.fading.yNegativeCylinderFade = 0.0f;
+            volume.volumeShape.fading.yPositiveCylinderFade = 0.85f;
+            SetupDefaultNoiseVolume(volume);
+            volume.noiseMask.speed = 0.25f;
+            volume.noiseMask.transform.scale = new Vector3(2.0f, 1.0f, 2.0f);
+            volume.density.injectionParameters.enable = true;
+            volume.density.injectionParameters.strength = 0.5f;
+            volume.density.injectionParameters.noiseMaskLevelParameters.outputLowValue = 1.0f;
+            volume.density.injectionParameters.noiseMaskLevelParameters.outputHiValue = 1.0f;
+            volume.color.injectionParameters.enable = true;
+            volume.color.color = Color.HSVToRGB(0.72f, 0.8f, 1.0f);
+            volume.color.injectionParameters.strength = 1.0f;
+            volume.color.injectionParameters.noiseMaskLevelParameters.contrast = 100.0f;
+            volume.color.injectionParameters.noiseMaskLevelParameters.outputLowValue = -5.0f;
+            volume.color.injectionParameters.noiseMaskLevelParameters.outputHiValue = 1.0f;
+            volume.anisotropy.injectionParameters.enable = true;
+            volume.anisotropy.injectionParameters.strength = 1.0f;
+            volume.anisotropy.injectionParameters.noiseMaskLevelParameters.outputLowValue = 1.0f;
+            volume.anisotropy.injectionParameters.noiseMaskLevelParameters.outputHiValue = 1.0f;
+        }
+
+        public static void GX_Volumes_DarkArea()
+        {
+            GameObject volumeObject = AuraVolume.CreateGameObject("Aura Dark Area Volume", VolumeTypeEnum.Cylinder);
+            SetSpawnTransform(volumeObject);
+
+            AuraVolume volume = volumeObject.GetComponent<AuraVolume>();
+            volume.volumeShape.fading.widthCylinderFade = 0.5f;
+            volume.volumeShape.fading.yNegativeCylinderFade = 0.0f;
+            volume.volumeShape.fading.yPositiveCylinderFade = 0.75f;
+            SetupVolumeDefaultDensity(volume);
+            volume.density.injectionParameters.strength = 0.75f;
+            volume.color.injectionParameters.enable = true;
+            volume.color.color = Color.HSVToRGB(0.49f, 0.0f, 1.0f);
+            volume.color.injectionParameters.strength = -10;
+            SetupVolumeDefaultAnisotropy(volume);
+            volume.anisotropy.injectionParameters.strength = 1.0f;
+        }
+        #endregion
+
+        #region Quality
         public static void GX_Quality_SetVeryLowQuality()
         {
             Aura mainComponent = SetupAura();
-            mainComponent.frustum.SetResolution(veryLowQualityResolution);
+            mainComponent.frustum.SetResolution(_veryLowQualityResolution);
         }
 
         public static void GX_Quality_SetLowQuality()
         {
             Aura mainComponent = SetupAura();
-            mainComponent.frustum.SetResolution(lowQualityResolution);
+            mainComponent.frustum.SetResolution(_lowQualityResolution);
         }
 
         public static void GX_Quality_SetMediumQuality()
         {
             Aura mainComponent = SetupAura();
-            mainComponent.frustum.SetResolution(mediumQualityResolution);
+            mainComponent.frustum.SetResolution(_mediumQualityResolution);
         }
 
         public static void GX_Quality_SetHighQuality()
         {
             Aura mainComponent = SetupAura();
-            mainComponent.frustum.SetResolution(highQualityResolution);
+            mainComponent.frustum.SetResolution(_highQualityResolution);
         }
 
         public static void GX_Quality_SetUltraHighQuality()
         {
             Aura mainComponent = SetupAura();
-            mainComponent.frustum.SetResolution(ultraHighQualityResolution);
+            mainComponent.frustum.SetResolution(_ultraHighQualityResolution);
         }
-#endregion
+        #endregion
 
-#region More Information
+        #region More Information
         public static void GX_MoreInformation_AboutAura()
         {
             EditorUtility.DisplayDialog("About Aura", "Aura is an open source volumetric lighting solution for Unity. Aura simulates the scattering of the light in the environmental medium and the illumination of micro-particles that are present in this environment but invisible to the eye/camera. This phoenomenon is commonly known as \"volumetric fog\".", "OK");
@@ -385,9 +461,9 @@ namespace Gaia.GX.RaphaelErnaelsten
         {
             Application.OpenURL("http://u3d.as/16gj");
         }
-#endregion
+        #endregion
 
-#region Functions
+        #region Functions
         private static AuraLight[] SetupLights()
         {
             Light[] lights = GameObject.FindObjectsOfType<Light>();
@@ -430,6 +506,38 @@ namespace Gaia.GX.RaphaelErnaelsten
             }
         }
 
+        private static void SetupVolumeDefaultNoise(AuraVolume volume)
+        {
+            volume.noiseMask.enable = true;
+            volume.noiseMask.speed = UnityEngine.Random.Range(0.075f, 0.25f);
+            volume.noiseMask.offset = UnityEngine.Random.Range(0.0f, 100.0f);
+            volume.noiseMask.transform.scale = Vector3.one * 3.0f;
+        }
+
+        private static void SetupVolumeDefaultDensity(AuraVolume globalVolume)
+        {
+            globalVolume.density.injectionParameters.enable = true;
+            globalVolume.density.injectionParameters.strength = 0.1f;
+            globalVolume.density.injectionParameters.noiseMaskLevelParameters.contrast = 10.0f;
+        }
+
+        private static void SetupVolumeDefaultAnisotropy(AuraVolume volume)
+        {
+            volume.anisotropy.injectionParameters.enable = true;
+            volume.anisotropy.injectionParameters.strength = 0.25f;
+            volume.anisotropy.injectionParameters.noiseMaskLevelParameters.contrast = 5.0f;
+            volume.anisotropy.injectionParameters.noiseMaskLevelParameters.outputLowValue = 1.0f;
+            volume.anisotropy.injectionParameters.noiseMaskLevelParameters.outputHiValue = -1.0f;
+        }
+
+        private static void SetupDefaultNoiseVolume(AuraVolume volume)
+        {
+            SetupVolumeDefaultNoise(volume);
+            SetupVolumeDefaultDensity(volume);
+            volume.color.injectionParameters.enable = false;
+            SetupVolumeDefaultAnisotropy(volume);
+        }
+
         private static Aura SetupAura()
         {
             Aura mainComponent = FindObjectOfType<Aura>();
@@ -446,17 +554,106 @@ namespace Gaia.GX.RaphaelErnaelsten
                 }
 
                 mainComponent = camera.gameObject.AddComponent<Aura>();
-                mainComponent.frustum.SetResolution(highQualityResolution);
+                mainComponent.frustum.SetResolution(_highQualityResolution);
             }
 
             mainComponent.frustum.settings.occlusionCullingAccuracy = OcclusionCullingAccuracyEnum.Highest; // Because of the trees' leaves
 
             return mainComponent;
         }
-#endregion
-#endregion
 
-#region Helper methods
+        private static bool GetSpawnPosition(Camera camera, out Vector3 spawnPosition)
+        {
+            RaycastHit hitInfo = new RaycastHit();
+            if(Physics.Raycast(camera.transform.position, camera.transform.forward, out hitInfo, _spawnDistanceFromCamera, (int)Gaia.TerrainHelper.GetActiveTerrainLayer()))
+            {
+                spawnPosition = hitInfo.point;
+                return true;
+            }
+            else
+            {
+                spawnPosition = camera.transform.position + camera.transform.forward * _spawnDistanceFromCamera;
+
+                Terrain terrain = Gaia.TerrainHelper.GetActiveTerrain();
+                float terrainHeightUnderSpawnPosition = terrain.SampleHeight(spawnPosition);
+                Vector3 positionOnTerrain = terrain.transform.localToWorldMatrix.MultiplyPoint(new Vector3(0.0f, terrainHeightUnderSpawnPosition, 0.0f));
+                positionOnTerrain.x = spawnPosition.x;
+                positionOnTerrain.z = spawnPosition.z;
+            
+                if(Mathf.Abs(spawnPosition.y - positionOnTerrain.y) < _spawnHeightTolerance || spawnPosition.y < positionOnTerrain.y)
+                {
+                    spawnPosition = positionOnTerrain;
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        private static Vector2 GetTerrainNormalizedPosition(Terrain terrain, Vector3 worldPosition)
+        {
+            Vector3 localPosition = terrain.transform.worldToLocalMatrix.MultiplyPoint(worldPosition);
+            Vector2 normalizedPosition;
+            normalizedPosition.x = localPosition.x / terrain.terrainData.bounds.size.x;
+            normalizedPosition.y = localPosition.z / terrain.terrainData.bounds.size.z;
+
+            return normalizedPosition;
+        }
+
+        private static Vector3 GetTerrainNormal(Vector3 worldPosition, Terrain terrain)
+        {
+            Vector2 normalizedPosition = GetTerrainNormalizedPosition(terrain, worldPosition);
+
+            return terrain.terrainData.GetInterpolatedNormal(normalizedPosition.x, normalizedPosition.y);
+        }
+
+        private static void GetSpawnData(out Vector3 position, out Quaternion rotation, out Vector3 normal, bool offsetFromTerrain)
+        {
+            Camera camera = SceneView.lastActiveSceneView.camera;
+            bool isSpawnOnTerrain = GetSpawnPosition(camera, out position);
+            normal = Vector3.up;
+            rotation = isSpawnOnTerrain ? GetSpawnRotation(camera, position, _spawnDistanceFromCamera * 0.25f, out normal) : Quaternion.identity;
+            position += offsetFromTerrain && isSpawnOnTerrain ? normal * _spawnHeightTolerance * 0.5f : Vector3.zero;
+        }
+
+        private static Quaternion GetSpawnRotation(Camera camera, Vector3 spawnPosition, float averagingRange, out Vector3 normal)
+        {
+            Terrain terrain = Gaia.TerrainHelper.GetActiveTerrain();
+            normal = GetTerrainNormal(spawnPosition, terrain);
+            for(int i = 1; i <= _normalAveragingRings; ++i)
+            {
+                float distanceFromPosition = averagingRange * (float)i / (float)_normalAveragingRings;
+                int samplesAroundRing = _normalAveragingSamplesFactor * i;
+                for (int j = 0; j < samplesAroundRing; ++j)
+                {
+                    float angle = (float)j / (float)samplesAroundRing * 2.0f * Mathf.PI;
+                    Vector2 offsetPosition = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+                    Vector3 samplingPosition = spawnPosition + ((new Vector3(offsetPosition.x, 0.0f, offsetPosition.y)) * distanceFromPosition);
+
+                    normal += GetTerrainNormal(samplingPosition, terrain);
+                }
+            }
+            normal.Normalize();
+
+            Vector3 forwardDirection = -Vector3.Cross(Vector3.Cross(camera.transform.forward, normal), normal).normalized;
+            return Quaternion.LookRotation(forwardDirection, normal);
+        }
+
+        private static void SetSpawnTransform(GameObject gameObject, bool offsetFromTerrain = true)
+        {
+            Vector3 spawnPosition;
+            Quaternion spawnRotation;
+            Vector3 spawnNormal;
+            GetSpawnData(out spawnPosition, out spawnRotation, out spawnNormal, offsetFromTerrain);
+
+            gameObject.transform.rotation = spawnRotation;
+            gameObject.transform.position = spawnPosition;
+            gameObject.transform.localScale = new Vector3(_spawnDistanceFromCamera * 0.5f, _spawnHeightTolerance, _spawnDistanceFromCamera * 0.5f);
+        }
+        #endregion
+        #endregion
+
+        #region Helper methods
 
         /// <summary>
         /// Get the asset path of the first thing that matches the name
@@ -465,13 +662,13 @@ namespace Gaia.GX.RaphaelErnaelsten
         /// <returns></returns>
         private static string GetAssetPath(string name)
         {
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             string[] assets = AssetDatabase.FindAssets(name, null);
             if (assets.Length > 0)
             {
                 return AssetDatabase.GUIDToAssetPath(assets[0]);
             }
-#endif
+            #endif
             return null;
         }
 
@@ -482,7 +679,7 @@ namespace Gaia.GX.RaphaelErnaelsten
         /// <returns></returns>
         public static GameObject GetAssetPrefab(string name)
         {
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             string[] assets = AssetDatabase.FindAssets(name, null);
             for (int idx = 0; idx < assets.Length; idx++)
             {
@@ -492,7 +689,7 @@ namespace Gaia.GX.RaphaelErnaelsten
                     return AssetDatabase.LoadAssetAtPath<GameObject>(path);
                 }
             }
-#endif
+            #endif
             return null;
         }
 
@@ -535,7 +732,7 @@ namespace Gaia.GX.RaphaelErnaelsten
             return null;
         }
 
-#endregion
+        #endregion
     }
 }
 #endif

@@ -28,8 +28,6 @@ namespace Scripts.Player
 
         public bool ControlsEnabled { get; set; } = true;
 
-        public TextMeshProUGUI debugText;
-
         [Header("Movement Settings")]
         public float moveSpeed = 1.0f;
 
@@ -50,7 +48,7 @@ namespace Scripts.Player
 
         [Header("Clamp Settings")]
         [Tooltip("The axis in which the player moves along. The position of the player will be clamped on the opposite axis." +
-                 "E.g. Movment axis is X and the Z axis will be clamped so the player only moves along the X.")]
+                 "E.g. Movement axis is X and the Z axis will be clamped so the player only moves along the X.")]
         public PlayerMoveAxis playerMovementAxis = PlayerMoveAxis.X;
 
         [Header("Physics Settings")]
@@ -149,8 +147,6 @@ namespace Scripts.Player
 
             // Reset Y velocity if grounded so debug text shows correct values.
             SetVelocity(y: Grounded ? 0.0f : Velocity.y);
-
-            SetDebugText();
 
             // Reset X/Z velocity so the player only moves during input.
             SetVelocity(0.0f, z: 0.0f);
@@ -309,17 +305,6 @@ namespace Scripts.Player
             RaycastHit hit;
             Physics.Linecast(_transform.position, _transform.position + Vector3.down * 100.0f, out hit);
             return hit;
-        }
-
-        private void SetDebugText()
-        {
-            var groundObj = CastRayToGround();
-            var objName = groundObj.transform != null ? groundObj.transform.name : "Nothing";
-            // Update debug stuff after all movement is processed.
-            debugText.text = $"V- [x:{Velocity.x:F} y:{Velocity.y:F}, z:{Velocity.z:F}]\n" +
-                             $"G- [{Grounded}] F- [{Falling}]\n" +
-                             $"GD- [{groundObj.distance:F}] GO- [{objName}]\n" +
-                             $"D- [{Dashing}] B- [{Blocking}]";
         }
 
         /// <summary>
