@@ -44,6 +44,13 @@ namespace Scripts.Player
             EnableDash = false;
             EnableBlock = false;
         }
+        
+        public void EnableAllActions()
+        {
+            EnableJump = true;
+            EnableDash = true;
+            EnableBlock = true;
+        }
 
         /// <summary>
         /// Moves the player using virtual joystick values. -1 Moves the player left, 0 stops the player,  1 moves the player right.

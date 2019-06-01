@@ -10,11 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58012661b18750c48a36d92d79c3312b, type: 3}
-  m_Name: Dialogue_Tutorial_Jump
+  m_Name: Dialogue_Tutorial_Exit
   m_EditorClassIdentifier: 
-  text: 'Looks like the bridge is still out from the storm!
-
-    @
-
-    Im sure you can use that rock to jump over to the other side though!'
-  pageSplitter: 64
+  text: Good luck Sir Thanatos!
+  pageSplitter: 0

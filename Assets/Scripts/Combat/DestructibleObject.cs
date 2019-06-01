@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Scripts.Combat
 {
     public class DestructibleObject : MonoBehaviour, IDamageable, IResistant
-    {      
+    {
+        [SerializeField]
+        private UnityEvent onObjectDestroyed = null;
+        
         public HealthSystem GetHealth()
         {
             return null;
@@ -11,6 +15,7 @@ namespace Scripts.Combat
 
         public void OnDamageReceived(int _damage)
         {
+            onObjectDestroyed?.Invoke();
             gameObject.SetActive(false);
         }
 

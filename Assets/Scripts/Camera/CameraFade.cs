@@ -7,7 +7,7 @@ namespace Scripts.Camera
     public class CameraFade : MonoBehaviour
     {
         [SerializeField]
-        private Image fadeImage;
+        private Image fadeImage = null;
 
         [SerializeField]
         private AnimationCurve curve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);

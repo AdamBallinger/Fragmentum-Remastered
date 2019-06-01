@@ -6,8 +6,6 @@ namespace Scripts.UI.Dialogue
 {
     public class DialogueBox : MonoBehaviour
     {
-        public DialogueType Type { get; private set; }
-
         [SerializeField]
         private TextMeshProUGUI dialogueText = null;
 
@@ -17,10 +15,9 @@ namespace Scripts.UI.Dialogue
 
         private UnityEvent onCloseCallback;
 
-        public void SetDialogue(Dialogue _dialogue, DialogueType _type, UnityEvent _onCloseCallback)
+        public void SetDialogue(Dialogue _dialogue, UnityEvent _onCloseCallback)
         {
             currentDialogue = _dialogue;
-            Type = _type;
             currentPage = 0;
             onCloseCallback = _onCloseCallback;
 
@@ -34,7 +31,7 @@ namespace Scripts.UI.Dialogue
                 if(currentPage >= currentDialogue.GetPageCount() - 1)
                 {
                     onCloseCallback?.Invoke();
-                    FindObjectOfType<DialogueController>().HideDialogue(Type);
+                    FindObjectOfType<DialogueController>().HideDialogue();
                 }
                 else
                 {

@@ -7,8 +7,6 @@ namespace Scripts.UI.Dialogue
     {
         public Dialogue dialogue;
 
-        public DialogueType type = DialogueType.Chat;
-
         [Tooltip("Toggles if this dialogue trigger can be triggered multiple times.")]
         public bool canTriggerMultiple;
 
@@ -42,7 +40,7 @@ namespace Scripts.UI.Dialogue
                 }
 
                 onDialogueOpen?.Invoke();
-                controller.ShowDialogue(type, dialogue, onDialogueClose);
+                controller.ShowDialogue(dialogue, onDialogueClose);
             }
         }
     }

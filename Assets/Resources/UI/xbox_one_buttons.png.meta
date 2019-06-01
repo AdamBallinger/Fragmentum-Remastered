@@ -1,27 +1,57 @@
 fileFormatVersion: 2
 guid: c8024b60d7953c34b92f0da6c98b3759
-timeCreated: 1524950809
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: xbox_one_button_a
-    21300002: xbox_one_button_x
-    21300004: xbox_one_button_y
-    21300006: xbox_one_button_b
-    21300008: xbox_one_button_lb
-    21300010: xbox_one_button_rb
-    21300012: xbox_one_button_lt
-    21300014: xbox_one_button_rt
-    21300016: xbox_one_buttons_8
-    21300018: xbox_one_buttons_9
-    21300020: xbox_one_buttons_10
-    21300022: xbox_one_buttons_11
-    21300024: xbox_one_buttons_12
-    21300026: xbox_one_button_left_thumb
-    21300028: xbox_one_button_right_thumb
-    21300030: xbox_one_buttons_15
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: xbox_one_button_a
+  - first:
+      213: 21300002
+    second: xbox_one_button_x
+  - first:
+      213: 21300004
+    second: xbox_one_button_y
+  - first:
+      213: 21300006
+    second: xbox_one_button_b
+  - first:
+      213: 21300008
+    second: xbox_one_button_lb
+  - first:
+      213: 21300010
+    second: xbox_one_button_rb
+  - first:
+      213: 21300012
+    second: xbox_one_button_lt
+  - first:
+      213: 21300014
+    second: xbox_one_button_rt
+  - first:
+      213: 21300016
+    second: xbox_one_buttons_8
+  - first:
+      213: 21300018
+    second: xbox_one_buttons_9
+  - first:
+      213: 21300020
+    second: xbox_one_buttons_10
+  - first:
+      213: 21300022
+    second: xbox_one_buttons_11
+  - first:
+      213: 21300024
+    second: xbox_one_buttons_12
+  - first:
+      213: 21300026
+    second: xbox_one_button_left_thumb
+  - first:
+      213: 21300028
+    second: xbox_one_button_right_thumb
+  - first:
+      213: 21300030
+    second: xbox_one_buttons_15
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -39,6 +69,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -49,7 +81,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -63,17 +95,19 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -83,7 +117,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+  - serializedVersion: 2
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,6 +145,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8cc652107f783f744a503a00bff4503f
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_x
       rect:
@@ -124,6 +166,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 16d655c2ae9d3954a9cabe6e877e0b90
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_y
       rect:
@@ -138,6 +187,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 61bc8b5c4f757ff4aa01cb18428b3761
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_b
       rect:
@@ -152,6 +208,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 88781b8cbe1ad78458de2e9674bf06c9
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_lb
       rect:
@@ -166,6 +229,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a961d976220f2148a5f05b247256783
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_rb
       rect:
@@ -180,6 +250,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4487cb4ef0d77ad46884f1c1f8529c4b
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_lt
       rect:
@@ -194,6 +271,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 9cb4d1ceab7fbc24d80a8886d83fcbcc
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_rt
       rect:
@@ -208,6 +292,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: f37f9ded528530b46b64aa9c2a1811cd
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_buttons_8
       rect:
@@ -222,6 +313,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0e0cbc1af6c475c49b6c661153c72fab
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_buttons_9
       rect:
@@ -236,6 +334,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 950eb9b588c967149824ecdb5623c0c0
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_buttons_10
       rect:
@@ -250,6 +355,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 7d9188765cfff5f4c9d902339db255b2
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_buttons_11
       rect:
@@ -264,6 +376,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2e76f24a005f1c24184804f70b6e2afc
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_buttons_12
       rect:
@@ -278,6 +397,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 74223871d40c1fe42924965f02b5f610
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_left_thumb
       rect:
@@ -292,6 +418,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a3895f279ba1dc243bc4429a223d95f9
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_button_right_thumb
       rect:
@@ -306,6 +439,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a0c3dc75f1d688a4cad457559399505d
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: xbox_one_buttons_15
       rect:
@@ -320,9 +460,26 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 3b7538fb88c92664cbe02c4305e2c00a
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

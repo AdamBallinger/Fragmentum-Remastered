@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58012661b18750c48a36d92d79c3312b, type: 3}
-  m_Name: Dialogue_Tutorial_Jump
+  m_Name: Dialogue_Tutorial_Dash
   m_EditorClassIdentifier: 
-  text: 'Looks like the bridge is still out from the storm!
+  text: 'If you ever find that your path is blocked, you may be able to break them
+    with your shield!
 
     @
 
-    Im sure you can use that rock to jump over to the other side though!'
+    Try breaking those boxes on your way into Gloom Forest!'
   pageSplitter: 64

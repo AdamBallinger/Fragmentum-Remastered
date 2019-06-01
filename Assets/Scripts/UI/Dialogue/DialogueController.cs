@@ -9,42 +9,29 @@ namespace Scripts.UI.Dialogue
         [SerializeField]
         private DialogueBox chatDialogueBox = null;
 
-        [SerializeField]
-        private DialogueBox hintDialogueBox = null;
-
         private PlayerController playerController;
 
-        public void ShowDialogue(DialogueType _type, Dialogue _dialogue, UnityEvent _onCloseCallback)
+        public void ShowDialogue(Dialogue _dialogue, UnityEvent _onCloseCallback)
         {
-            var db = ToggleDialogueBox(_type, true);
-            db.SetDialogue(_dialogue, _type, _onCloseCallback);
+            var db = ToggleDialogueBox(true);
+            db.SetDialogue(_dialogue, _onCloseCallback);
         }
 
-        public void HideDialogue(DialogueType _type)
+        public void HideDialogue()
         {
-            ToggleDialogueBox(_type, false);
+            ToggleDialogueBox(false);
         }
 
-        private DialogueBox ToggleDialogueBox(DialogueType _type, bool _state)
+        private DialogueBox ToggleDialogueBox(bool _state)
         {
             if(playerController == null)
             {
                 playerController = FindObjectOfType<PlayerController>();
             }
 
-            switch (_type)
-            {
-                case DialogueType.Chat:
-                    chatDialogueBox.gameObject.SetActive(_state);
-                    playerController.ControlsEnabled = !_state;
-                    return chatDialogueBox;
-
-                case DialogueType.UI_Hint:
-                    hintDialogueBox.gameObject.SetActive(_state);
-                    return hintDialogueBox;
-            }
-
-            return null;
+            chatDialogueBox.gameObject.SetActive(_state);
+            //playerController.ControlsEnabled = !_state;
+            return chatDialogueBox;
         }
     }
 }
