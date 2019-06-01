@@ -2107,7 +2107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chatDialogueBox: {fileID: 114700249949894020}
-  hintDialogueBox: {fileID: 0}
 --- !u!1 &1692375533279378
 GameObject:
   m_ObjectHideFlags: 0
