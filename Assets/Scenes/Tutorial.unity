@@ -412,7 +412,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1295267246}
         m_MethodName: SetPhysicalInput
         m_Mode: 6
         m_Arguments:
@@ -423,7 +423,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1295267246}
         m_MethodName: VirtualMovePlayer
         m_Mode: 4
         m_Arguments:
@@ -11009,8 +11009,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242417377}
-  m_LocalRotation: {x: -0.25864694, y: 0.4491264, z: 0.1376146, w: 0.8440672}
-  m_LocalPosition: {x: -34.38647, y: 26.593678, z: 106.96197}
+  m_LocalRotation: {x: -0.22341251, y: 0.014618227, z: 0.0033416527, w: 0.9746086}
+  m_LocalPosition: {x: -30.63442, y: 26.196018, z: 102.6988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
