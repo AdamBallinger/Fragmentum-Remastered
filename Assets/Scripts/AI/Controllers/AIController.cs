@@ -5,8 +5,6 @@ using UnityEngine;
 
 namespace Scripts.AI.Controllers
 {
-    [RequireComponent(typeof(CharacterController))]
-    [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Rotator))]
     [RequireComponent(typeof(HealthSystem))]
     public abstract class AIController : MonoBehaviour, IDamageable
@@ -38,10 +36,10 @@ namespace Scripts.AI.Controllers
 
         private void Awake()
         {
-            Controller = GetComponent<CharacterController>();
+            Controller = GetComponentInParent<CharacterController>();
             ActionManager = new AIActionManager(this);
-            transform = GetComponent<Transform>();
-            Animator = GetComponent<Animator>();
+            transform = GetComponentInParent<Transform>();
+            Animator = GetComponentInChildren<Animator>();
             Rotator = GetComponent<Rotator>();
             healthSystem = GetComponent<HealthSystem>();
 
@@ -120,6 +118,9 @@ namespace Scripts.AI.Controllers
 
         public virtual void OnDamageReceived(int _damage) { }
 
-        public abstract void OnDeath();
+        public virtual void OnDeath()
+        {
+            transform.root.gameObject.SetActive(false);
+        }
     }
 }

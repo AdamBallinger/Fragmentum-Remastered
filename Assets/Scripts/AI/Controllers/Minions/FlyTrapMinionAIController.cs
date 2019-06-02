@@ -97,7 +97,9 @@ namespace Scripts.AI.Controllers.Minions
 
         public override void OnDeath()
         {
-            gameObject.SetActive(false);
+            base.OnDeath();
+            
+            // TODO: Add particles to death.
         }
     }
 }

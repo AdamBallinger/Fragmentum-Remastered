@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace Scripts.Player
 {
-    [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour, IDamageable, IDamageProvider
     {
         private CharacterController Controller { get; set; }
@@ -85,12 +84,12 @@ namespace Scripts.Player
 
         private void Start()
         {
-            Controller = GetComponent<CharacterController>();
+            Controller = GetComponentInParent<CharacterController>();
             InputController = GetComponent<PlayerInputController>();
-            Animator = GetComponentInChildren<Animator>();
+            Animator = GetComponent<Animator>();
             healthSystem = GetComponent<HealthSystem>();
 
-            _transform = transform;
+            _transform = transform.root;
             facingRotation = _transform.rotation;
             Heading = _transform.forward;
 
@@ -324,6 +323,7 @@ namespace Scripts.Player
         {
             if (_collider.gameObject.CompareTag("AI_Head"))
             {
+                Debug.Log("Hit head");
                 CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Head_Hit);
                 Velocity = _transform.up * (jumpStrength * 0.5f) * Time.deltaTime;
                 Animator.Play("Jump", 0, 0.0f);

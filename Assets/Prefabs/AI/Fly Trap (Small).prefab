@@ -352,6 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4708956278460062}
+  - component: {fileID: 6410700695872508996}
   m_Layer: 10
   m_Name: Fly Trap (Small)
   m_TagString: Untagged
@@ -366,15 +367,33 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392219253806184}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 146, y: -0.389, z: -1}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
-  - {fileID: 912941738557219631}
   - {fileID: 7532323457446232762}
+  - {fileID: 912941738557219631}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!143 &6410700695872508996
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392219253806184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 18
+  m_Radius: 3.5
+  m_SlopeLimit: 90
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.2
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: -4.5, z: 0}
 --- !u!1 &1496276312668438
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,12 +801,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7532323457446232762}
   - component: {fileID: 5253419767774248247}
-  - component: {fileID: 2173672098167657443}
   - component: {fileID: 5710680239153327377}
   - component: {fileID: 6889202843166447625}
   - component: {fileID: 567549984093502569}
   - component: {fileID: 419563182565885413}
   - component: {fileID: 3340182126174146566}
+  - component: {fileID: 7506251356552290100}
   m_Layer: 10
   m_Name: Logic
   m_TagString: Untagged
@@ -808,7 +827,7 @@ Transform:
   m_Children:
   - {fileID: 4760752403526100}
   m_Father: {fileID: 4708956278460062}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5253419767774248247
 Animator:
@@ -829,24 +848,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &2173672098167657443
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4678363154734179425}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 18
-  m_Radius: 3.5
-  m_SlopeLimit: 90
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.2
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: -4.5, z: 0}
 --- !u!114 &5710680239153327377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateTarget: {x: 0, y: 0, z: 0}
-  rotating: {fileID: 0}
+  rotating: {fileID: 1392219253806184}
   applyYCorrection: 0
   x: 0
   y: 1
@@ -919,7 +920,7 @@ MonoBehaviour:
   animationParameter: Spitting
   collidable:
     serializedVersion: 2
-    m_Bits: 4294966216
+    m_Bits: 768
 --- !u!114 &3340182126174146566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,6 +941,18 @@ MonoBehaviour:
   popoutDist: 5
   attackDelay: 0.75
   abilityController: {fileID: 419563182565885413}
+--- !u!114 &7506251356552290100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678363154734179425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850e8a180b6d43abb83d4001e995d71d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8029705044323473042
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +983,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4708956278460062}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &436592092332243882
 MonoBehaviour:
@@ -1033,5 +1046,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 64, y: 32, z: 5}
-  m_Center: {x: -30, y: 4, z: 0}
+  m_Size: {x: 5, y: 32, z: 64}
+  m_Center: {x: 0, y: 4, z: 25}
