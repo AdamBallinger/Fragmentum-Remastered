@@ -9,13 +9,17 @@ namespace Scripts.Combat
     /// </summary>
     public class DamageInterface : MonoBehaviour
     {
+        [SerializeField]
+        [Tooltip("The gameobject that holds the script with the IDamageable and IResistant interfaces.")]
+        private GameObject interfaceContainer = null;
+        
         public IDamageable Damageable { get; private set; }
         public IResistant Resistance { get; private set; }
 
         private void Start()
         {
-            Damageable = transform.root.GetComponentInChildren<IDamageable>();
-            Resistance = transform.root.GetComponentInChildren<IResistant>();
+            Damageable = interfaceContainer.GetComponent<IDamageable>();
+            Resistance = interfaceContainer.GetComponent<IResistant>();
         }
     }
 }

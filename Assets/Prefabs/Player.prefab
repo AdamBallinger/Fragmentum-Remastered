@@ -172,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4322310930254576
 Transform:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.5, z: 2}
+  m_Size: {x: 2, y: 2.5, z: 2}
   m_Center: {x: 0, y: 1.75, z: 1}
 --- !u!114 &114344514056388110
 MonoBehaviour:
@@ -2978,10 +2978,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 14
   blockingModifier: 0.25
-  jumpStrength: 28
+  jumpStrength: 24
   allowedJumps: 2
-  dashStrength: 24
-  dashDuration: 0.25
+  dashStrength: 18
+  dashDuration: 0.2
   dashDelay: 0.25
   playerMovementAxis: 0
   gravityStrength: 1.35
@@ -2989,7 +2989,7 @@ MonoBehaviour:
   dashDamage: 50
   shield: {fileID: 1210668896314706}
   dashCollider: {fileID: 1036739336949158}
-  meshRotationSpeed: 12
+  meshRotationSpeed: 14
 --- !u!114 &328616441638445928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3028,6 +3028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850e8a180b6d43abb83d4001e995d71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interfaceContainer: {fileID: 8821761620611637862}
 --- !u!54 &8920531039591931027
 Rigidbody:
   m_ObjectHideFlags: 0

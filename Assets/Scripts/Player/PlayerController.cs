@@ -159,7 +159,7 @@ namespace Scripts.Player
         {
             if (Dashing)
             {
-                Velocity = dashVelocity * Time.deltaTime;
+                Velocity = dashVelocity * Time.fixedDeltaTime;
                 dashTime += Time.deltaTime;
 
                 if (dashTime >= dashDuration)
@@ -203,7 +203,7 @@ namespace Scripts.Player
             {
                 if (jumpCount < allowedJumps)
                 {
-                    Velocity = _transform.up * (jumpCount == 0 ? jumpStrength : jumpStrength * 0.8f) * Time.deltaTime;
+                    Velocity = _transform.up * (jumpCount == 0 ? jumpStrength : jumpStrength * 0.8f) * Time.fixedDeltaTime;
                     Animator.Play("Jump", 0, 0.0f);
 
                     jumpCount++;
@@ -323,7 +323,6 @@ namespace Scripts.Player
         {
             if (_collider.gameObject.CompareTag("AI_Head"))
             {
-                Debug.Log("Hit head");
                 CombatSystem.ProcessDamage(gameObject, _collider.gameObject, AttackType.Head_Hit);
                 Velocity = _transform.up * (jumpStrength * 0.5f) * Time.deltaTime;
                 Animator.Play("Jump", 0, 0.0f);
