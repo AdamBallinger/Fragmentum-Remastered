@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33154458141732360}
   - component: {fileID: 23046204662388612}
   - component: {fileID: 817212861332962937}
-  - component: {fileID: 6790682342628107188}
   - component: {fileID: 3679827986799319299}
   - component: {fileID: 7125246999474253241}
   m_Layer: 0
@@ -98,19 +97,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6790682342628107188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611199698982042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 850e8a180b6d43abb83d4001e995d71d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interfaceContainer: {fileID: 1611199698982042}
 --- !u!65 &3679827986799319299
 BoxCollider:
   m_ObjectHideFlags: 0

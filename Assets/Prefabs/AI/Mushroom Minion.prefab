@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4350674330413616}
   - component: {fileID: 7072918486237629953}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4097691538729168}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4744880325885722}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4867041376631596}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4121884738590436}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 4373035550524286}
   - component: {fileID: 65185913468273478}
   - component: {fileID: 114770997026440646}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Radius Exit Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,8 +206,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4366355003074032}
-  m_RootOrder: 2
+  m_Father: {fileID: 7633537924847335236}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &65185913468273478
 BoxCollider:
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4652896600608926}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4371874504015228}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4139763959510700}
   - component: {fileID: 137845286362163758}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: polySurface18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4216408282460078}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4904268248154120}
   - component: {fileID: 137581437411870912}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: polySurface13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,8 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4457061623824164}
   - component: {fileID: 65677242607762666}
-  - component: {fileID: 4819562418938695962}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Head Collider
   m_TagString: AI_Head
   m_Icon: {fileID: 0}
@@ -574,12 +573,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385355457966206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4366355003074032}
-  m_RootOrder: 3
+  m_Father: {fileID: 7633537924847335236}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &65677242607762666
 BoxCollider:
@@ -594,19 +593,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 3.3, z: 0}
---- !u!114 &4819562418938695962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385355457966206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 850e8a180b6d43abb83d4001e995d71d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interfaceContainer: {fileID: 2479851899180894087}
 --- !u!1 &1388798986768272
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711478648136220}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4750540702848898}
   - component: {fileID: 137239941787658982}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: polySurface20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4593746251725138}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +761,7 @@ GameObject:
   - component: {fileID: 4366355003074032}
   - component: {fileID: 143826492037785416}
   - component: {fileID: 54612537597297524}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Mushroom Minion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,9 +780,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7633537924847335236}
-  - {fileID: 4556401342427480}
-  - {fileID: 4373035550524286}
-  - {fileID: 4457061623824164}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -843,7 +826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4150561900103056}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -876,7 +859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4032482882986060}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4095441838808308}
   - component: {fileID: 137498180607091632}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: polySurface16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4557728110919576}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1009,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4182267654529176}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1057,7 +1040,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4474513475356480}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1087,7 +1070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4470474190506816}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4433093832347574}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1152,7 +1135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4217791424537032}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,7 +1166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4189273787523144}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,7 +1199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4055736395466248}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,7 +1230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4388161829531824}
   - component: {fileID: 137691751255176498}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: polySurface15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1334,7 +1317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4971284942936154}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: polySurface9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,7 +1353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4015412519591354}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4189479294987892}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1432,7 +1415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4385366412546966}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4764248111815082}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4936953194163200}
   - component: {fileID: 137686156846188424}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: polySurface19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4367132623836558}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1619,7 +1602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4252944017096842}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1650,7 +1633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4016261459379014}
   - component: {fileID: 137749687090586412}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: polySurface14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1738,7 +1721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4116885220487824}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1771,7 +1754,7 @@ GameObject:
   - component: {fileID: 4556401342427480}
   - component: {fileID: 65361539498432002}
   - component: {fileID: 114561774112401148}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Radius Enter Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1785,12 +1768,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965538725360794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4366355003074032}
-  m_RootOrder: 1
+  m_Father: {fileID: 7633537924847335236}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &65361539498432002
 BoxCollider:
@@ -1853,7 +1836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4262041176718814}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: joint28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1887,7 +1870,7 @@ GameObject:
   - component: {fileID: 4503344946405264094}
   - component: {fileID: 4376178510853308650}
   - component: {fileID: 4485938961973086597}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Logic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1906,6 +1889,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4350674330413616}
+  - {fileID: 4457061623824164}
+  - {fileID: 4556401342427480}
+  - {fileID: 4373035550524286}
   m_Father: {fileID: 4366355003074032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

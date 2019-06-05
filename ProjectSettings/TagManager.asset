@@ -18,10 +18,10 @@ TagManager:
   - 
   - Player
   - Environment
-  - AI Stationary
-  - AI Dynamic
-  - 
-  - 
+  - AI
+  - AI Attack
+  - Player Attack
+  - AI Radius
   - 
   - 
   - 

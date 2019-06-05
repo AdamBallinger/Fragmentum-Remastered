@@ -14,14 +14,14 @@ namespace Scripts.Combat
         public static void ProcessDamage(GameObject _source, GameObject _target, AttackType _attackType)
         {
             var damageProvider = _source.GetComponent<IDamageProvider>();
-            var combatManager = _target.GetComponentInChildren<DamageInterface>();    
+            var damageable = _target.GetComponentInParent<IDamageable>();    
             
-            if(damageProvider == null || combatManager == null)
+            if(damageProvider == null || damageable == null)
             {
                 return;
-            }         
+            }
 
-            var resistance = combatManager.Resistance;
+            var resistance = _target.GetComponentInParent<IResistant>();
 
             if(resistance != null)
             {
@@ -31,15 +31,15 @@ namespace Scripts.Combat
                 }
             }
 
-            combatManager.Damageable.GetHealth()?.RemoveHealth(damageProvider.GetDamage());
+            damageable.GetHealth()?.RemoveHealth(damageProvider.GetDamage());
 
-            if(combatManager.Damageable.GetHealth()?.CurrentHealth <= 0)
+            if(damageable.GetHealth()?.CurrentHealth <= 0)
             {
-                combatManager.Damageable.OnDeath();
+                damageable.OnDeath();
             }
             else
             {
-                combatManager.Damageable.OnDamageReceived(damageProvider.GetDamage());
+                damageable.OnDamageReceived(damageProvider.GetDamage());
             }
         }
     }
