@@ -4,19 +4,38 @@ namespace Scripts.Player
 {
     public class PlayerInputController : MonoBehaviour
     {
+        /// <summary>
+        /// Controls whether the player can use their physical input device to control the player.
+        /// </summary>
         public bool UsePhysicalInput { get; set; } = true;
 
         public bool EnableJump { get; set; } = true;
         public bool EnableDash { get; set; } = true;
         public bool EnableBlock { get; set; } = true;
         
+        /// <summary>
+        /// Current left joystick / (A/D) Keys delta.
+        /// </summary>
         public float HDelta { get; set; }
+        
+        /// <summary>
+        /// Stores whether the jump key was pressed this frame.
+        /// </summary>
         public bool Jump { get; set; }
+        
+        /// <summary>
+        /// Stores whether the dash key was pressed this frame.
+        /// </summary>
         public bool Dash { get; set; }
+        
+        /// <summary>
+        /// Stores whether the block key was pressed this frame.
+        /// </summary>
         public bool Block { get; set; }
 
-        public void Update()
+        private void Update()
         {
+            // Only update input states from unity input system if using physical input.
             if (UsePhysicalInput)
             {
                 HDelta = 0.0f;
@@ -32,6 +51,10 @@ namespace Scripts.Player
             }
         }
         
+        /// <summary>
+        /// Toggles if the player can use a controller / keyboard for player input.
+        /// </summary>
+        /// <param name="_toggle"></param>
         public void SetPhysicalInput(bool _toggle)
         {
             UsePhysicalInput = _toggle;

@@ -3035,8 +3035,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570190694}
-  m_LocalRotation: {x: 0.06352778, y: 0.36881208, z: 0.025265673, w: -0.9269863}
-  m_LocalPosition: {x: -128.1645, y: -1.2335739, z: 56.43531}
+  m_LocalRotation: {x: -0.031779427, y: 0, z: 0, w: 0.9994949}
+  m_LocalPosition: {x: -159.64, y: 25.14, z: 94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11009,8 +11009,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242417377}
-  m_LocalRotation: {x: -0.22341251, y: 0.014618227, z: 0.0033416527, w: 0.9746086}
-  m_LocalPosition: {x: -30.63442, y: 26.196018, z: 102.6988}
+  m_LocalRotation: {x: -0.03177943, y: 0, z: 0, w: 0.9994949}
+  m_LocalPosition: {x: -156.6349, y: 25.14, z: 94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12922,7 +12922,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-    transitionTime: 2.3
+    transitionTime: 2.75
     enableCustomCurve: 1
     haltOnReach: 1
     delay: 0
@@ -12954,8 +12954,8 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  - objectPosition: {x: -156.6349, y: 42, z: 94}
-    objectRotation: {x: 3.642268, y: -0, z: -0}
+  - objectPosition: {x: -159.64, y: 42, z: 94}
+    objectRotation: {x: 3.6422675, y: 0, z: 0}
     moveCurve:
       serializedVersion: 2
       m_Curve: []
@@ -15277,7 +15277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237328887512468, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -156.6349
+      value: -159.64
       objectReference: {fileID: 0}
     - target: {fileID: 4237328887512468, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15289,15 +15289,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4237328887512468, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.031779435
+      value: 0.03177943
       objectReference: {fileID: 0}
     - target: {fileID: 4237328887512468, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4237328887512468, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4237328887512468, guid: 6cc35d52d2f453843a7ee870a27f2031, type: 3}
       propertyPath: m_LocalRotation.w

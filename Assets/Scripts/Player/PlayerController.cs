@@ -226,7 +226,7 @@ namespace Scripts.Player
                 return;
             }
 
-            if (InputController.Dash && !Dashing && Math.Abs(InputController.HDelta) > 0.0f)
+            if (InputController.Dash && !Dashing)
             {
                 Dashing = true;
                 dashVelocity = Heading * dashStrength;
@@ -251,7 +251,7 @@ namespace Scripts.Player
         /// </summary>
         private void ProcessGravity()
         {
-            Velocity += Vector3.down * (gravityStrength * Time.deltaTime);
+            Velocity += Vector3.down * (gravityStrength * Time.fixedDeltaTime);
         }
 
         /// <summary>

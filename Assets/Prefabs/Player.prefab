@@ -2991,11 +2991,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272f3704f0b632b4daa59f98a80a8847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 14
+  moveSpeed: 12
   blockingModifier: 0.25
   jumpStrength: 24
   allowedJumps: 2
-  dashStrength: 18
+  dashStrength: 19
   dashDuration: 0.2
   dashDelay: 0.25
   playerMovementAxis: 0
