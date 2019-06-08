@@ -353,7 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4708956278460062}
   - component: {fileID: 6410700695872508996}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Fly Trap (Small)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,6 +372,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 7532323457446232762}
+  - {fileID: 912941738557219631}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -824,7 +825,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4760752403526100}
-  - {fileID: 912941738557219631}
   m_Father: {fileID: 4708956278460062}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -969,7 +969,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7532323457446232762}
+  m_Father: {fileID: 4708956278460062}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &436592092332243882

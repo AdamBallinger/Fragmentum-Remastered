@@ -1717,7 +1717,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4372422367545974}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508188069906274
 GameObject:
@@ -2027,7 +2027,7 @@ RectTransform:
   m_Children:
   - {fileID: 224858029311715040}
   m_Father: {fileID: 4372422367545974}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2790,6 +2790,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 25298656459221991}
+  - {fileID: 3716050795343988263}
   - {fileID: 4437126386611192}
   - {fileID: 224587523360344846}
   m_Father: {fileID: 0}
@@ -2921,7 +2922,7 @@ Transform:
   - {fileID: 4347937457554496}
   - {fileID: 4322310930254576}
   - {fileID: 4497741726724452}
-  m_Father: {fileID: 25298656459221991}
+  m_Father: {fileID: 4372422367545974}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8821761620611637862
@@ -2956,7 +2957,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4625432761550354}
-  - {fileID: 3716050795343988263}
   m_Father: {fileID: 4372422367545974}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2991,12 +2991,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272f3704f0b632b4daa59f98a80a8847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
+  moveSpeed: 11
   blockingModifier: 0.25
   jumpStrength: 24
   allowedJumps: 2
-  dashStrength: 19
-  dashDuration: 0.2
+  dashStrength: 28
+  dashDuration: 0.15
   dashDelay: 0.25
   playerMovementAxis: 0
   gravityStrength: 1.35

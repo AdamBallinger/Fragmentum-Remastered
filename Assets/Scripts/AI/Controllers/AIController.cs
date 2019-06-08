@@ -120,7 +120,7 @@ namespace Scripts.AI.Controllers
 
         public virtual void OnDeath()
         {
-            transform.root.gameObject.SetActive(false);
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

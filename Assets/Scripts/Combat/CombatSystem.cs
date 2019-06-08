@@ -14,14 +14,14 @@ namespace Scripts.Combat
         public static void ProcessDamage(GameObject _source, GameObject _target, AttackType _attackType)
         {
             var damageProvider = _source.GetComponent<IDamageProvider>();
-            var damageable = _target.GetComponentInParent<IDamageable>();    
+            var damageable = _target.GetComponentInChildren<IDamageable>() ?? _target.GetComponentInParent<IDamageable>();    
             
             if(damageProvider == null || damageable == null)
             {
                 return;
             }
 
-            var resistance = _target.GetComponentInParent<IResistant>();
+            var resistance = _target.GetComponentInChildren<IResistant>() ?? _target.GetComponentInParent<IResistant>();
 
             if(resistance != null)
             {
